@@ -1,0 +1,2 @@
+C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\UwpEnhancedNavigation.csproj;x86
+C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo.csproj;x86
