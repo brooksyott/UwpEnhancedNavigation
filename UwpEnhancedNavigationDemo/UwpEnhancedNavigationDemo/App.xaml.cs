@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 using UwpEnhancedNavigation;
+using Windows.UI.ViewManagement;
 
 namespace UwpEnhancedNavigationDemo
 {
@@ -24,6 +25,12 @@ namespace UwpEnhancedNavigationDemo
     /// </summary>
     sealed partial class App : Application
     {
+        const double LaunchAppWidth = 1000;
+        const double LaunchAppHeight = 400;
+
+        const double MinAppWidth = 400;
+        const double MinAppHeight = 600;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -73,6 +80,21 @@ namespace UwpEnhancedNavigationDemo
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+            SetAppScreenSizes();
+        }
+
+        private void SetAppScreenSizes()
+        {
+            // This sets the minumum sizes for the app
+            ApplicationView.GetForCurrentView().SetPreferredMinSize(
+                new Size(
+                    MinAppWidth, // Width
+                    MinAppHeight  // Height
+                    )
+            );
+
+            ApplicationView.PreferredLaunchViewSize = new Size(LaunchAppWidth, LaunchAppHeight);
         }
 
         /// <summary>

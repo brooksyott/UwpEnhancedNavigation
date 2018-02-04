@@ -7,13 +7,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-        <customNav:ShellUserControl ShellBackground="White" ShellForeground="Gray">
-            <customNav:ShellUserControl.PainContent>
-                <Grid Background="Red"/>
-            </customNav:ShellUserControl.PainContent>
-            <customNav:ShellUserControl.MainContent>
-                <Grid Background="Gray"/>
-            </customNav:ShellUserControl.MainContent>
-        </customNav:ShellUserControl>
+    <!-- 
+      xyzMinWindowWidth is for the adaptive triggers
+    -->
+    <customNav:EnhancedNavigationShell x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+                CompactPaneLength="45" OpenPaneLength="350"
+                LargeMinWindowWidth="900" MediumMinWindowWidth="500" SmallMinWindowWidth="0">
+        <customNav:EnhancedNavigationShell.PainContent>
+            <Grid Background="Red"/>
+        </customNav:EnhancedNavigationShell.PainContent>
+        <customNav:EnhancedNavigationShell.MainContent>
+            <Grid Background="Gray"/>
+        </customNav:EnhancedNavigationShell.MainContent>
+    </customNav:EnhancedNavigationShell>
 </Page>

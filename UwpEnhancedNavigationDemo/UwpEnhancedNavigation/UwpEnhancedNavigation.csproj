@@ -106,13 +106,17 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Helpers\BindableBaseUI.cs" />
+    <Compile Include="Helpers\BindableBase.cs" />
+    <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShellUserControl.xaml.cs">
-      <DependentUpon>ShellUserControl.xaml</DependentUpon>
+    <Compile Include="Services\INavigation.cs" />
+    <Compile Include="ViewModels\MenuVisualStates.cs" />
+    <Compile Include="Views\EnhancedNavigationShell.xaml.cs">
+      <DependentUpon>EnhancedNavigationShell.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Shell.xaml.cs">
-      <DependentUpon>Shell.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="SplitViewModes.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
     <EmbeddedResource Include="Properties\UwpEnhancedNavigation.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -121,18 +125,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ShellUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Shell.xaml">
+    <Page Include="Views\EnhancedNavigationShell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

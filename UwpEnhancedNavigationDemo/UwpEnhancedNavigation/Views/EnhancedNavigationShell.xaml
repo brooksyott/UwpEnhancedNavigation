@@ -1,0 +1,55 @@
+﻿<UserControl
+    x:Class="UwpEnhancedNavigation.EnhancedNavigationShell"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpEnhancedNavigation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <UserControl.Resources>
+       <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="MainSplitViewGrid"  Padding="0" Background="{x:Bind ShellBackground}" >
+        <SplitView x:Name="ShellSplitView"  Padding="0" 
+                   Background="{x:Bind ShellBackground}"
+                   Foreground="{x:Bind ShellForeground}"
+                   DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}"
+                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
+                   CompactPaneLength="{x:Bind CompactPaneLength}"
+                   OpenPaneLength="{x:Bind OpenPaneLength}">
+            <SplitView.Pane>
+                <ContentPresenter Content="{x:Bind PainContent}"></ContentPresenter>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <ContentPresenter  Content="{x:Bind MainContent}"></ContentPresenter>
+            </SplitView.Content>
+        </SplitView>
+        <Grid x:Name="DisableContent" 
+              Visibility="{x:Bind ViewModel.DisableContent, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
+              Margin="0,35,0,0"
+              Background="Gray" Opacity="0.6"
+              VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        </Grid>
+        <VisualStateManager.VisualStateGroups >
+            <VisualStateGroup x:Name="WidthVisualStates" CurrentStateChanged="VisualStateChange_Event">
+                <VisualState x:Name="LARGE">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind LargeMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="MEDIUM">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind MediumMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="SMALL">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind SmallMinWindowWidth}" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</UserControl>

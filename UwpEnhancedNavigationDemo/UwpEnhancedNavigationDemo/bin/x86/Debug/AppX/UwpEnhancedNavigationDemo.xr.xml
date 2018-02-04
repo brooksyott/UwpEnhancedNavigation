@@ -7,9 +7,14 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="UwpEnhancedNavigation.ShellUserControl">
+    <RootType FullName="UwpEnhancedNavigation.EnhancedNavigationShell">
       <RootProperty Name="ShellBackground" />
       <RootProperty Name="ShellForeground" />
+      <RootProperty Name="CompactPaneLength" />
+      <RootProperty Name="OpenPaneLength" />
+      <RootProperty Name="LargeMinWindowWidth" />
+      <RootProperty Name="MediumMinWindowWidth" />
+      <RootProperty Name="SmallMinWindowWidth" />
       <RootProperty Name="PainContent" />
       <RootProperty Name="MainContent" />
     </RootType>
