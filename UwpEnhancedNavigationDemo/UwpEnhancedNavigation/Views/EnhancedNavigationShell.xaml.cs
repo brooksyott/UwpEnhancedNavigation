@@ -38,6 +38,48 @@ namespace UwpEnhancedNavigation
         #region Controlling the Pane behavour
 
         // Sizes for adaptive triggers, with default values
+        public static readonly DependencyProperty LargeDisplayModeProperty = DependencyProperty.Register(
+              "LargeDisplayMode",
+              typeof(SplitViewDisplayMode),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(SplitViewDisplayMode.Inline)
+            );
+
+        public SplitViewDisplayMode LargeDisplayMode
+        {
+            get { return (ViewModel.LargeDisplayMode); }
+            set { ViewModel.LargeDisplayMode = value;  }
+        }
+
+        // Sizes for adaptive triggers, with default values
+        public static readonly DependencyProperty MediumDisplayModeProperty = DependencyProperty.Register(
+              "MediumDisplayMode",
+              typeof(SplitViewDisplayMode),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
+            );
+
+        public SplitViewDisplayMode MediumDisplayMode
+        {
+            get { return (ViewModel.MediumDisplayMode); }
+            set { ViewModel.MediumDisplayMode = value; }
+        }
+
+        // Sizes for adaptive triggers, with default values
+        public static readonly DependencyProperty SmallDisplayModeProperty = DependencyProperty.Register(
+              "SmallDisplayMode",
+              typeof(SplitViewDisplayMode),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
+            );
+
+        public SplitViewDisplayMode SmallDisplayMode
+        {
+            get { return (ViewModel.SmallDisplayMode); }
+            set { ViewModel.SmallDisplayMode = value; }
+        }
+
+        // Sizes for adaptive triggers, with default values
         public static readonly DependencyProperty LargeMinWindowWidthProperty = DependencyProperty.Register(
               "LargeMinWindowWidth",
               typeof(Int32),
@@ -253,9 +295,13 @@ namespace UwpEnhancedNavigation
 
         private void VisualStateChange_Event(object sender, VisualStateChangedEventArgs e)
         {
-            var ee = e.NewState.Name;
-            ViewModel.UpdateVisualState(ee);
-            Debug.WriteLine("New VisualState = " + ee + ", Width = " + this.ActualWidth);
+            var newState = e.NewState.Name;
+            if (e.OldState != null)
+            {
+                var oldState = e.OldState.Name;
+            }
+            ViewModel.NotifySizeChange(newState);
+            Debug.WriteLine("New VisualState = " + newState + ", Width = " + this.ActualWidth);
         }
     }
 }

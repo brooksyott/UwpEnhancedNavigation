@@ -12,6 +12,9 @@
       <RootProperty Name="ShellForeground" />
       <RootProperty Name="CompactPaneLength" />
       <RootProperty Name="OpenPaneLength" />
+      <RootProperty Name="LargeDisplayMode" />
+      <RootProperty Name="MediumDisplayMode" />
+      <RootProperty Name="SmallDisplayMode" />
       <RootProperty Name="LargeMinWindowWidth" />
       <RootProperty Name="MediumMinWindowWidth" />
       <RootProperty Name="SmallMinWindowWidth" />

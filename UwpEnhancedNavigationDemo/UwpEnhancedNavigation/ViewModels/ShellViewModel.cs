@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+using UwpEnhancedNavigation.FiniteStateMachine;
+
 namespace UwpEnhancedNavigation
 {
     /// <summary>
@@ -18,6 +20,7 @@ namespace UwpEnhancedNavigation
     /// </summary>
     internal class ShellViewModel : BindableBaseUI
     {
+        
         private MenuVisualState _menuVisualState = MenuVisualState.UNKNOWN;
 
         #region Singleton Implementation
@@ -32,8 +35,70 @@ namespace UwpEnhancedNavigation
             // The UI bindable base needs a UI reference for the dispatcher
             displatcherContext = Window.Current.Content as Frame;
             DisableContent = true;
-            Task.Run(DelaySet);
+            SetupFSM();
         }
+
+        EnhancedNavigationFSM _fsm = new EnhancedNavigationFSM(States.NO_NAV);
+
+        private void SetupFSM()
+        {
+
+            _fsm.Configure(States.NO_NAV)
+                .OnEntry(SetPaneDisplayMode)
+                .InternalTrigger(Triggers.VISUAL_STATE_LARGE, SetPaneDisplayModeInternal)
+                .InternalTrigger(Triggers.VISUAL_STATE_MEDIUM, SetPaneDisplayModeInternal)
+                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV);
+
+            _fsm.Configure(States.SMALL_NO_NAV)
+                .OnEntry(SetPaneDisplayMode)
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.NO_NAV);
+
+        }
+
+        private Boolean SetPaneDisplayModeInternal()
+        {
+            Debug.WriteLine("Internal Set Display");
+            return SetPaneDisplayMode();
+        }
+
+        private Boolean SetPaneDisplayMode()
+        {
+            Debug.WriteLine("Hit Trigger1 : CurrentState = " + _fsm.CurrentState);
+            if (_menuVisualState == MenuVisualState.LARGE)
+            {
+                DisplayMode = LargeDisplayMode;
+                IsPaneOpen = true;
+                return true;
+            }
+
+            if (_menuVisualState == MenuVisualState.MEDIUM)
+            {
+                DisplayMode = MediumDisplayMode;
+                IsPaneOpen = false;
+                return true;
+            }
+
+            if (_menuVisualState == MenuVisualState.SMALL)
+            {
+                DisplayMode = SmallDisplayMode;
+                IsPaneOpen = false;
+                return true;
+            }
+            return true;
+        }
+
+        private Boolean DisplayTrigger2()
+        {
+            Debug.WriteLine("Hit Trigger2 : CurrentState = " + _fsm.CurrentState);
+            return true;
+        }
+
+        private Boolean EmptyGuard()
+        {
+            Debug.WriteLine("Hit Guard");
+            return true;
+        }
+
 
         private async Task DelaySet()
         {
@@ -107,16 +172,72 @@ namespace UwpEnhancedNavigation
         /// Converts a String into a internal represtnation of the visual state
         /// </summary>
         /// <param name="state"></param>
-        public void UpdateVisualState(String state)
+        public void NotifySizeChange(String state)
         {
             _menuVisualState = state.ToUpperInvariant().StringToVisualState();
+
+            // Update the FSM we have had a size change
+            VisualStateToFsmTrigger(_menuVisualState);
             Debug.WriteLine("VisualState Updated = " + _menuVisualState);
+        }
+
+        public void VisualStateToFsmTrigger(MenuVisualState state)
+        {
+            switch(state)
+            {
+                case MenuVisualState.LARGE:
+                    {
+                        _fsm.Fire(Triggers.VISUAL_STATE_LARGE);
+                        return;
+                    }
+                case MenuVisualState.MEDIUM:
+                    {
+                        _fsm.Fire(Triggers.VISUAL_STATE_MEDIUM);
+                        return;
+                    }
+                case MenuVisualState.SMALL:
+                    {
+                        _fsm.Fire(Triggers.VISUAL_STATE_SMALL);
+                        return;
+                    }
+            }
+            return;
         }
 
         #endregion
 
         // Sets the properties specific to the Pane
         #region Pane Properties
+        private SplitViewDisplayMode _largeDisplayMode = SplitViewDisplayMode.Inline;
+        public SplitViewDisplayMode LargeDisplayMode
+        {
+            get { return _largeDisplayMode; }
+            set
+            {
+                _largeDisplayMode = value;
+            }
+        }
+
+        private SplitViewDisplayMode _mediumDisplayMode = SplitViewDisplayMode.CompactInline;
+        public SplitViewDisplayMode MediumDisplayMode
+        {
+            get { return _mediumDisplayMode; }
+            set
+            {
+                _mediumDisplayMode = value;
+            }
+        }
+
+        private SplitViewDisplayMode _smallDisplayMode = SplitViewDisplayMode.Overlay;
+        public SplitViewDisplayMode SmallDisplayMode
+        {
+            get { return _smallDisplayMode; }
+            set
+            {
+                _smallDisplayMode = value;
+            }
+        }
+
         private SplitViewDisplayMode _displayMode = SplitViewDisplayMode.Inline;
         public SplitViewDisplayMode DisplayMode
         {

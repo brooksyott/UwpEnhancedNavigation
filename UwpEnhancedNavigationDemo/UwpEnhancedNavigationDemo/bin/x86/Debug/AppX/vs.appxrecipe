@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-04T07:10:48.593</Modified>
+      <Modified>2018-02-04T21:13:45.021</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\UwpEnhancedNavigationDemo.exe">
       <PackagePath>entrypoint\UwpEnhancedNavigationDemo.exe</PackagePath>
-      <Modified>2018-02-04T07:10:48.276</Modified>
+      <Modified>2018-02-04T21:13:44.324</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\david\.nuget\packages\microsoft.csharp\4.0.1\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -497,53 +497,53 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\UwpEnhancedNavigation.dll">
       <PackagePath>UwpEnhancedNavigation.dll</PackagePath>
-      <Modified>2018-02-04T07:10:46.902</Modified>
+      <Modified>2018-02-04T21:10:43.729</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2018-02-03T17:34:48.009</Modified>
+      <Modified>2018-02-04T07:14:54.718</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.709</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.710</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.711</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.711</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.712</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.713</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-01-23T00:09:11.281</Modified>
+      <Modified>2018-02-04T07:14:54.714</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\UwpEnhancedNavigationDemo.xr.xml">
       <PackagePath>UwpEnhancedNavigationDemo.xr.xml</PackagePath>
-      <Modified>2018-02-04T06:33:49.011</Modified>
+      <Modified>2018-02-04T21:12:19.276</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\UwpEnhancedNavigation.xr.xml">
       <PackagePath>UwpEnhancedNavigation\UwpEnhancedNavigation.xr.xml</PackagePath>
-      <Modified>2018-02-04T05:54:03.998</Modified>
+      <Modified>2018-02-04T07:14:54.687</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.16299.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -552,11 +552,11 @@
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2018-02-04T06:53:24.945</Modified>
+      <Modified>2018-02-04T21:13:44.866</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\Core\UwpEnhancedNavigationDemo.exe">
       <PackagePath>UwpEnhancedNavigationDemo.exe</PackagePath>
-      <Modified>2018-02-04T07:10:48.589</Modified>
+      <Modified>2018-02-04T21:13:45.017</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
