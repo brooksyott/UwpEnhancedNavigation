@@ -13,7 +13,7 @@
     <customNav:EnhancedNavigationShell x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="350"
                 LargeDisplayMode="Inline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
-                LargeMinWindowWidth="900" MediumMinWindowWidth="500" SmallMinWindowWidth="0">
+                LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
         <customNav:EnhancedNavigationShell.PainContent>
             <Grid Background="Red"/>
         </customNav:EnhancedNavigationShell.PainContent>

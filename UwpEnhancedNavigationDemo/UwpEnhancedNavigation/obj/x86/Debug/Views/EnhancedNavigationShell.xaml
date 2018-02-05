@@ -10,6 +10,7 @@
     d:DesignWidth="400">
     <UserControl.Resources>
        <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <x:String x:Key="HamburgerIcon">M1.230957,19.693036L30.768982,19.693036C31.506958,19.693036,32,20.185041,32,20.923019L32,22.154038C32,22.893054,31.506958,23.384999,30.768982,23.384999L1.230957,23.384999C0.49194336,23.384999,0,22.893054,0,22.154038L0,20.923019C0,20.185041,0.49194336,19.693036,1.230957,19.693036z M1.230957,9.8470059L30.768982,9.8470059C31.506958,9.8470059,32,10.339011,32,11.076989L32,12.30801C32,13.045987,31.506958,13.53903,30.768982,13.53903L1.230957,13.53903C0.49194336,13.53903,0,13.047025,0,12.30801L0,11.076989C0,10.339011,0.49194336,9.8470059,1.230957,9.8470059z M1.230957,0L30.768982,0C31.506958,-6.3337211E-08,32,0.49298194,32,1.2309594L32,2.4619804C32,3.1999579,31.506958,3.6930011,30.768982,3.6930013L1.230957,3.6930013C0.49194336,3.6930011,0,3.1999579,0,2.4619804L0,1.2309594C0,0.49298194,0.49194336,-6.3337211E-08,1.230957,0z</x:String>
     </UserControl.Resources>
     <Grid x:ConnectionId='2' x:Name="MainSplitViewGrid"  Padding="0"                                       >
         <SplitView x:ConnectionId='3' x:Name="ShellSplitView"  Padding="0" 
@@ -20,10 +21,36 @@
                                                                  
                                                            >
             <SplitView.Pane>
-                <ContentPresenter x:ConnectionId='5'                               ></ContentPresenter>
+                <Grid Padding="0" Margin="0,0,0,0" Background="Red">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,20,0,0">
+                        <Button x:ConnectionId='6' x:Name="HamburgerButton" 
+                            Margin="3,0,0,0"
+                            Width="40"
+                            Height="40"
+                                                                 
+                                                                 
+                            VerticalAlignment="Top"
+                            BorderThickness="0"
+                                                         >
+                            <Path x:ConnectionId='7' Data="{StaticResource HamburgerIcon}"
+                                                                 
+                                  VerticalAlignment="Stretch"
+                                  HorizontalAlignment="Stretch"
+                                  Width="24"
+                                  Height="24"
+                                  Stretch="Uniform" />
+                        </Button>
+                    </Grid>
+                    <ContentPresenter x:ConnectionId='5' Grid.Row="1" Margin="0,0,0,0" 
+                                                                    ></ContentPresenter>
+                </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <ContentPresenter x:ConnectionId='6'                                ></ContentPresenter>
+                <ContentPresenter x:ConnectionId='8'                                ></ContentPresenter>
             </SplitView.Content>
         </SplitView>
         <Grid x:ConnectionId='4' x:Name="DisableContent" 
@@ -33,20 +60,20 @@
               VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         </Grid>
         <VisualStateManager.VisualStateGroups >
-            <VisualStateGroup x:ConnectionId='7' x:Name="WidthVisualStates"                                              >
-                <VisualState x:ConnectionId='8' x:Name="LARGE">
+            <VisualStateGroup x:ConnectionId='9' x:Name="WidthVisualStates"                                              >
+                <VisualState x:ConnectionId='10' x:Name="LARGE">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger x:ConnectionId='15'                                               />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:ConnectionId='11' x:Name="MEDIUM">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger x:ConnectionId='14'                                                />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:ConnectionId='12' x:Name="SMALL">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger x:ConnectionId='13'                                               />
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState x:ConnectionId='9' x:Name="MEDIUM">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger x:ConnectionId='12'                                                />
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState x:ConnectionId='10' x:Name="SMALL">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger x:ConnectionId='11'                                               />
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>

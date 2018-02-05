@@ -34,7 +34,6 @@ namespace UwpEnhancedNavigation
         {
             // The UI bindable base needs a UI reference for the dispatcher
             displatcherContext = Window.Current.Content as Frame;
-            DisableContent = true;
             SetupFSM();
         }
 

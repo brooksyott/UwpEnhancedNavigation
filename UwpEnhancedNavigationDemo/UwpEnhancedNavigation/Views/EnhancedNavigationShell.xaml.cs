@@ -303,5 +303,10 @@ namespace UwpEnhancedNavigation
             ViewModel.NotifySizeChange(newState);
             Debug.WriteLine("New VisualState = " + newState + ", Width = " + this.ActualWidth);
         }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
