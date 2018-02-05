@@ -374,6 +374,18 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -2398,19 +2410,6 @@
             "rid": "aot"
           }
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-arm": {
@@ -2733,6 +2732,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -4847,19 +4858,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-arm-aot": {
@@ -5183,6 +5181,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -7332,19 +7342,6 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x64": {
@@ -7670,6 +7667,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -9790,19 +9799,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x64-aot": {
@@ -10129,6 +10125,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -12284,19 +12292,6 @@
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x86": {
@@ -12622,6 +12617,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -14742,19 +14749,6 @@
         "runtime": {
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        }
       }
     },
     "UAP,Version=v10.0.10586/win10-x86-aot": {
@@ -15081,6 +15075,18 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -17235,19 +17241,6 @@
         },
         "runtime": {
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
-        }
-      },
-      "PeamelSimpleFiniteStateMachine/0.1.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v1.4",
-        "dependencies": {
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PeamelSimpleFiniteStateMachine.dll": {}
         }
       }
     }
@@ -19932,6 +19925,16 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.1.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "sha512": "IiHksXsZH3OBRTFTbtL2Fw1ASRVSeF8qDWBv4/FtmfVoLoWcnmNMg7o4iAEgbTlCtkZR0Us1woNfVgHCpzRf+A==",
+      "type": "package",
+      "path": "peamel.simplefinitestatemachine/0.1.2-alpha",
+      "files": [
+        "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll",
+        "peamel.simplefinitestatemachine.0.1.2-alpha.nupkg.sha512",
+        "peamel.simplefinitestatemachine.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.3.0": {
@@ -27000,17 +27003,12 @@
         "system.xml.xmlserializer.4.0.11.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "PeamelSimpleFiniteStateMachine/0.1.0": {
-      "type": "project",
-      "path": "../../PEAMEL.SimpleFiniteStateMachine/PEAMEL.SimpleFiniteStateMachine.csproj",
-      "msbuildProject": "../../PEAMEL.SimpleFiniteStateMachine/PEAMEL.SimpleFiniteStateMachine.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.6",
-      "PeamelSimpleFiniteStateMachine >= 0.1.0"
+      "Peamel.SimpleFiniteStateMachine >= 0.1.2-alpha"
     ]
   },
   "packageFolders": {
@@ -27044,11 +27042,7 @@
       },
       "frameworks": {
         "uap10.0.10586": {
-          "projectReferences": {
-            "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\PEAMEL.SimpleFiniteStateMachine\\PEAMEL.SimpleFiniteStateMachine.csproj": {
-              "projectPath": "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\PEAMEL.SimpleFiniteStateMachine\\PEAMEL.SimpleFiniteStateMachine.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       }
     },
@@ -27058,6 +27052,10 @@
           "Microsoft.NETCore.UniversalWindowsPlatform": {
             "target": "Package",
             "version": "[6.0.6, )"
+          },
+          "Peamel.SimpleFiniteStateMachine": {
+            "target": "Package",
+            "version": "[0.1.2-alpha, )"
           }
         }
       }

@@ -24,5 +24,3 @@ C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhanc
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\obj\x86\Debug\Views\EnhancedNavigationShell.xbf
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\Views\EnhancedNavigationShell.xbf
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\obj\x86\Debug\UwpEnhancedNavigation.csprojResolveAssemblyReference.cache
-C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\PeamelSimpleFiniteStateMachine.dll
-C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\PeamelSimpleFiniteStateMachine.pdb

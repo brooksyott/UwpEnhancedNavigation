@@ -123,6 +123,9 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Peamel.SimpleFiniteStateMachine">
+      <Version>0.1.2-alpha</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\EnhancedNavigationShell.xaml">
@@ -132,12 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\PEAMEL.SimpleFiniteStateMachine\PEAMEL.SimpleFiniteStateMachine.csproj">
-      <Project>{f4f858e9-1cfb-4556-b06e-a9a6e9e0da58}</Project>
-      <Name>PEAMEL.SimpleFiniteStateMachine</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

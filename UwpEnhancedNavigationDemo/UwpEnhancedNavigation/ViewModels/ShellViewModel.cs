@@ -37,18 +37,18 @@ namespace UwpEnhancedNavigation
             SetupFSM();
         }
 
-        EnhancedNavigationFSM<States, Triggers> _fsm = new EnhancedNavigationFSM<States, Triggers>(States.NO_NAV);
+        EnhancedNavigationFSM<States, Triggers> _mainShellFsm = new EnhancedNavigationFSM<States, Triggers>(States.NO_NAV);
 
         private void SetupFSM()
         {
 
-            _fsm.Configure(States.NO_NAV)
+            _mainShellFsm.Configure(States.NO_NAV)
                 .OnEntry(SetPaneDisplayMode)
                 .Permit(Triggers.VISUAL_STATE_LARGE, SetPaneDisplayModeInternal)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, SetPaneDisplayModeInternal)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV);
 
-            _fsm.Configure(States.SMALL_NO_NAV)
+            _mainShellFsm.Configure(States.SMALL_NO_NAV)
                 .OnEntry(SetPaneDisplayMode)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.NO_NAV);
 
@@ -62,7 +62,7 @@ namespace UwpEnhancedNavigation
 
         private Boolean SetPaneDisplayMode()
         {
-            Debug.WriteLine("Hit Trigger1 : CurrentState = " + _fsm.CurrentState);
+            Debug.WriteLine("Hit Trigger1 : CurrentState = " + _mainShellFsm.CurrentState);
             if (_menuVisualState == MenuVisualState.LARGE)
             {
                 DisplayMode = LargeDisplayMode;
@@ -88,7 +88,7 @@ namespace UwpEnhancedNavigation
 
         private Boolean DisplayTrigger2()
         {
-            Debug.WriteLine("Hit Trigger2 : CurrentState = " + _fsm.CurrentState);
+            Debug.WriteLine("Hit Trigger2 : CurrentState = " + _mainShellFsm.CurrentState);
             return true;
         }
 
@@ -186,17 +186,17 @@ namespace UwpEnhancedNavigation
             {
                 case MenuVisualState.LARGE:
                     {
-                        _fsm.Fire(Triggers.VISUAL_STATE_LARGE);
+                        _mainShellFsm.Fire(Triggers.VISUAL_STATE_LARGE);
                         return;
                     }
                 case MenuVisualState.MEDIUM:
                     {
-                        _fsm.Fire(Triggers.VISUAL_STATE_MEDIUM);
+                        _mainShellFsm.Fire(Triggers.VISUAL_STATE_MEDIUM);
                         return;
                     }
                 case MenuVisualState.SMALL:
                     {
-                        _fsm.Fire(Triggers.VISUAL_STATE_SMALL);
+                        _mainShellFsm.Fire(Triggers.VISUAL_STATE_SMALL);
                         return;
                     }
             }

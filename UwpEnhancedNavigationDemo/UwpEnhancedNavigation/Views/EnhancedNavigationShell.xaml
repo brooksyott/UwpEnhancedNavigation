@@ -21,29 +21,37 @@
                    CompactPaneLength="{x:Bind CompactPaneLength}"
                    OpenPaneLength="{x:Bind OpenPaneLength}">
             <SplitView.Pane>
-                <Grid Padding="0" Margin="0,0,0,0" Background="Red">
+                <Grid Padding="0" Margin="0,0,0,0" Background="Yellow">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="60" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0" Margin="0,20,0,0">
-                        <Button x:Name="HamburgerButton" 
-                            Margin="3,0,0,0"
-                            Width="40"
-                            Height="40"
-                            Background="{x:Bind ShellBackground}"
-                            Foreground="{x:Bind ShellForeground}"
-                            VerticalAlignment="Top"
-                            BorderThickness="0"
-                            Click="HamburgerButton_Click">
-                            <Path Data="{StaticResource HamburgerIcon}"
+                    <Grid Grid.Row="0" Margin="0,20,0,0" Visibility="Visible">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="HamburgerButton" Grid.Column="0"
+                                Margin="3,0,0,0"
+                                Width="40"
+                                Height="40"
+                                Background="{x:Bind ShellBackground}"
+                                Foreground="{x:Bind ShellForeground}"
+                                VerticalAlignment="Top"
+                                BorderThickness="0"
+                                Click="HamburgerButton_Click">
+                                <Path Data="{StaticResource HamburgerIcon}"
                                   Fill="{x:Bind ShellForeground}"
                                   VerticalAlignment="Stretch"
                                   HorizontalAlignment="Stretch"
                                   Width="24"
                                   Height="24"
                                   Stretch="Uniform" />
-                        </Button>
+                            </Button>
+                            <!-- WHERE THE TITLE CONTENT COULD GO -->
+                            <ContentPresenter Grid.Column="1" Background="{x:Bind ShellBackground}"/>
+                        </Grid>
                     </Grid>
                     <ContentPresenter Grid.Row="1" Margin="0,0,0,0" 
                                       Content="{x:Bind PainContent}"></ContentPresenter>
