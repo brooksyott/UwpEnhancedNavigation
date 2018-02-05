@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpEnhancedNavigationDemo",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpEnhancedNavigation", "UwpEnhancedNavigation\UwpEnhancedNavigation.csproj", "{599C65EF-B6B7-4B46-B3C6-D04571B46B18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PEAMEL.SimpleFiniteStateMachine", "..\PEAMEL.SimpleFiniteStateMachine\PEAMEL.SimpleFiniteStateMachine.csproj", "{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,22 @@ Global
 		{599C65EF-B6B7-4B46-B3C6-D04571B46B18}.Release|x64.Build.0 = Release|x64
 		{599C65EF-B6B7-4B46-B3C6-D04571B46B18}.Release|x86.ActiveCfg = Release|x86
 		{599C65EF-B6B7-4B46-B3C6-D04571B46B18}.Release|x86.Build.0 = Release|x86
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|ARM.Build.0 = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|x64.Build.0 = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Debug|x86.Build.0 = Debug|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|ARM.ActiveCfg = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|ARM.Build.0 = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|x64.ActiveCfg = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|x64.Build.0 = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|x86.ActiveCfg = Release|Any CPU
+		{F4F858E9-1CFB-4556-B06E-A9A6E9E0DA58}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

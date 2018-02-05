@@ -106,11 +106,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FiniteStateMachine\EnhancedNavigationFSM.cs" />
-    <Compile Include="FiniteStateMachine\State.cs" />
-    <Compile Include="FiniteStateMachine\StateTransitionException.cs" />
-    <Compile Include="FiniteStateMachine\ValidStates.cs" />
-    <Compile Include="FiniteStateMachine\ValidTriggers.cs" />
     <Compile Include="Helpers\BindableBaseUI.cs" />
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\BooleanToVisibilityConverter.cs" />
@@ -130,11 +125,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Styles\Icons.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Page>
     <Page Include="Views\EnhancedNavigationShell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +132,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PEAMEL.SimpleFiniteStateMachine\PEAMEL.SimpleFiniteStateMachine.csproj">
+      <Project>{f4f858e9-1cfb-4556-b06e-a9a6e9e0da58}</Project>
+      <Name>PEAMEL.SimpleFiniteStateMachine</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

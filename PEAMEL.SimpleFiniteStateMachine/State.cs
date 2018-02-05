@@ -4,25 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UwpEnhancedNavigation.FiniteStateMachine
+namespace Peamel.SimpleFiniteStateMachine
 {
-    public class Transition
+    public class Transition<TStates, TTriggers>
+        where TTriggers : struct, IComparable, IFormattable, IConvertible
+        where TStates : struct, IComparable, IFormattable, IConvertible
     {
-        public Triggers Trigger { get; set; }
-        public States State { get; set; }
+        public TTriggers Trigger { get; set; }
+        public TStates State { get; set; }
         public Func<Boolean> Guard;
     }
 
-    public class InternalTransition
+    public class InternalTransition<TTriggers>
+         where TTriggers : struct, IComparable, IFormattable, IConvertible
     {
-        public Triggers Trigger { get; set; }
+        public TTriggers Trigger { get; set; }
         public Func<Boolean> Exec;
     }
 
-    public class State
+    public class State<TStates, TTriggers>
+        where TTriggers : struct, IComparable, IFormattable, IConvertible
+        where TStates : struct, IComparable, IFormattable, IConvertible
     {
-        States _state = States.UNKNOWN;
-        public States StateType
+        TStates _state;
+        public TStates StateType
         {
             get { return _state; }
         }
@@ -32,13 +37,12 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         //Dictionary<Triggers, Func<Triggers, States>> _onExitAction = new Dictionary<Triggers, Func<Triggers, States>>();
         List<Func<Boolean>> _onEntryAction = new List<Func<Boolean>>();
         List<Func<Boolean>> _onExitAction = new List<Func<Boolean>>();
-        List<InternalTransition> _onSelfTriggerAction = new List<InternalTransition>();
-        List<Transition> _transitions = new List<Transition>();
+        List<InternalTransition<TTriggers>> _onSelfTriggerAction = new List<InternalTransition<TTriggers>>();
+        List<Transition<TStates, TTriggers>> _transitions = new List<Transition<TStates, TTriggers>>();
 
-        private State(States state)
+        private State()
         {
-            _state = state;
-            _numberOfTriggers = Enum.GetNames(typeof(Triggers)).Length;
+            _numberOfTriggers = Enum.GetNames(typeof(TTriggers)).Length;
         }
 
         /// <summary>
@@ -46,14 +50,16 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// </summary>
         /// <param name="trigger"></param>
         /// <returns></returns>
-        private States InvalidTrigger(Triggers trigger)
+        private TStates InvalidTrigger(TTriggers trigger)
         {
             throw new StateTransitionException("Invalid Trigger: " + trigger);
         }
 
-        static public State Configure(States state)
+        static public State<TStates, TTriggers> Configure(TStates state)
         {
-            return new State(state);
+            State<TStates, TTriggers> tempState = new State<TStates, TTriggers>();
+            tempState._state = state;
+            return new State<TStates, TTriggers>();
         }
 
         /// <summary>
@@ -63,9 +69,9 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// <param name="trigger"></param>
         /// <param name="func"></param>
         /// <returns></returns>
-        public State InternalTrigger(Triggers trigger, Func<Boolean> func)
+        public State<TStates,TTriggers> Permit(TTriggers trigger, Func<Boolean> func)
         {
-            InternalTransition tTransition = new InternalTransition();
+            InternalTransition<TTriggers> tTransition = new InternalTransition<TTriggers>();
             tTransition.Trigger = trigger;
             tTransition.Exec = func;
 
@@ -80,7 +86,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// <param name="trigger"></param>
         /// <param name="func"></param>
         /// <returns></returns>
-        public State OnEntry(Func<Boolean> func)
+        public State<TStates, TTriggers> OnEntry(Func<Boolean> func)
         {
             _onEntryAction.Add(func);
             return this;
@@ -93,7 +99,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// <param name="trigger"></param>
         /// <param name="func"></param>
         /// <returns></returns>
-        public State OnExit(Func<Boolean> func)
+        public State<TStates, TTriggers> OnExit(Func<Boolean> func)
         {
             _onExitAction.Add(func);
             return this;
@@ -104,7 +110,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// </summary>
         /// <param name="trigger"></param>
         /// <returns></returns>
-        public void EnteringState(Triggers trigger)
+        public void EnteringState(TTriggers trigger)
         {
             foreach (Func<Boolean> func in _onEntryAction)
             {
@@ -117,7 +123,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// </summary>
         /// <param name="trigger"></param>
         /// <returns></returns>
-        public void ExitingState(Triggers trigger)
+        public void ExitingState(TTriggers trigger)
         {
             foreach (Func<Boolean> func in _onExitAction)
             {
@@ -125,14 +131,14 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
             }
         }
 
-        public State Permit(Triggers trigger, States newState)
+        public State<TStates, TTriggers> Permit(TTriggers trigger, TStates newState)
         {
             return PermitIf(trigger, newState, EmptyGuard);
         }
 
-        public State PermitIf(Triggers trigger, States newState, Func<Boolean> guard)
+        public State<TStates, TTriggers> PermitIf(TTriggers trigger, TStates newState, Func<Boolean> guard)
         {
-            Transition tTransition = new Transition();
+            Transition<TStates, TTriggers> tTransition = new Transition<TStates, TTriggers>();
             tTransition.Trigger = trigger;
             tTransition.State = newState;
             tTransition.Guard = guard;
@@ -141,11 +147,12 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
             return this;
         }
 
-        public States NextState(Triggers trigger)
+        public TStates? NextState(TTriggers trigger)
         {
-            foreach(Transition trans in _transitions)
+            foreach(Transition<TStates, TTriggers> trans in _transitions)
             {
-                if (trans.Trigger == trigger)
+                int c = trans.Trigger.CompareTo(trigger);
+                if (c == 0)
                 {
                     // We have a valid, trigger, check the guard
                     if (trans.Guard != null)
@@ -159,14 +166,15 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
                 }
             }
 
-            return States.UNKNOWN;
+            return null;
         }
 
-        public Boolean InternalTransition(Triggers trigger)
+        public Boolean InternalTransition(TTriggers trigger)
         {
-            foreach (InternalTransition trans in _onSelfTriggerAction)
+            foreach (InternalTransition<TTriggers> trans in _onSelfTriggerAction)
             {
-                if (trans.Trigger == trigger)
+                int c = trans.Trigger.CompareTo(trigger);
+                if (c == 0)
                 {
                     // We have a valid, trigger, check the guard
                     if (trans.Exec != null)

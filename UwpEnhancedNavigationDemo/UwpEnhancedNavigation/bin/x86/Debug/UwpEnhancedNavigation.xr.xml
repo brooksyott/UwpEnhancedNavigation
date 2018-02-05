@@ -4,13 +4,12 @@
     <RootInterface FullName="Windows.UI.Xaml.Data.IValueConverter" />
   </Roots.Interfaces>
   <Roots.RootTypes>
-    <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
-    <RootType FullName="System.String" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="UwpEnhancedNavigation.BooleanToVisibilityConverter" />
+    <RootType FullName="System.String" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Padding" />
       <RootProperty Name="Background" />

@@ -5,18 +5,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UwpEnhancedNavigation.FiniteStateMachine
+namespace Peamel.SimpleFiniteStateMachine
 {
-    public class EnhancedNavigationFSM
+    public class EnhancedNavigationFSM<TStates, TTriggers>
+        where TTriggers : struct, IComparable, IFormattable, IConvertible
+        where TStates : struct, IComparable, IFormattable, IConvertible
     {
-        Dictionary<States, State> _states = new Dictionary<States, State>();
-        States _currentState = States.UNKNOWN;
-        public States CurrentState
+        Dictionary<TStates, State<TStates, TTriggers>> _states = new Dictionary<TStates, State<TStates, TTriggers>>();
+        TStates _currentState;
+        public TStates CurrentState
         {
             get { return _currentState; }
         }
 
-        public EnhancedNavigationFSM(States startupState)
+        public EnhancedNavigationFSM(TStates startupState)
         {
             _currentState = startupState;
         }
@@ -26,9 +28,9 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// </summary>
         /// <param name="stateName"></param>
         /// <param name="state"></param>
-        public State Configure(States state)
+        public State<TStates, TTriggers> Configure(TStates state)
         {
-            State newState = State.Configure(state);
+            State<TStates, TTriggers> newState = State<TStates, TTriggers>.Configure(state);
             _states[state] = newState;
             return newState;
         }
@@ -38,7 +40,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
         /// Fires the state, and sets a new state
         /// </summary>
         /// <param name="trigger"></param>
-        public Boolean Fire(Triggers trigger)
+        public Boolean Fire(TTriggers trigger)
         {
             Debug.WriteLine("Fire Start: State {0}, Trigger = {1}", _currentState, trigger);
             Boolean didTransition = TransitionStates(trigger);
@@ -49,7 +51,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
             return internalTransition;
         }
 
-        private Boolean InternalTransition(Triggers trigger)
+        private Boolean InternalTransition(TTriggers trigger)
         {
             if (!_states.ContainsKey(_currentState))
             {
@@ -62,20 +64,21 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
             return true;
         }
 
-        private Boolean TransitionStates(Triggers trigger)
+        private Boolean TransitionStates(TTriggers trigger)
         {
             if (!_states.ContainsKey(_currentState))
             {
                 return false; // No transition found
             }
 
-            States nextState = _states[_currentState].NextState(trigger);
-            if (nextState == States.UNKNOWN)
+            TStates? nextState = _states[_currentState].NextState(trigger);
+            if (nextState == null)
             {
                 return false; // No transition found
             }
+
             // Check if the new state has been defined
-            if (!_states.ContainsKey(nextState))
+            if (!_states.ContainsKey(nextState.Value))
             {
                 return false; // No transition found
             }
@@ -83,7 +86,7 @@ namespace UwpEnhancedNavigation.FiniteStateMachine
             _states[_currentState].ExitingState(trigger);
 
             // We should have now exited the last state, enter the new one
-            _currentState = nextState;
+            _currentState = nextState.Value;
 
             _states[_currentState].EnteringState(trigger);
             Debug.WriteLine("Fire End: State {0}, Trigger = {1}", _currentState, trigger);

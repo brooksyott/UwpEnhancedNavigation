@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-using UwpEnhancedNavigation.FiniteStateMachine;
+using Peamel.SimpleFiniteStateMachine;
 
 namespace UwpEnhancedNavigation
 {
@@ -37,15 +37,15 @@ namespace UwpEnhancedNavigation
             SetupFSM();
         }
 
-        EnhancedNavigationFSM _fsm = new EnhancedNavigationFSM(States.NO_NAV);
+        EnhancedNavigationFSM<States, Triggers> _fsm = new EnhancedNavigationFSM<States, Triggers>(States.NO_NAV);
 
         private void SetupFSM()
         {
 
             _fsm.Configure(States.NO_NAV)
                 .OnEntry(SetPaneDisplayMode)
-                .InternalTrigger(Triggers.VISUAL_STATE_LARGE, SetPaneDisplayModeInternal)
-                .InternalTrigger(Triggers.VISUAL_STATE_MEDIUM, SetPaneDisplayModeInternal)
+                .Permit(Triggers.VISUAL_STATE_LARGE, SetPaneDisplayModeInternal)
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, SetPaneDisplayModeInternal)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV);
 
             _fsm.Configure(States.SMALL_NO_NAV)
