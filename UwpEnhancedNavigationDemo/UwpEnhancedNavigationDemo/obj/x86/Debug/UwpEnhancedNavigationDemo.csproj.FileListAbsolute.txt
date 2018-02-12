@@ -225,3 +225,4 @@ C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhanc
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\FxResources.System.Console.SR.resw
 C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\FxResources.System.Runtime.InteropServices.RuntimeInformation.SR.resw
+C:\Repos\Personal Repo\UwpEnhancedNavigation\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\PeamelBasicLogger.dll

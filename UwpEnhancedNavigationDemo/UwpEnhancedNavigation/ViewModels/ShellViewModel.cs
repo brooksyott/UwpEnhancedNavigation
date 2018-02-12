@@ -37,19 +37,19 @@ namespace UwpEnhancedNavigation
             SetupFSM();
         }
 
-        EnhancedNavigationFSM<States, Triggers> _mainShellFsm = new EnhancedNavigationFSM<States, Triggers>(States.NO_NAV);
+        FiniteStateMachine<States, Triggers> _mainShellFsm = new FiniteStateMachine<States, Triggers>(States.NO_NAV);
 
         private void SetupFSM()
         {
 
             _mainShellFsm.Configure(States.NO_NAV)
-                .OnEntry(SetPaneDisplayMode)
-                .Permit(Triggers.VISUAL_STATE_LARGE, SetPaneDisplayModeInternal)
-                .Permit(Triggers.VISUAL_STATE_MEDIUM, SetPaneDisplayModeInternal)
+                .OnEntry((o,t) => SetPaneDisplayMode())
+                .Permit(Triggers.VISUAL_STATE_LARGE, (o, t) => SetPaneDisplayModeInternal())
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, (o, t) => SetPaneDisplayModeInternal() )
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV);
 
             _mainShellFsm.Configure(States.SMALL_NO_NAV)
-                .OnEntry(SetPaneDisplayMode)
+                .OnEntry((o, t) => SetPaneDisplayMode() )
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.NO_NAV);
 
         }

@@ -70,8 +70,11 @@
     <AppxPackagedFile Include="C:\Users\david\.nuget\packages\microsoft.visualbasic\10.0.1\lib\netcore50\Microsoft.VisualBasic.dll">
       <PackagePath>Microsoft.VisualBasic.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\david\.nuget\packages\peamel.simplefinitestatemachine\0.1.2-alpha\lib\netstandard1.4\PeamelSimpleFiniteStateMachine.dll">
+    <AppxPackagedFile Include="C:\Users\david\.nuget\packages\peamel.simplefinitestatemachine\0.1.4-alpha\lib\netstandard1.4\PeamelSimpleFiniteStateMachine.dll">
       <PackagePath>PeamelSimpleFiniteStateMachine.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\david\.nuget\packages\peamelbasiclogger\1.0.1\lib\netstandard1.4\PeamelBasicLogger.dll">
+      <PackagePath>PeamelBasicLogger.dll</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\david\.nuget\packages\runtime.any.system.collections\4.3.0\lib\netcore50\System.Collections.dll">
       <PackagePath>System.Collections.dll</PackagePath>

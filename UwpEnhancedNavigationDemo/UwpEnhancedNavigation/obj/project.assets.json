@@ -374,16 +374,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -2293,6 +2307,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -2734,16 +2757,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -4746,6 +4783,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5183,16 +5229,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -7230,6 +7290,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -7669,16 +7738,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -9687,6 +9770,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -10127,16 +10219,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -12180,6 +12286,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -12619,16 +12734,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.any.System.Collections/4.3.0": {
@@ -14637,6 +14766,15 @@
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
         }
       },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
+        }
+      },
       "System.Threading.Timer/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -15077,16 +15215,30 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
         "type": "package",
         "dependencies": {
-          "NETStandard.Library": "1.6.1"
+          "NETStandard.Library": "1.6.1",
+          "PeamelBasicLogger": "1.0.1"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         },
         "runtime": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
+        }
+      },
+      "PeamelBasicLogger/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.1",
+          "System.Threading.Thread": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/PeamelBasicLogger.dll": {}
         }
       },
       "runtime.aot.System.Collections/4.3.0": {
@@ -17128,6 +17280,15 @@
         },
         "runtime": {
           "lib/netcore50/System.Threading.Tasks.Parallel.dll": {}
+        }
+      },
+      "System.Threading.Thread/4.3.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard1.3/System.Threading.Thread.dll": {}
+        },
+        "runtime": {
+          "lib/netcore50/_._": {}
         }
       },
       "System.Threading.Timer/4.3.0": {
@@ -19927,14 +20088,24 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Peamel.SimpleFiniteStateMachine/0.1.2-alpha": {
-      "sha512": "IiHksXsZH3OBRTFTbtL2Fw1ASRVSeF8qDWBv4/FtmfVoLoWcnmNMg7o4iAEgbTlCtkZR0Us1woNfVgHCpzRf+A==",
+    "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "sha512": "uxIwmZxXoYB9YSXY14it7lXCS8N94YTaKpvchoGbYB9qfuLVOq1R/f5kvC9yh5BJO2puIvxHUiOLg8OufKaC0A==",
       "type": "package",
-      "path": "peamel.simplefinitestatemachine/0.1.2-alpha",
+      "path": "peamel.simplefinitestatemachine/0.1.4-alpha",
       "files": [
         "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll",
-        "peamel.simplefinitestatemachine.0.1.2-alpha.nupkg.sha512",
+        "peamel.simplefinitestatemachine.0.1.4-alpha.nupkg.sha512",
         "peamel.simplefinitestatemachine.nuspec"
+      ]
+    },
+    "PeamelBasicLogger/1.0.1": {
+      "sha512": "7CnRHwDpyUWWEwrWH3CU/NZJTnbU3Gl0cPDiU6L2rC4AQW23d/TvPJAGOSDDHgb9iyzor9Z8rEN0QnJdgfop4g==",
+      "type": "package",
+      "path": "peamelbasiclogger/1.0.1",
+      "files": [
+        "lib/netstandard1.4/PeamelBasicLogger.dll",
+        "peamelbasiclogger.1.0.1.nupkg.sha512",
+        "peamelbasiclogger.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.3.0": {
@@ -26707,6 +26878,44 @@
         "system.threading.tasks.parallel.nuspec"
       ]
     },
+    "System.Threading.Thread/4.3.0": {
+      "sha512": "OHmbT+Zz065NKII/ZHcH9XO1dEuLGI1L2k7uYss+9C1jLxTC9kTZZuzUOyXHayRk+dft9CiDf3I/QZ0t8JKyBQ==",
+      "type": "package",
+      "path": "system.threading.thread/4.3.0",
+      "files": [
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Threading.Thread.dll",
+        "lib/netcore50/_._",
+        "lib/netstandard1.3/System.Threading.Thread.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.dll",
+        "ref/netstandard1.3/System.Threading.Thread.xml",
+        "ref/netstandard1.3/de/System.Threading.Thread.xml",
+        "ref/netstandard1.3/es/System.Threading.Thread.xml",
+        "ref/netstandard1.3/fr/System.Threading.Thread.xml",
+        "ref/netstandard1.3/it/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ja/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ko/System.Threading.Thread.xml",
+        "ref/netstandard1.3/ru/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hans/System.Threading.Thread.xml",
+        "ref/netstandard1.3/zh-hant/System.Threading.Thread.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.thread.4.3.0.nupkg.sha512",
+        "system.threading.thread.nuspec"
+      ]
+    },
     "System.Threading.Timer/4.3.0": {
       "sha512": "Z6YfyYTCg7lOZjJzBjONJTFKGN9/NIYKSxhU5GRd+DTwHSZyvWp1xuI5aR+dLg+ayyC5Xv57KiY4oJ0tMO89fQ==",
       "type": "package",
@@ -27008,7 +27217,7 @@
   "projectFileDependencyGroups": {
     "UAP,Version=v10.0.10586": [
       "Microsoft.NETCore.UniversalWindowsPlatform >= 6.0.6",
-      "Peamel.SimpleFiniteStateMachine >= 0.1.2-alpha"
+      "Peamel.SimpleFiniteStateMachine >= 0.1.4-alpha"
     ]
   },
   "packageFolders": {
@@ -27055,7 +27264,7 @@
           },
           "Peamel.SimpleFiniteStateMachine": {
             "target": "Package",
-            "version": "[0.1.2-alpha, )"
+            "version": "[0.1.4-alpha, )"
           }
         }
       }
