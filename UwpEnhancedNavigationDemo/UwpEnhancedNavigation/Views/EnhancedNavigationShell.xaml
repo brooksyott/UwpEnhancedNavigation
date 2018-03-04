@@ -87,39 +87,32 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <Grid  Background="Yellow">
-                    <Grid Padding="0" Margin="0,0,0,0" >
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0" Margin="0,0,0,0" Visibility="Visible">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Button x:Name="ArrowHamburgerButton" Grid.Column="0"
-                                    Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource HamburgerArrowStateToVisibilityConverter}}" 
-                                    Command="{StaticResource ArrowMenuCommand}"
-                                    Margin="3,0,0,0"
-                                    Width="40"
-                                    Height="40"
-                                    Background="{x:Bind ShellBackground}"
-                                    Foreground="{x:Bind ShellForeground}"
-                                    VerticalAlignment="Center"
-                                    BorderThickness="0">
-                                    <Path Data="{StaticResource PreviousArrowIcon}"
-                                        Fill="{x:Bind ShellForeground}"
-                                        VerticalAlignment="Stretch"
-                                        HorizontalAlignment="Stretch"
-                                        Width="24"
-                                        Height="24"
-                                        Stretch="Uniform" />
-                                </Button>
-                                <ContentPresenter Grid.Column="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind PageTitleContent}"/>
-                            </Grid>
+                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind MainContent}"></ContentPresenter>
+                    <Grid  Margin="0,5,0,0" Visibility="Visible" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="ArrowHamburgerButton" Grid.Column="0"
+                                Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource HamburgerArrowStateToVisibilityConverter}}" 
+                                Command="{StaticResource ArrowMenuCommand}"
+                                Margin="3,0,0,0"
+                                Width="40"
+                                Height="40"
+                                Background="{x:Bind ShellBackground}"
+                                Foreground="{x:Bind ShellForeground}"
+                                VerticalAlignment="Center"
+                                BorderThickness="0">
+                                <Path Data="{StaticResource PreviousArrowIcon}"
+                                    Fill="{x:Bind ShellForeground}"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Width="24"
+                                    Height="24"
+                                    Stretch="Uniform" />
+                            </Button>
                         </Grid>
-                        <ContentPresenter Grid.Row="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind MainContent}"></ContentPresenter>
                     </Grid>
                     <Grid  x:Name="DisableContent" 
                               Visibility="{x:Bind ViewModel.DisableContent, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" 
