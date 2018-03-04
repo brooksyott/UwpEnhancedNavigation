@@ -17,22 +17,28 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace UwpEnhancedNavigation
 {
-    public sealed partial class EnhancedNavigationShell : UserControl, INotifyPropertyChanged
+    public sealed partial class EnhancedMasterDetails : UserControl, INotifyPropertyChanged
     {
         private ShellViewModel ViewModel = ShellViewModel.Instance;
-        public EnhancedNavigationShell()
+        public EnhancedMasterDetails()
         {
             this.InitializeComponent();
             //ShellSplitView.DisplayMode = SplitViewDisplayMode.Inline;
             this.DataContext = this;
             ShellSplitView.IsPaneOpen = false;
-            HideTitleBar();         
+            HideTitleBar();
+            PrimaryNavigation.RightEdgePopupFrame = RightPopupFrame;
+            PrimaryNavigation.CenterPopupFrame = CenterPopupFrame;
+
+            // Register for changes
+            ViewModel.PropertyChanged += ShellViewPropertyChangedHandler;
         }
 
         #region Controlling the Pane behavour
@@ -41,21 +47,21 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty LargeDisplayModeProperty = DependencyProperty.Register(
               "LargeDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(SplitViewDisplayMode.Inline)
             );
 
         public SplitViewDisplayMode LargeDisplayMode
         {
             get { return (ViewModel.LargeDisplayMode); }
-            set { ViewModel.LargeDisplayMode = value;  }
+            set { ViewModel.LargeDisplayMode = value; }
         }
 
         // Sizes for adaptive triggers, with default values
         public static readonly DependencyProperty MediumDisplayModeProperty = DependencyProperty.Register(
               "MediumDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
             );
 
@@ -69,7 +75,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty SmallDisplayModeProperty = DependencyProperty.Register(
               "SmallDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
             );
 
@@ -83,7 +89,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty LargeMinWindowWidthProperty = DependencyProperty.Register(
               "LargeMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(800)
             );
 
@@ -96,7 +102,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty MediumMinWindowWidthProperty = DependencyProperty.Register(
               "MediumMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(500)
             );
 
@@ -109,7 +115,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty SmallMinWindowWidthProperty = DependencyProperty.Register(
               "SmallMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(0)
             );
 
@@ -122,7 +128,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty OpenPaneLengthProperty = DependencyProperty.Register(
               "OpenPaneLength",
               typeof(Double),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(300)
             );
 
@@ -136,7 +142,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty CompactPaneLengthProperty = DependencyProperty.Register(
               "CompactPaneLength",
               typeof(Double),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(45)
             );
 
@@ -155,13 +161,13 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty IsPaneOpenProperty = DependencyProperty.Register(
               "IsPaneOpen ",
               typeof(Boolean),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
         public Boolean IsPaneOpen
         {
-            get { return (Boolean) ShellSplitView.IsPaneOpen; }
+            get { return (Boolean)ShellSplitView.IsPaneOpen; }
             set
             {
                 ShellSplitView.IsPaneOpen = value;
@@ -173,14 +179,15 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty ShellForegroundProperty = DependencyProperty.Register(
               "ShellForeground",
               typeof(SolidColorBrush),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
         public SolidColorBrush ShellForeground
         {
             get { return (SolidColorBrush)GetValue(ShellForegroundProperty); }
-            set {
+            set
+            {
                 SetValue(ShellForegroundProperty, value);
                 SetTitleForegroundColor(value.Color);
                 var pb = (SolidColorBrush)GetValue(PaneForegroundProperty);
@@ -199,14 +206,15 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty ShellBackgroundProperty = DependencyProperty.Register(
               "ShellBackground",
               typeof(SolidColorBrush),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
         public SolidColorBrush ShellBackground
         {
             get { return (SolidColorBrush)GetValue(ShellBackgroundProperty); }
-            set {
+            set
+            {
                 SetValue(ShellBackgroundProperty, value);
                 SetTitleBackgroundColor(value.Color);
                 var pb = (SolidColorBrush)GetValue(PaneBackgroundProperty);
@@ -225,14 +233,15 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty PaneBackgroundProperty = DependencyProperty.Register(
               "PaneBackground",
               typeof(SolidColorBrush),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
         public SolidColorBrush PaneBackground
         {
             get { return (SolidColorBrush)GetValue(PaneBackgroundProperty); }
-            set {
+            set
+            {
                 SetValue(PaneBackgroundProperty, value);
                 var pb = (SolidColorBrush)GetValue(HamburgerBackgroundProperty);
                 if (pb == null)
@@ -245,7 +254,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty BackbuttonForegroundProperty = DependencyProperty.Register(
           "BackbuttonForeground",
           typeof(SolidColorBrush),
-          typeof(EnhancedNavigationShell),
+          typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
@@ -259,14 +268,15 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty PaneForegroundProperty = DependencyProperty.Register(
           "PaneForeground",
           typeof(SolidColorBrush),
-          typeof(EnhancedNavigationShell),
+          typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
         public SolidColorBrush PaneForeground
         {
             get { return (SolidColorBrush)GetValue(PaneForegroundProperty); }
-            set {
+            set
+            {
                 SetValue(PaneForegroundProperty, value);
                 var pb = (SolidColorBrush)GetValue(HamburgerForegroundProperty);
                 if (pb == null)
@@ -279,7 +289,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty HamburgerForegroundProperty = DependencyProperty.Register(
           "HamburgerForeground",
           typeof(SolidColorBrush),
-          typeof(EnhancedNavigationShell),
+          typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
@@ -293,7 +303,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty HamburgerBackgroundProperty = DependencyProperty.Register(
           "HamburgerBackground",
           typeof(SolidColorBrush),
-          typeof(EnhancedNavigationShell),
+          typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
@@ -306,7 +316,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty BackbuttonBackgroundProperty = DependencyProperty.Register(
           "BackbuttonBackground",
           typeof(SolidColorBrush),
-          typeof(EnhancedNavigationShell),
+          typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
@@ -321,7 +331,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty PainContentProperty = DependencyProperty.Register(
               "PainContent",
               typeof(Object),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
@@ -334,7 +344,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty HamburgerTitleContentProperty = DependencyProperty.Register(
               "HamburgerTitleContent",
               typeof(Object),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
@@ -348,14 +358,15 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty MainContentProperty = DependencyProperty.Register(
               "MainContent",
               typeof(Object),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
         public object MainContent
         {
             get { return (object)GetValue(MainContentProperty); }
-            set {
+            set
+            {
                 SetValue(MainContentProperty, value);
             }
         }
@@ -363,7 +374,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty TitleBarContentProperty = DependencyProperty.Register(
               "TitleBarContent",
               typeof(Object),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
@@ -379,7 +390,7 @@ namespace UwpEnhancedNavigation
         public static readonly DependencyProperty PageTitleContentProperty = DependencyProperty.Register(
               "PageTitleContent",
               typeof(Object),
-              typeof(EnhancedNavigationShell),
+              typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
@@ -519,7 +530,120 @@ namespace UwpEnhancedNavigation
 
         private void PaneClosingHandler(SplitView sender, SplitViewPaneClosingEventArgs args)
         {
+            ViewModel.DisabledContentTapped();
+        }
+
+        private void DisabledContentTapped(object sender, TappedRoutedEventArgs e)
+        {
+            ViewModel.DisabledContentTapped();
+        }
+
+        private void RightEdgePopup_Tapped(object sender, TappedRoutedEventArgs e)
+        {
 
         }
+
+        private void CenterPopup_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void ShellViewPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            try
+            {
+                // Listen for the edge popup
+                // if it changes state, run the animation
+                if (e.PropertyName == "EdgePopupNavigationEnabled")
+                {
+                    if (ViewModel.EdgePopupNavigationEnabled == true)
+                    {
+                        Page tp = (Page)RightPopupFrame.Content;
+                        if (tp == null) return;
+                        OpenAnimation(tp, tp.Width);
+                    }
+
+                    if (ViewModel.EdgePopupNavigationEnabled == false)
+                    {
+                        Page tp = (Page)RightPopupFrame.Content;
+                        if (tp == null) return;
+                        CloseAnimation(tp, tp.Width);
+                    }
+                }
+                // Listen for the edge popup
+                // if it changes state, run the animation
+                if (e.PropertyName == "CenterPopupNavigationEnabled")
+                {
+                    if (ViewModel.CenterPopupNavigationEnabled == true)
+                    {
+                        //Page tp = (Page)RightPopupFrame.Content;
+                        //if (tp == null) return;
+                        //OpenAnimation(tp, tp.Width);
+                    }
+
+                    if (ViewModel.EdgePopupNavigationEnabled == false)
+                    {
+                        //Page tp = (Page)RightPopupFrame.Content;
+                        //if (tp == null) return;
+                        //CloseAnimation(tp, tp.Width);
+                    }
+                }
+
+            }
+            catch
+            {
+                return;
+            }
+
+        }
+
+        // Take from the follow stackoverflow Q&A
+        // https://stackoverflow.com/questions/45470247/how-to-animate-column-width-in-uwp-app
+        /// <summary>
+        /// Open the UIElement with a little width animation :)
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="Width"></param>
+        static void OpenAnimation(UIElement element, Double Width)
+        {
+            //MenuGrid.Name = nameof(MenuGrid);
+            var storyboard = new Storyboard();
+            var animation = new DoubleAnimation();
+            Storyboard.SetTargetName(animation, nameof(element));
+            Storyboard.SetTarget(animation, element);
+            Storyboard.SetTargetProperty(animation, "Width");
+            animation.EnableDependentAnimation = true;
+            animation.From = 0;
+            if (!(Width < 200)) Width = 200;
+            animation.To = Width;
+            animation.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
+        }
+
+        /// <summary>
+        /// Close the UIElement with a little width animation :)
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="Width"></param>
+        static void CloseAnimation(UIElement element, Double Width)
+        {
+            //MenuGrid.Name = nameof(MenuGrid);
+            var storyboard = new Storyboard();
+            var animation = new DoubleAnimation();
+            Storyboard.SetTargetName(animation, nameof(element));
+            Storyboard.SetTarget(animation, element);
+            Storyboard.SetTargetProperty(animation, "Width");
+            animation.EnableDependentAnimation = true;
+            //Debug.WriteLine("CloseAnimationWidth = " + Width);
+            animation.From = Width;
+            animation.To = 0;
+            animation.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            storyboard.Children.Add(animation);
+            storyboard.Begin();
+        }
+
+
     }
 }
+

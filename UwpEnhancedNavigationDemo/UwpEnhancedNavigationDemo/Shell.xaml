@@ -112,11 +112,11 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <customNav:EnhancedNavigationShell x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+    <customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
-        <customNav:EnhancedNavigationShell.PainContent>
+        <customNav:EnhancedMasterDetails.PainContent>
             <Grid x:Name="SplitViewPane"
                       VerticalAlignment="Stretch"
                       HorizontalAlignment="Stretch"
@@ -148,14 +148,14 @@
                               VerticalAlignment="Top"
                               Grid.Row="2" />
             </Grid>
-        </customNav:EnhancedNavigationShell.PainContent>
-        <customNav:EnhancedNavigationShell.HamburgerTitleContent>
-            <Grid Background="Green"/>
-        </customNav:EnhancedNavigationShell.HamburgerTitleContent>
-        <customNav:EnhancedNavigationShell.PageTitleContent>
-            <TextBox x:Name="PageTitle"/>
-        </customNav:EnhancedNavigationShell.PageTitleContent>
-        <customNav:EnhancedNavigationShell.MainContent>
+        </customNav:EnhancedMasterDetails.PainContent>
+        <customNav:EnhancedMasterDetails.HamburgerTitleContent>
+            <Grid Background="White"/>
+        </customNav:EnhancedMasterDetails.HamburgerTitleContent>
+        <customNav:EnhancedMasterDetails.PageTitleContent>
+            <TextBox x:Name="PageTitle" Foreground="Black"/>
+        </customNav:EnhancedMasterDetails.PageTitleContent>
+        <customNav:EnhancedMasterDetails.MainContent>
             <Grid x:Name="SplitViewContentGrid" Background="White" >
                 <!-- Navigation Frame  -->
                 <Frame x:Name="SplitViewFrame" Navigated="SplitViewFrame_OnNavigated" Loaded="SplitViewContent_Loaded"
@@ -171,6 +171,6 @@
                     </Frame.ContentTransitions>
                 </Frame>
             </Grid>
-        </customNav:EnhancedNavigationShell.MainContent>
-    </customNav:EnhancedNavigationShell>
+        </customNav:EnhancedMasterDetails.MainContent>
+    </customNav:EnhancedMasterDetails>
 </Page>

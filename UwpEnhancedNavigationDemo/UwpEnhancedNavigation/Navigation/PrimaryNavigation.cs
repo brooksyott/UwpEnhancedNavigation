@@ -12,6 +12,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Controls;
 
 using Peamel.SimpleFiniteStateMachine;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media.Animation;
 
 namespace UwpEnhancedNavigation
 {
@@ -27,6 +29,21 @@ namespace UwpEnhancedNavigation
             get { return _frame; }
             set { _frame = value; }
         }
+
+        private static Frame _rightEdgePopupFrame;
+        public static Frame RightEdgePopupFrame
+        {
+            get { return _rightEdgePopupFrame; }
+            set { _rightEdgePopupFrame = value; }
+        }
+
+        private static Frame _centerPopupFrame;
+        public static Frame CenterPopupFrame
+        {
+            get { return _centerPopupFrame; }
+            set { _centerPopupFrame = value; }
+        }
+        
 
         #region Navigation Notification System, generally to the UI
         /// Event handlers to notify to UI when navigation events have occurred
@@ -169,18 +186,23 @@ namespace UwpEnhancedNavigation
         /// <param name="content"></param>
         public static void ShowEdgePopup(Page content)
         {
-            _fsm.Fire(Triggers.EDGE_POPUP_NAV_ENABLED, content);
+            RightEdgePopupFrame.Content = content;
+            _fsm.Fire(Triggers.EDGE_POPUP_NAV_ENABLED);
             //NavEventArgs navEvent;
             //navEvent = new NavEventArgs(NavigationEventTypes.SHOW_EDGE_POPUP, content);
             //OnNavigationEvent(navEvent);
         }
+
 
         /// <summary>
         /// Notify the UI that we are done with the Popup, and reenable the UI
         /// </summary>
         public static void CloseEdgePopup()
         {
+            //CloseAnimation(RightEdgePopupFrame, RightEdgePopupFrame.ActualWidth);
             _fsm.Fire(Triggers.EDGE_POPUP_NAV_DISABLED);
+            RightEdgePopupFrame.Content = null;
+
             //NavEventArgs navEvent;
             //navEvent = new NavEventArgs(NavigationEventTypes.CLOSE_EDGE_POPUP);
             //OnNavigationEvent(navEvent);
@@ -188,7 +210,8 @@ namespace UwpEnhancedNavigation
 
         public static void ShowCenterPopup(Page content, Boolean CloseOnTap = false)
         {
-            _fsm.Fire(Triggers.EDGE_POPUP_NAV_ENABLED, content);
+            CenterPopupFrame.Content = content;
+            _fsm.Fire(Triggers.CENTER_POPUP_NAV_ENABLED);
             //NavEventArgs navEvent;
             //navEvent = new NavEventArgs(NavigationEventTypes.SHOW_CENTER_POPUP, content);
             //OnNavigationEvent(navEvent);
@@ -199,7 +222,8 @@ namespace UwpEnhancedNavigation
         /// </summary>
         public static void CloseCenterPopup()
         {
-            _fsm.Fire(Triggers.EDGE_POPUP_NAV_DISABLED);
+            _fsm.Fire(Triggers.CENTER_POPUP_NAV_DISABLED);
+            CenterPopupFrame.Content = null;
             //NavEventArgs navEvent;
             //navEvent = new NavEventArgs(NavigationEventTypes.CLOSE_CENTER_POPUP);
             //OnNavigationEvent(navEvent);

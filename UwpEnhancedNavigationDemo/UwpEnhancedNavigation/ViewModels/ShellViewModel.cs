@@ -69,11 +69,16 @@ namespace UwpEnhancedNavigation
         private void SetupFSM()
         {
             PrimaryNavigation.Fsm = _mainShellFsm;
-
+            
             _mainShellFsm.Configure(States.NO_NAV)
                 .OnEntry((o, t) => SetNoNav(t))
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
+                .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)                 
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.PRIMARY_NAV);
@@ -81,6 +86,9 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNav(t))
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                 .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
@@ -90,6 +98,9 @@ namespace UwpEnhancedNavigation
                 .OnEntry((o, t) => SetNoNavSmall())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
+                .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)               
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.SMALL_PRIMARY_NAV);
@@ -97,6 +108,9 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.SMALL_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavSmall())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
@@ -106,6 +120,9 @@ namespace UwpEnhancedNavigation
                 .OnEntry((o, t) => SetNoNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.MEDIUM_PRIMARY_NAV);
@@ -113,6 +130,9 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.MEDIUM_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
+                .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
@@ -159,6 +179,72 @@ namespace UwpEnhancedNavigation
             }
             return;
         }
+
+        public void DisabledContentTapped()
+        {
+            _mainShellFsm.Fire(Triggers.ENABLE_CONTENT);
+            return;
+        }
+
+        public void EnabledContent()
+        {
+            if (_edgePopupNavigationEnabled == true)
+            {
+                CloseEdgePoppupRequest();
+                return;
+            }
+
+            DisableContent = false;
+            return;
+        }
+
+        private void EdgePoppupRequest()
+        {
+            DisableContent = true;
+            EdgePopupNavigationEnabled = true;
+            return;
+        }
+
+        private void CloseEdgePoppupRequest()
+        {
+            DisableContent = false;
+            EdgePopupNavigationEnabled = false;
+            return;
+        }
+
+        private void OpenCenterPoppupRequest()
+        {
+            DisableContent = true;
+            CenterPopupNavigationEnabled = true;
+            return;
+        }
+
+        private void CloseCenterPoppupRequest()
+        {
+            DisableContent = false;
+            CenterPopupNavigationEnabled = false;
+            return;
+        }
+
+        private Boolean _edgePopupNavigationEnabled = false;
+        public Boolean EdgePopupNavigationEnabled
+        {
+            get { return _edgePopupNavigationEnabled; }
+            set {
+                SetProperty(ref _edgePopupNavigationEnabled, value);
+            }
+        }
+
+        private Boolean _centerPopupNavigationEnabled = false;
+        public Boolean CenterPopupNavigationEnabled
+        {
+            get { return _centerPopupNavigationEnabled; }
+            set
+            {
+                SetProperty(ref _centerPopupNavigationEnabled, value);
+            }
+        }
+
 
         private Boolean HamburgerMenuClickFired()
         {

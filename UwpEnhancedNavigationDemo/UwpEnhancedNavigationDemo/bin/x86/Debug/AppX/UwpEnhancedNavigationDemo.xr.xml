@@ -41,6 +41,8 @@
       <RootProperty Name="Orientation" />
       <RootProperty Name="Margin" />
       <RootProperty Name="Children" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
       <RootProperty Name="Background" />
@@ -108,7 +110,7 @@
       <RootProperty Name="ContentMargin" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.TemplateBindingExtension" />
-    <RootType FullName="UwpEnhancedNavigation.EnhancedNavigationShell">
+    <RootType FullName="UwpEnhancedNavigation.EnhancedMasterDetails">
       <RootProperty Name="ShellBackground" />
       <RootProperty Name="ShellForeground" />
       <RootProperty Name="CompactPaneLength" />
@@ -133,6 +135,11 @@
       <RootProperty Name="RowDefinitions" />
       <RootProperty Name="Children" />
       <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+      <RootEvent Name="Tapped" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
     </RootType>
@@ -148,7 +155,9 @@
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox" />
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Foreground" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Padding" />
       <RootProperty Name="ContentTransitions" />
@@ -234,6 +243,17 @@
     <RootType FullName="UwpEnhancedNavigationDemo.BasicPage2" />
     <RootType FullName="UwpEnhancedNavigationDemo.BasicPage3" />
     <RootType FullName="UwpEnhancedNavigationDemo.Views.BlankPage1" />
+    <RootType FullName="UwpEnhancedNavigationDemo.FlyoutDemoContentPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
+      <RootMethod Name="GetAttachedFlyout" />
+      <RootMethod Name="SetAttachedFlyout" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Flyout">
+      <RootProperty Name="FlyoutPresenterStyle" />
+      <RootProperty Name="Placement" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="UwpEnhancedNavigationDemo.FlyoutDemoPage" />
     <RootType FullName="UwpEnhancedNavigationDemo.Views.MainPage" />
   </Roots.RootTypes>
 </Roots>

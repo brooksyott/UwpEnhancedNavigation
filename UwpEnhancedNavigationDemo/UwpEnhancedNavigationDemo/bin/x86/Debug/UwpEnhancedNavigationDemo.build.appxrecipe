@@ -385,8 +385,8 @@
     <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigation\bin\x86\Debug\UwpEnhancedNavigation.dll">
       <PackagePath>UwpEnhancedNavigation.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Flyout.png">
+      <PackagePath>Assets\Flyout.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -414,6 +414,9 @@
     <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\UwpEnhancedNavigationDemo.xr.xml">
       <PackagePath>UwpEnhancedNavigationDemo.xr.xml</PackagePath>
