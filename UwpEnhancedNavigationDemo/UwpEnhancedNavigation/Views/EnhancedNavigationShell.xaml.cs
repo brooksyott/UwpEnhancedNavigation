@@ -33,6 +33,7 @@ namespace UwpEnhancedNavigation
             this.DataContext = this;
             ShellSplitView.IsPaneOpen = false;
             HideTitleBar();
+            
         }
 
         #region Controlling the Pane behavour
@@ -193,6 +194,20 @@ namespace UwpEnhancedNavigation
             set { SetValue(PainContentProperty, value); }
         }
 
+        public static readonly DependencyProperty HamburgerTitleContentProperty = DependencyProperty.Register(
+              "HamburgerTitleContent",
+              typeof(Object),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(null)
+            );
+
+        public object HamburgerTitleContent
+        {
+            get { return (object)GetValue(HamburgerTitleContentProperty); }
+            set { SetValue(HamburgerTitleContentProperty, value); }
+        }
+
+
         public static readonly DependencyProperty MainContentProperty = DependencyProperty.Register(
               "MainContent",
               typeof(Object),
@@ -203,7 +218,25 @@ namespace UwpEnhancedNavigation
         public object MainContent
         {
             get { return (object)GetValue(MainContentProperty); }
-            set { SetValue(MainContentProperty, value); }
+            set {
+                SetValue(MainContentProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty PageTitleContentProperty = DependencyProperty.Register(
+              "PageTitleContent",
+              typeof(Object),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(null)
+            );
+
+        public object PageTitleContent
+        {
+            get { return (object)GetValue(PageTitleContentProperty); }
+            set
+            {
+                SetValue(PageTitleContentProperty, value);
+            }
         }
         #endregion Content Properties
 
@@ -217,6 +250,7 @@ namespace UwpEnhancedNavigation
             //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
             //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
             appTitleBar.ButtonBackgroundColor = color;
+
         }
 
         public static void SetTitleForegroundColor(Color color)
@@ -227,7 +261,11 @@ namespace UwpEnhancedNavigation
             //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
             //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
             appTitleBar.ButtonForegroundColor = color;
+
+            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
         }
+
 
         /// <summary>
         /// Hides the title bar
@@ -253,6 +291,7 @@ namespace UwpEnhancedNavigation
 
             // Extend the core application view into title bar
             coreTitleBar.ExtendViewIntoTitleBar = true;
+
         }
         #endregion Title Bar
 
@@ -304,7 +343,18 @@ namespace UwpEnhancedNavigation
             Debug.WriteLine("New VisualState = " + newState + ", Width = " + this.ActualWidth);
         }
 
-        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+
+        private void PaneClosingHandler(object sender, SplitViewPaneClosingEventArgs e)
+        {
+            ViewModel.PaneClosing();
+        }
+
+        private void SplitViewFrame_OnNavigated(object sender, NavigationEventArgs e)
+        {
+
+        }
+
+        private void SplitViewContent_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="UwpEnhancedNavigationDemo.BasicPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UwpEnhancedNavigationDemo.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="Transparent">
+        <TextBlock Text="1 - Basic Page"
+                   Foreground="{StaticResource PageForegroundBrush}"
+                   Margin="{StaticResource PageTitleMargin}"
+                   FontSize="{StaticResource PageTitleFontSize}"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left" />
+        <Path Data="{StaticResource Page1Icon}"
+              Fill="{StaticResource IconColorBrush}"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Right"
+              Height="48"
+              Width="48"
+              Margin="24"
+              Stretch="Uniform" />
+        <RichTextBlock TextIndent="12" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Paragraph>This is a simple page, and starts some basic navigation</Paragraph>
+            <Paragraph>It uses the primary navigation.</Paragraph>
+            <Paragraph>If the Visual State of the Menu is Large, you should see a hamburger menu</Paragraph>
+            <Paragraph>If the Visual State of the Menu is Medium, you should see a hamburger menu</Paragraph>
+            <Paragraph>If the Visual State of the Menu is Small, you should see a back button</Paragraph>
+            <Paragraph>Click on the next arrow at the bottom to go to the next page</Paragraph>
+        </RichTextBlock>
+        <Button Click="NextPageButton_OnClick" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="24"
+                Background="{StaticResource PageBackgroundBrush}"
+                Foreground="{StaticResource IconColorBrush}"
+                BorderThickness="0"
+                Height="96"
+                Width="96">
+            <Path Data="{StaticResource NextArrowIcon}"
+                  Fill="{StaticResource IconColorBrush}"
+                  Stretch="Uniform" />
+        </Button>
+    </Grid>
+</Page>

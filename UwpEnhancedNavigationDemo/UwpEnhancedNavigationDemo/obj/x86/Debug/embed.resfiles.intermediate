@@ -1,3 +1,15 @@
 App.xbf
-MainPage.xbf
+Shell.xbf
+Styles\Colors.xbf
+Styles\FlyoutStyles.xbf
+Styles\FontSizes.xbf
+Styles\Icons.xbf
+Styles\Page.xbf
+Styles\TextBlock.xbf
+Styles\Theme.xbf
+Styles\Thickness.xbf
+Views\BasicPage.xbf
+Views\BasicPage2.xbf
+Views\BasicPage3.xbf
 Views\BlankPage1.xbf
+Views\MainPage.xbf

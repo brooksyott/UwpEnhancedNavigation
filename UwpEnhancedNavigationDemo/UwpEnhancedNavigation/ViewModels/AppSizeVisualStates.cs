@@ -9,7 +9,7 @@ namespace UwpEnhancedNavigation
     /// <summary>
     /// VisualState of the SplitView based on the Adaptive Triggers defined and application size
     /// </summary>
-    internal enum MenuVisualState
+    internal enum AppSizeVisualState
     {
         SMALL,               // The Hamburger Menu is hidden
         MEDIUM,              // Only the Hamburger Menu icons show
@@ -20,19 +20,19 @@ namespace UwpEnhancedNavigation
     internal static class MenuVisualStateMethods
     {
 
-        public static String ToString(this MenuVisualState vState)
+        public static String ToString(this AppSizeVisualState vState)
         {
             switch (vState)
             {
-                case MenuVisualState.SMALL:
+                case AppSizeVisualState.SMALL:
                     {
                         return "SMALL";
                     }
-                case MenuVisualState.MEDIUM:
+                case AppSizeVisualState.MEDIUM:
                     {
                         return "MEDIUM";
                     }
-                case MenuVisualState.LARGE:
+                case AppSizeVisualState.LARGE:
                     {
                         return "LARGE";
                     }
@@ -43,25 +43,25 @@ namespace UwpEnhancedNavigation
             }
         }
 
-        public static MenuVisualState StringToVisualState(this String vState)
+        public static AppSizeVisualState StringToVisualState(this String vState)
         {
             switch (vState)
             {
                 case "SMALL":
                     {
-                        return MenuVisualState.SMALL;
+                        return AppSizeVisualState.SMALL;
                     }
                 case "MEDIUM":
                     {
-                        return MenuVisualState.MEDIUM;
+                        return AppSizeVisualState.MEDIUM;
                     }
                 case "LARGE":
                     {
-                        return MenuVisualState.LARGE;
+                        return AppSizeVisualState.LARGE;
                     }
                 default:
                     {
-                        return MenuVisualState.UNKNOWN;
+                        return AppSizeVisualState.UNKNOWN;
                     }
             }
         }

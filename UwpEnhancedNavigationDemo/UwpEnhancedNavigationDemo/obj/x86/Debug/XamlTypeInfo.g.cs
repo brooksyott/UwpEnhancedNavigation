@@ -156,29 +156,49 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[10];
-            _typeNameTable[0] = "UwpEnhancedNavigation.EnhancedNavigationShell";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[2] = "Windows.UI.Xaml.Media.SolidColorBrush";
-            _typeNameTable[3] = "Double";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.SplitViewDisplayMode";
-            _typeNameTable[5] = "Int32";
-            _typeNameTable[6] = "Object";
-            _typeNameTable[7] = "UwpEnhancedNavigationDemo.MainPage";
-            _typeNameTable[8] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[9] = "UwpEnhancedNavigationDemo.Views.BlankPage1";
+            _typeNameTable = new string[20];
+            _typeNameTable[0] = "UwpEnhancedNavigationDemo.MenuDataTemplateSelector";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[2] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[3] = "UwpEnhancedNavigation.EnhancedNavigationShell";
+            _typeNameTable[4] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[5] = "Windows.UI.Xaml.Media.SolidColorBrush";
+            _typeNameTable[6] = "Double";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.SplitViewDisplayMode";
+            _typeNameTable[8] = "Int32";
+            _typeNameTable[9] = "Object";
+            _typeNameTable[10] = "UwpEnhancedNavigationDemo.ShellPage";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Windows.UI.Color";
+            _typeNameTable[13] = "System.ValueType";
+            _typeNameTable[14] = "Byte";
+            _typeNameTable[15] = "UwpEnhancedNavigationDemo.BasicPage";
+            _typeNameTable[16] = "UwpEnhancedNavigationDemo.BasicPage2";
+            _typeNameTable[17] = "UwpEnhancedNavigationDemo.BasicPage3";
+            _typeNameTable[18] = "UwpEnhancedNavigationDemo.Views.BlankPage1";
+            _typeNameTable[19] = "UwpEnhancedNavigationDemo.Views.MainPage";
 
-            _typeTable = new global::System.Type[10];
-            _typeTable[0] = typeof(global::UwpEnhancedNavigation.EnhancedNavigationShell);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Media.SolidColorBrush);
-            _typeTable[3] = typeof(global::System.Double);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.SplitViewDisplayMode);
-            _typeTable[5] = typeof(global::System.Int32);
-            _typeTable[6] = typeof(global::System.Object);
-            _typeTable[7] = typeof(global::UwpEnhancedNavigationDemo.MainPage);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[9] = typeof(global::UwpEnhancedNavigationDemo.Views.BlankPage1);
+            _typeTable = new global::System.Type[20];
+            _typeTable[0] = typeof(global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[3] = typeof(global::UwpEnhancedNavigation.EnhancedNavigationShell);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[5] = typeof(global::Windows.UI.Xaml.Media.SolidColorBrush);
+            _typeTable[6] = typeof(global::System.Double);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.SplitViewDisplayMode);
+            _typeTable[8] = typeof(global::System.Int32);
+            _typeTable[9] = typeof(global::System.Object);
+            _typeTable[10] = typeof(global::UwpEnhancedNavigationDemo.ShellPage);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Windows.UI.Color);
+            _typeTable[13] = typeof(global::System.ValueType);
+            _typeTable[14] = typeof(global::System.Byte);
+            _typeTable[15] = typeof(global::UwpEnhancedNavigationDemo.BasicPage);
+            _typeTable[16] = typeof(global::UwpEnhancedNavigationDemo.BasicPage2);
+            _typeTable[17] = typeof(global::UwpEnhancedNavigationDemo.BasicPage3);
+            _typeTable[18] = typeof(global::UwpEnhancedNavigationDemo.Views.BlankPage1);
+            _typeTable[19] = typeof(global::UwpEnhancedNavigationDemo.Views.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -213,9 +233,14 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_EnhancedNavigationShell() { return new global::UwpEnhancedNavigation.EnhancedNavigationShell(); }
-        private object Activate_7_MainPage() { return new global::UwpEnhancedNavigationDemo.MainPage(); }
-        private object Activate_9_BlankPage1() { return new global::UwpEnhancedNavigationDemo.Views.BlankPage1(); }
+        private object Activate_0_MenuDataTemplateSelector() { return new global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector(); }
+        private object Activate_3_EnhancedNavigationShell() { return new global::UwpEnhancedNavigation.EnhancedNavigationShell(); }
+        private object Activate_10_ShellPage() { return new global::UwpEnhancedNavigationDemo.ShellPage(); }
+        private object Activate_15_BasicPage() { return new global::UwpEnhancedNavigationDemo.BasicPage(); }
+        private object Activate_16_BasicPage2() { return new global::UwpEnhancedNavigationDemo.BasicPage2(); }
+        private object Activate_17_BasicPage3() { return new global::UwpEnhancedNavigationDemo.BasicPage3(); }
+        private object Activate_18_BlankPage1() { return new global::UwpEnhancedNavigationDemo.Views.BlankPage1(); }
+        private object Activate_19_MainPage() { return new global::UwpEnhancedNavigationDemo.Views.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -227,9 +252,27 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  UwpEnhancedNavigation.EnhancedNavigationShell
+            case 0:   //  UwpEnhancedNavigationDemo.MenuDataTemplateSelector
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.DataTemplateSelector"));
+                userType.Activator = Activate_0_MenuDataTemplateSelector;
+                userType.AddMemberName("MenuItemTemplateImage");
+                userType.AddMemberName("MenuItemTemplateInitials");
+                userType.AddMemberName("MenuItemTemplateGlyph");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+                xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  UwpEnhancedNavigation.EnhancedNavigationShell
                 userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
-                userType.Activator = Activate_0_EnhancedNavigationShell;
+                userType.Activator = Activate_3_EnhancedNavigationShell;
                 userType.AddMemberName("ShellBackground");
                 userType.AddMemberName("ShellForeground");
                 userType.AddMemberName("CompactPaneLength");
@@ -241,48 +284,98 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
                 userType.AddMemberName("MediumMinWindowWidth");
                 userType.AddMemberName("SmallMinWindowWidth");
                 userType.AddMemberName("PainContent");
+                userType.AddMemberName("HamburgerTitleContent");
+                userType.AddMemberName("PageTitleContent");
                 userType.AddMemberName("MainContent");
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.UserControl
+            case 4:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Media.SolidColorBrush
+            case 5:   //  Windows.UI.Xaml.Media.SolidColorBrush
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 3:   //  Double
+            case 6:   //  Double
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.SplitViewDisplayMode
+            case 7:   //  Windows.UI.Xaml.Controls.SplitViewDisplayMode
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 5:   //  Int32
+            case 8:   //  Int32
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Object
+            case 9:   //  Object
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 7:   //  UwpEnhancedNavigationDemo.MainPage
+            case 10:   //  UwpEnhancedNavigationDemo.ShellPage
                 userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_MainPage;
+                userType.Activator = Activate_10_ShellPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  Windows.UI.Xaml.Controls.Page
+            case 11:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 9:   //  UwpEnhancedNavigationDemo.Views.BlankPage1
+            case 12:   //  Windows.UI.Color
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.AddMemberName("A");
+                userType.AddMemberName("B");
+                userType.AddMemberName("G");
+                userType.AddMemberName("R");
+                xamlType = userType;
+                break;
+
+            case 13:   //  System.ValueType
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                xamlType = userType;
+                break;
+
+            case 14:   //  Byte
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 15:   //  UwpEnhancedNavigationDemo.BasicPage
                 userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_BlankPage1;
+                userType.Activator = Activate_15_BasicPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 16:   //  UwpEnhancedNavigationDemo.BasicPage2
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_16_BasicPage2;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 17:   //  UwpEnhancedNavigationDemo.BasicPage3
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_17_BasicPage3;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 18:   //  UwpEnhancedNavigationDemo.Views.BlankPage1
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_18_BlankPage1;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 19:   //  UwpEnhancedNavigationDemo.Views.MainPage
+                userType = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_19_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -345,125 +438,215 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
             return foundXamlType;
         }
 
-        private object get_0_EnhancedNavigationShell_ShellBackground(object instance)
+        private object get_0_MenuDataTemplateSelector_MenuItemTemplateImage(object instance)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            return that.MenuItemTemplateImage;
+        }
+        private void set_0_MenuDataTemplateSelector_MenuItemTemplateImage(object instance, object Value)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            that.MenuItemTemplateImage = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_1_MenuDataTemplateSelector_MenuItemTemplateInitials(object instance)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            return that.MenuItemTemplateInitials;
+        }
+        private void set_1_MenuDataTemplateSelector_MenuItemTemplateInitials(object instance, object Value)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            that.MenuItemTemplateInitials = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_2_MenuDataTemplateSelector_MenuItemTemplateGlyph(object instance)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            return that.MenuItemTemplateGlyph;
+        }
+        private void set_2_MenuDataTemplateSelector_MenuItemTemplateGlyph(object instance, object Value)
+        {
+            var that = (global::UwpEnhancedNavigationDemo.MenuDataTemplateSelector)instance;
+            that.MenuItemTemplateGlyph = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_3_EnhancedNavigationShell_ShellBackground(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.ShellBackground;
         }
-        private void set_0_EnhancedNavigationShell_ShellBackground(object instance, object Value)
+        private void set_3_EnhancedNavigationShell_ShellBackground(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.ShellBackground = (global::Windows.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_1_EnhancedNavigationShell_ShellForeground(object instance)
+        private object get_4_EnhancedNavigationShell_ShellForeground(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.ShellForeground;
         }
-        private void set_1_EnhancedNavigationShell_ShellForeground(object instance, object Value)
+        private void set_4_EnhancedNavigationShell_ShellForeground(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.ShellForeground = (global::Windows.UI.Xaml.Media.SolidColorBrush)Value;
         }
-        private object get_2_EnhancedNavigationShell_CompactPaneLength(object instance)
+        private object get_5_EnhancedNavigationShell_CompactPaneLength(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.CompactPaneLength;
         }
-        private void set_2_EnhancedNavigationShell_CompactPaneLength(object instance, object Value)
+        private void set_5_EnhancedNavigationShell_CompactPaneLength(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.CompactPaneLength = (global::System.Double)Value;
         }
-        private object get_3_EnhancedNavigationShell_OpenPaneLength(object instance)
+        private object get_6_EnhancedNavigationShell_OpenPaneLength(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.OpenPaneLength;
         }
-        private void set_3_EnhancedNavigationShell_OpenPaneLength(object instance, object Value)
+        private void set_6_EnhancedNavigationShell_OpenPaneLength(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.OpenPaneLength = (global::System.Double)Value;
         }
-        private object get_4_EnhancedNavigationShell_LargeDisplayMode(object instance)
+        private object get_7_EnhancedNavigationShell_LargeDisplayMode(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.LargeDisplayMode;
         }
-        private void set_4_EnhancedNavigationShell_LargeDisplayMode(object instance, object Value)
+        private void set_7_EnhancedNavigationShell_LargeDisplayMode(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.LargeDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_5_EnhancedNavigationShell_MediumDisplayMode(object instance)
+        private object get_8_EnhancedNavigationShell_MediumDisplayMode(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.MediumDisplayMode;
         }
-        private void set_5_EnhancedNavigationShell_MediumDisplayMode(object instance, object Value)
+        private void set_8_EnhancedNavigationShell_MediumDisplayMode(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.MediumDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_6_EnhancedNavigationShell_SmallDisplayMode(object instance)
+        private object get_9_EnhancedNavigationShell_SmallDisplayMode(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.SmallDisplayMode;
         }
-        private void set_6_EnhancedNavigationShell_SmallDisplayMode(object instance, object Value)
+        private void set_9_EnhancedNavigationShell_SmallDisplayMode(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.SmallDisplayMode = (global::Windows.UI.Xaml.Controls.SplitViewDisplayMode)Value;
         }
-        private object get_7_EnhancedNavigationShell_LargeMinWindowWidth(object instance)
+        private object get_10_EnhancedNavigationShell_LargeMinWindowWidth(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.LargeMinWindowWidth;
         }
-        private void set_7_EnhancedNavigationShell_LargeMinWindowWidth(object instance, object Value)
+        private void set_10_EnhancedNavigationShell_LargeMinWindowWidth(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.LargeMinWindowWidth = (global::System.Int32)Value;
         }
-        private object get_8_EnhancedNavigationShell_MediumMinWindowWidth(object instance)
+        private object get_11_EnhancedNavigationShell_MediumMinWindowWidth(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.MediumMinWindowWidth;
         }
-        private void set_8_EnhancedNavigationShell_MediumMinWindowWidth(object instance, object Value)
+        private void set_11_EnhancedNavigationShell_MediumMinWindowWidth(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.MediumMinWindowWidth = (global::System.Int32)Value;
         }
-        private object get_9_EnhancedNavigationShell_SmallMinWindowWidth(object instance)
+        private object get_12_EnhancedNavigationShell_SmallMinWindowWidth(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.SmallMinWindowWidth;
         }
-        private void set_9_EnhancedNavigationShell_SmallMinWindowWidth(object instance, object Value)
+        private void set_12_EnhancedNavigationShell_SmallMinWindowWidth(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.SmallMinWindowWidth = (global::System.Int32)Value;
         }
-        private object get_10_EnhancedNavigationShell_PainContent(object instance)
+        private object get_13_EnhancedNavigationShell_PainContent(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.PainContent;
         }
-        private void set_10_EnhancedNavigationShell_PainContent(object instance, object Value)
+        private void set_13_EnhancedNavigationShell_PainContent(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.PainContent = (global::System.Object)Value;
         }
-        private object get_11_EnhancedNavigationShell_MainContent(object instance)
+        private object get_14_EnhancedNavigationShell_HamburgerTitleContent(object instance)
+        {
+            var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
+            return that.HamburgerTitleContent;
+        }
+        private void set_14_EnhancedNavigationShell_HamburgerTitleContent(object instance, object Value)
+        {
+            var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
+            that.HamburgerTitleContent = (global::System.Object)Value;
+        }
+        private object get_15_EnhancedNavigationShell_PageTitleContent(object instance)
+        {
+            var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
+            return that.PageTitleContent;
+        }
+        private void set_15_EnhancedNavigationShell_PageTitleContent(object instance, object Value)
+        {
+            var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
+            that.PageTitleContent = (global::System.Object)Value;
+        }
+        private object get_16_EnhancedNavigationShell_MainContent(object instance)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             return that.MainContent;
         }
-        private void set_11_EnhancedNavigationShell_MainContent(object instance, object Value)
+        private void set_16_EnhancedNavigationShell_MainContent(object instance, object Value)
         {
             var that = (global::UwpEnhancedNavigation.EnhancedNavigationShell)instance;
             that.MainContent = (global::System.Object)Value;
+        }
+        private object get_17_Color_A(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.A;
+        }
+        private void set_17_Color_A(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.A = (global::System.Byte)Value;
+        }
+        private object get_18_Color_B(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.B;
+        }
+        private void set_18_Color_B(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.B = (global::System.Byte)Value;
+        }
+        private object get_19_Color_G(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.G;
+        }
+        private void set_19_Color_G(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.G = (global::System.Byte)Value;
+        }
+        private object get_20_Color_R(object instance)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            return that.R;
+        }
+        private void set_20_Color_R(object instance, object Value)
+        {
+            var that = (global::Windows.UI.Color)instance;
+            that.R = (global::System.Byte)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -473,89 +656,145 @@ namespace UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo
 
             switch (longMemberName)
             {
+            case "UwpEnhancedNavigationDemo.MenuDataTemplateSelector.MenuItemTemplateImage":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigationDemo.MenuDataTemplateSelector");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MenuItemTemplateImage", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_0_MenuDataTemplateSelector_MenuItemTemplateImage;
+                xamlMember.Setter = set_0_MenuDataTemplateSelector_MenuItemTemplateImage;
+                break;
+            case "UwpEnhancedNavigationDemo.MenuDataTemplateSelector.MenuItemTemplateInitials":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigationDemo.MenuDataTemplateSelector");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MenuItemTemplateInitials", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_1_MenuDataTemplateSelector_MenuItemTemplateInitials;
+                xamlMember.Setter = set_1_MenuDataTemplateSelector_MenuItemTemplateInitials;
+                break;
+            case "UwpEnhancedNavigationDemo.MenuDataTemplateSelector.MenuItemTemplateGlyph":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigationDemo.MenuDataTemplateSelector");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MenuItemTemplateGlyph", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.Getter = get_2_MenuDataTemplateSelector_MenuItemTemplateGlyph;
+                xamlMember.Setter = set_2_MenuDataTemplateSelector_MenuItemTemplateGlyph;
+                break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.ShellBackground":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "ShellBackground", "Windows.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_0_EnhancedNavigationShell_ShellBackground;
-                xamlMember.Setter = set_0_EnhancedNavigationShell_ShellBackground;
+                xamlMember.Getter = get_3_EnhancedNavigationShell_ShellBackground;
+                xamlMember.Setter = set_3_EnhancedNavigationShell_ShellBackground;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.ShellForeground":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "ShellForeground", "Windows.UI.Xaml.Media.SolidColorBrush");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_1_EnhancedNavigationShell_ShellForeground;
-                xamlMember.Setter = set_1_EnhancedNavigationShell_ShellForeground;
+                xamlMember.Getter = get_4_EnhancedNavigationShell_ShellForeground;
+                xamlMember.Setter = set_4_EnhancedNavigationShell_ShellForeground;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.CompactPaneLength":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "CompactPaneLength", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_2_EnhancedNavigationShell_CompactPaneLength;
-                xamlMember.Setter = set_2_EnhancedNavigationShell_CompactPaneLength;
+                xamlMember.Getter = get_5_EnhancedNavigationShell_CompactPaneLength;
+                xamlMember.Setter = set_5_EnhancedNavigationShell_CompactPaneLength;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.OpenPaneLength":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "OpenPaneLength", "Double");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_3_EnhancedNavigationShell_OpenPaneLength;
-                xamlMember.Setter = set_3_EnhancedNavigationShell_OpenPaneLength;
+                xamlMember.Getter = get_6_EnhancedNavigationShell_OpenPaneLength;
+                xamlMember.Setter = set_6_EnhancedNavigationShell_OpenPaneLength;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.LargeDisplayMode":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "LargeDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_4_EnhancedNavigationShell_LargeDisplayMode;
-                xamlMember.Setter = set_4_EnhancedNavigationShell_LargeDisplayMode;
+                xamlMember.Getter = get_7_EnhancedNavigationShell_LargeDisplayMode;
+                xamlMember.Setter = set_7_EnhancedNavigationShell_LargeDisplayMode;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.MediumDisplayMode":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MediumDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_5_EnhancedNavigationShell_MediumDisplayMode;
-                xamlMember.Setter = set_5_EnhancedNavigationShell_MediumDisplayMode;
+                xamlMember.Getter = get_8_EnhancedNavigationShell_MediumDisplayMode;
+                xamlMember.Setter = set_8_EnhancedNavigationShell_MediumDisplayMode;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.SmallDisplayMode":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "SmallDisplayMode", "Windows.UI.Xaml.Controls.SplitViewDisplayMode");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_6_EnhancedNavigationShell_SmallDisplayMode;
-                xamlMember.Setter = set_6_EnhancedNavigationShell_SmallDisplayMode;
+                xamlMember.Getter = get_9_EnhancedNavigationShell_SmallDisplayMode;
+                xamlMember.Setter = set_9_EnhancedNavigationShell_SmallDisplayMode;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.LargeMinWindowWidth":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "LargeMinWindowWidth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_7_EnhancedNavigationShell_LargeMinWindowWidth;
-                xamlMember.Setter = set_7_EnhancedNavigationShell_LargeMinWindowWidth;
+                xamlMember.Getter = get_10_EnhancedNavigationShell_LargeMinWindowWidth;
+                xamlMember.Setter = set_10_EnhancedNavigationShell_LargeMinWindowWidth;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.MediumMinWindowWidth":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MediumMinWindowWidth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_8_EnhancedNavigationShell_MediumMinWindowWidth;
-                xamlMember.Setter = set_8_EnhancedNavigationShell_MediumMinWindowWidth;
+                xamlMember.Getter = get_11_EnhancedNavigationShell_MediumMinWindowWidth;
+                xamlMember.Setter = set_11_EnhancedNavigationShell_MediumMinWindowWidth;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.SmallMinWindowWidth":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "SmallMinWindowWidth", "Int32");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_9_EnhancedNavigationShell_SmallMinWindowWidth;
-                xamlMember.Setter = set_9_EnhancedNavigationShell_SmallMinWindowWidth;
+                xamlMember.Getter = get_12_EnhancedNavigationShell_SmallMinWindowWidth;
+                xamlMember.Setter = set_12_EnhancedNavigationShell_SmallMinWindowWidth;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.PainContent":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "PainContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_10_EnhancedNavigationShell_PainContent;
-                xamlMember.Setter = set_10_EnhancedNavigationShell_PainContent;
+                xamlMember.Getter = get_13_EnhancedNavigationShell_PainContent;
+                xamlMember.Setter = set_13_EnhancedNavigationShell_PainContent;
+                break;
+            case "UwpEnhancedNavigation.EnhancedNavigationShell.HamburgerTitleContent":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "HamburgerTitleContent", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_14_EnhancedNavigationShell_HamburgerTitleContent;
+                xamlMember.Setter = set_14_EnhancedNavigationShell_HamburgerTitleContent;
+                break;
+            case "UwpEnhancedNavigation.EnhancedNavigationShell.PageTitleContent":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "PageTitleContent", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_15_EnhancedNavigationShell_PageTitleContent;
+                xamlMember.Setter = set_15_EnhancedNavigationShell_PageTitleContent;
                 break;
             case "UwpEnhancedNavigation.EnhancedNavigationShell.MainContent":
                 userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("UwpEnhancedNavigation.EnhancedNavigationShell");
                 xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "MainContent", "Object");
                 xamlMember.SetIsDependencyProperty();
-                xamlMember.Getter = get_11_EnhancedNavigationShell_MainContent;
-                xamlMember.Setter = set_11_EnhancedNavigationShell_MainContent;
+                xamlMember.Getter = get_16_EnhancedNavigationShell_MainContent;
+                xamlMember.Setter = set_16_EnhancedNavigationShell_MainContent;
+                break;
+            case "Windows.UI.Color.A":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "A", "Byte");
+                xamlMember.Getter = get_17_Color_A;
+                xamlMember.Setter = set_17_Color_A;
+                break;
+            case "Windows.UI.Color.B":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "B", "Byte");
+                xamlMember.Getter = get_18_Color_B;
+                xamlMember.Setter = set_18_Color_B;
+                break;
+            case "Windows.UI.Color.G":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "G", "Byte");
+                xamlMember.Getter = get_19_Color_G;
+                xamlMember.Setter = set_19_Color_G;
+                break;
+            case "Windows.UI.Color.R":
+                userType = (global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Windows.UI.Color");
+                xamlMember = new global::UwpEnhancedNavigationDemo.UwpEnhancedNavigationDemo_XamlTypeInfo.XamlMember(this, "R", "Byte");
+                xamlMember.Getter = get_20_Color_R;
+                xamlMember.Setter = set_20_Color_R;
                 break;
             }
             return xamlMember;

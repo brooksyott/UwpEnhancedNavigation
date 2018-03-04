@@ -374,11 +374,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -387,7 +388,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -2439,7 +2440,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -2771,11 +2772,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -2784,7 +2786,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -4924,7 +4926,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -5257,11 +5259,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -5270,7 +5273,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -7445,7 +7448,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -7780,11 +7783,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -7793,7 +7797,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -9939,7 +9943,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -10275,11 +10279,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -10288,7 +10293,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -12469,7 +12474,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -12804,11 +12809,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -12817,7 +12823,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -14963,7 +14969,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -15299,11 +15305,12 @@
           "System.Xml.XDocument": "4.3.0"
         }
       },
-      "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
+      "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "PeamelBasicLogger": "1.0.1"
+          "PeamelBasicLogger": "1.1.1",
+          "System.IO.FileSystem": "4.3.0"
         },
         "compile": {
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
@@ -15312,7 +15319,7 @@
           "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll": {}
         }
       },
-      "PeamelBasicLogger/1.0.1": {
+      "PeamelBasicLogger/1.1.1": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
@@ -17493,7 +17500,7 @@
         "framework": "UAP,Version=v10.0.10586",
         "dependencies": {
           "Microsoft.NETCore.UniversalWindowsPlatform": "6.0.6",
-          "Peamel.SimpleFiniteStateMachine": "0.1.4-alpha"
+          "Peamel.SimpleFiniteStateMachine": "0.1.6-alpha"
         },
         "compile": {
           "bin/placeholder/UwpEnhancedNavigation.dll": {}
@@ -20186,23 +20193,23 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Peamel.SimpleFiniteStateMachine/0.1.4-alpha": {
-      "sha512": "uxIwmZxXoYB9YSXY14it7lXCS8N94YTaKpvchoGbYB9qfuLVOq1R/f5kvC9yh5BJO2puIvxHUiOLg8OufKaC0A==",
+    "Peamel.SimpleFiniteStateMachine/0.1.6-alpha": {
+      "sha512": "LsIjMznW46/EmFmydX11tlwS/mo2tFkG4eAWo0JA/buZstQ7iu2Mge3rGvqlN9TkHemdoo9UpGuv2TEzKdA8mg==",
       "type": "package",
-      "path": "peamel.simplefinitestatemachine/0.1.4-alpha",
+      "path": "peamel.simplefinitestatemachine/0.1.6-alpha",
       "files": [
         "lib/netstandard1.4/PeamelSimpleFiniteStateMachine.dll",
-        "peamel.simplefinitestatemachine.0.1.4-alpha.nupkg.sha512",
+        "peamel.simplefinitestatemachine.0.1.6-alpha.nupkg.sha512",
         "peamel.simplefinitestatemachine.nuspec"
       ]
     },
-    "PeamelBasicLogger/1.0.1": {
-      "sha512": "7CnRHwDpyUWWEwrWH3CU/NZJTnbU3Gl0cPDiU6L2rC4AQW23d/TvPJAGOSDDHgb9iyzor9Z8rEN0QnJdgfop4g==",
+    "PeamelBasicLogger/1.1.1": {
+      "sha512": "DoKbLXhuS54elu5z937Tdwm4L3Y6/xBzQe4ND2L3IKMO6O/0gAjXcJPq0K8sk799+98nkN8hzCYcqMgTCcYF+w==",
       "type": "package",
-      "path": "peamelbasiclogger/1.0.1",
+      "path": "peamelbasiclogger/1.1.1",
       "files": [
         "lib/netstandard1.4/PeamelBasicLogger.dll",
-        "peamelbasiclogger.1.0.1.nupkg.sha512",
+        "peamelbasiclogger.1.1.1.nupkg.sha512",
         "peamelbasiclogger.nuspec"
       ]
     },
@@ -27324,24 +27331,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\david\\.nuget\\packages\\": {},
+    "C:\\Users\\brooksd\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo.csproj",
+      "projectUniqueName": "C:\\Repos\\Personal\\Nuget\\Peamel\\UwpEnhancedNavigition\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo.csproj",
       "projectName": "UwpEnhancedNavigationDemo",
-      "projectPath": "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo.csproj",
-      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\obj\\",
+      "projectPath": "C:\\Repos\\Personal\\Nuget\\Peamel\\UwpEnhancedNavigition\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo.csproj",
+      "packagesPath": "C:\\Users\\brooksd\\.nuget\\packages\\",
+      "outputPath": "C:\\Repos\\Personal\\Nuget\\Peamel\\UwpEnhancedNavigition\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigationDemo\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\brooksd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
@@ -27355,8 +27362,8 @@
       "frameworks": {
         "uap10.0.10586": {
           "projectReferences": {
-            "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigation\\UwpEnhancedNavigation.csproj": {
-              "projectPath": "C:\\Repos\\Personal Repo\\UwpEnhancedNavigation\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigation\\UwpEnhancedNavigation.csproj"
+            "C:\\Repos\\Personal\\Nuget\\Peamel\\UwpEnhancedNavigition\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigation\\UwpEnhancedNavigation.csproj": {
+              "projectPath": "C:\\Repos\\Personal\\Nuget\\Peamel\\UwpEnhancedNavigition\\UwpEnhancedNavigationDemo\\UwpEnhancedNavigation\\UwpEnhancedNavigation.csproj"
             }
           }
         }

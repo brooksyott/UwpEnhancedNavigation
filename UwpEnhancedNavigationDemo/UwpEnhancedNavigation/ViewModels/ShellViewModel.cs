@@ -21,7 +21,6 @@ namespace UwpEnhancedNavigation
     internal class ShellViewModel : BindableBaseUI
     {
         
-        private MenuVisualState _menuVisualState = MenuVisualState.UNKNOWN;
 
         #region Singleton Implementation
         static private ShellViewModel _instance = new ShellViewModel();
@@ -36,23 +35,206 @@ namespace UwpEnhancedNavigation
             displatcherContext = Window.Current.Content as Frame;
             SetupFSM();
         }
+        #endregion Singleton Implementation
 
-        FiniteStateMachine<States, Triggers> _mainShellFsm = new FiniteStateMachine<States, Triggers>(States.NO_NAV);
+        #region Hamburger Menu Icon Stats / Elements
+        private AppSizeVisualState _menuVisualState = AppSizeVisualState.UNKNOWN;
 
+        HamburgerButtonState _hamburgerMenuState = HamburgerButtonState.Menu;
+        public HamburgerButtonState HamburgerMenuState
+        {
+            get { return _hamburgerMenuState; }
+            set
+            {
+                SetProperty(ref _hamburgerMenuState, value);
+            }
+        }
+        #endregion Hamburger Menu Icon Stats / Elements
+
+        #region Pane State
+        Boolean _isOverlayed = false;
+
+        #endregion Pane State
+
+        #region App Size Handling
+        #endregion App Size Handling
+
+        #region Overall State Machine
+        // The basic state machine to determine UI element behaviour
+        public FiniteStateMachine<States, Triggers> _mainShellFsm = new FiniteStateMachine<States, Triggers>(States.NO_NAV);
+
+        /// <summary>
+        /// Configuration of the state macine
+        /// </summary>
         private void SetupFSM()
         {
+            PrimaryNavigation.Fsm = _mainShellFsm;
 
             _mainShellFsm.Configure(States.NO_NAV)
-                .OnEntry((o,t) => SetPaneDisplayMode())
-                .Permit(Triggers.VISUAL_STATE_LARGE, (o, t) => SetPaneDisplayModeInternal())
-                .Permit(Triggers.VISUAL_STATE_MEDIUM, (o, t) => SetPaneDisplayModeInternal() )
-                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV);
+                .OnEntry((o, t) => SetNoNav(t))
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)
+                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)                 
+                .Permit(Triggers.PRIMARY_NAV_ENABLED, States.PRIMARY_NAV);
+
+            _mainShellFsm.Configure(States.PRIMARY_NAV)
+                .OnEntry((o, t) => SetPrimaryNav(t))
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
+                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
+                .Permit(Triggers.PRIMARY_NAV_DISABLED, States.NO_NAV);
 
             _mainShellFsm.Configure(States.SMALL_NO_NAV)
-                .OnEntry((o, t) => SetPaneDisplayMode() )
-                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.NO_NAV);
+                .OnEntry((o, t) => SetNoNavSmall())
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_LARGE,  States.NO_NAV)                       
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)               
+                .Permit(Triggers.PRIMARY_NAV_ENABLED, States.SMALL_PRIMARY_NAV);
 
+            _mainShellFsm.Configure(States.SMALL_PRIMARY_NAV)
+                .OnEntry((o, t) => SetPrimaryNavSmall())
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
+                .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
+                .Permit(Triggers.PRIMARY_NAV_DISABLED, States.SMALL_NO_NAV);
+
+            _mainShellFsm.Configure(States.MEDIUM_NO_NAV)
+                .OnEntry((o, t) => SetNoNavMedium())
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
+                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)
+                .Permit(Triggers.PRIMARY_NAV_ENABLED, States.MEDIUM_PRIMARY_NAV);
+
+            _mainShellFsm.Configure(States.MEDIUM_PRIMARY_NAV)
+                .OnEntry((o, t) => SetPrimaryNavMedium())
+                .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
+                .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
+                .Permit(Triggers.PRIMARY_NAV_DISABLED, States.MEDIUM_NO_NAV);
         }
+
+        //===============================================================
+        // State machine trigger firing
+        //===============================================================
+
+        /// <summary>
+        /// Send a hamburger menu clicked event into the FSM
+        /// </summary>
+        internal void HambergurMenuClicked()
+        {
+            _mainShellFsm.Fire(Triggers.HAMBURGER_MENU_CLICKED);
+        }
+
+        internal void ArrowMenuClicked()
+        {
+            _mainShellFsm.Fire(Triggers.HAMBURGER_MENU_CLICKED);
+        }
+
+        internal void PaneClosing()
+        {
+            DisableContent = false;
+        }
+
+        //===============================================================
+        // State machine handling of triggers / state transitions
+        //===============================================================
+
+        private Boolean HamburgerMenuClickFired()
+        {
+            if (IsPaneOpen == false)
+            {
+                if (_isOverlayed == true)
+                {
+                    DisableContent = true;
+                }
+                IsPaneOpen = true;
+            }
+            else
+            {
+                if (_isOverlayed == true)
+                {
+                    DisableContent = false;
+                }
+                IsPaneOpen = false;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Sets the UI to have no navigation
+        /// </summary>
+        /// <returns></returns>
+        private Boolean SetNoNav(Triggers trigger)
+        {
+            Debug.WriteLine(" * ********** IN SetNoNav = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.Menu;
+
+            // Do not change pane opened or closed on navigation events
+            if (trigger != Triggers.PRIMARY_NAV_DISABLED)
+                IsPaneOpen = true;
+
+            DisplayMode = LargeDisplayMode;
+            Debug.WriteLine("*********** EXITING SetNoNav = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+
+        private Boolean SetPrimaryNav(Triggers trigger)
+        {
+            // Set the type of hamburger menu visisble based on the size of the app
+            // No matter what size, we are navigating, so set the previous arrow
+            Debug.WriteLine(" * ********** IN SetPrimaryNav = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.Previous;
+            // Do not change pane opened or closed on navigation events
+            if (trigger != Triggers.PRIMARY_NAV_ENABLED)
+                IsPaneOpen = true;
+
+            DisplayMode = LargeDisplayMode;
+            Debug.WriteLine("*********** EXITING SetPrimaryNav = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+
+        private Boolean SetNoNavSmall()
+        {
+            Debug.WriteLine(" * ********** IN SetNoNavSmall = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.ArrowMenu;
+            IsPaneOpen = false;
+            DisplayMode = SmallDisplayMode;
+            Debug.WriteLine("*********** EXITING SetNoNavSmall = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+
+        private Boolean SetPrimaryNavSmall()
+        {
+            Debug.WriteLine(" * ********** IN SetPrimaryNavSmall = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.Previous;
+            DisplayMode = SmallDisplayMode;
+            IsPaneOpen = false;
+            Debug.WriteLine("*********** EXITING SetPrimaryNavSmall = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+
+        private Boolean SetNoNavMedium()
+        {
+            Debug.WriteLine(" * ********** IN SetNoNavMedium = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.Menu;
+            DisplayMode = MediumDisplayMode;
+            IsPaneOpen = false;
+            Debug.WriteLine("*********** EXITING SetNoNavMedium = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+
+        private Boolean SetPrimaryNavMedium()
+        {
+            Debug.WriteLine(" * ********** IN SetPrimaryNavMedium = " + _mainShellFsm.CurrentState);
+            HamburgerMenuState = HamburgerButtonState.Previous;
+            DisplayMode = MediumDisplayMode;
+            IsPaneOpen = false;
+            Debug.WriteLine("*********** EXITING SetPrimaryNavMedium = " + _mainShellFsm.CurrentState);
+            return true;
+        }
+        #endregion
 
         private Boolean SetPaneDisplayModeInternal()
         {
@@ -60,24 +242,31 @@ namespace UwpEnhancedNavigation
             return SetPaneDisplayMode();
         }
 
+        private Boolean HamburgerMenuClicked()
+        {
+            Debug.WriteLine("HamburgerMenuClicked : CurrentState = " + _mainShellFsm.CurrentState);
+            IsPaneOpen = !IsPaneOpen;
+            return true;
+        }
+
         private Boolean SetPaneDisplayMode()
         {
             Debug.WriteLine("Hit Trigger1 : CurrentState = " + _mainShellFsm.CurrentState);
-            if (_menuVisualState == MenuVisualState.LARGE)
+            if (_menuVisualState == AppSizeVisualState.LARGE)
             {
                 DisplayMode = LargeDisplayMode;
                 IsPaneOpen = true;
                 return true;
             }
 
-            if (_menuVisualState == MenuVisualState.MEDIUM)
+            if (_menuVisualState == AppSizeVisualState.MEDIUM)
             {
                 DisplayMode = MediumDisplayMode;
                 IsPaneOpen = false;
                 return true;
             }
 
-            if (_menuVisualState == MenuVisualState.SMALL)
+            if (_menuVisualState == AppSizeVisualState.SMALL)
             {
                 DisplayMode = SmallDisplayMode;
                 IsPaneOpen = false;
@@ -115,7 +304,6 @@ namespace UwpEnhancedNavigation
             }
         }
 
-        #endregion Singleton Implementation
 
         // The UI will overlay a grid, to make the content not accessbile
         // It should look like a hamburgermenu on mobile apps
@@ -129,6 +317,18 @@ namespace UwpEnhancedNavigation
                 SetProperty(ref _disableContent, value);
             }
         }
+
+
+        private Boolean _navigationEnabled = true;
+        public Boolean NavigationEnabled
+        {
+            get { return _navigationEnabled; }
+            set
+            {
+                SetProperty(ref _navigationEnabled, value);
+            }
+        }
+
         #endregion Disable Content
 
         #region Size Properties for Visual States
@@ -180,21 +380,21 @@ namespace UwpEnhancedNavigation
             Debug.WriteLine("VisualState Updated = " + _menuVisualState);
         }
 
-        public void VisualStateToFsmTrigger(MenuVisualState state)
+        public void VisualStateToFsmTrigger(AppSizeVisualState state)
         {
             switch(state)
             {
-                case MenuVisualState.LARGE:
+                case AppSizeVisualState.LARGE:
                     {
                         _mainShellFsm.Fire(Triggers.VISUAL_STATE_LARGE);
                         return;
                     }
-                case MenuVisualState.MEDIUM:
+                case AppSizeVisualState.MEDIUM:
                     {
                         _mainShellFsm.Fire(Triggers.VISUAL_STATE_MEDIUM);
                         return;
                     }
-                case MenuVisualState.SMALL:
+                case AppSizeVisualState.SMALL:
                     {
                         _mainShellFsm.Fire(Triggers.VISUAL_STATE_SMALL);
                         return;
@@ -207,6 +407,7 @@ namespace UwpEnhancedNavigation
 
         // Sets the properties specific to the Pane
         #region Pane Properties
+        Boolean _isLargeOverlayed = false;
         private SplitViewDisplayMode _largeDisplayMode = SplitViewDisplayMode.Inline;
         public SplitViewDisplayMode LargeDisplayMode
         {
@@ -214,19 +415,37 @@ namespace UwpEnhancedNavigation
             set
             {
                 _largeDisplayMode = value;
+                if ((_largeDisplayMode == SplitViewDisplayMode.CompactOverlay) || (_largeDisplayMode == SplitViewDisplayMode.Overlay))
+                {
+                    _isLargeOverlayed = true;
+                }
+                else
+                {
+                    _isLargeOverlayed = false;
+                }
             }
         }
 
-        private SplitViewDisplayMode _mediumDisplayMode = SplitViewDisplayMode.CompactInline;
+        Boolean _isMediumOverlayed = true;
+        private SplitViewDisplayMode _mediumDisplayMode = SplitViewDisplayMode.CompactOverlay;
         public SplitViewDisplayMode MediumDisplayMode
         {
             get { return _mediumDisplayMode; }
             set
             {
                 _mediumDisplayMode = value;
+                if ((_mediumDisplayMode == SplitViewDisplayMode.CompactOverlay) || (_mediumDisplayMode == SplitViewDisplayMode.Overlay))
+                {
+                    _isMediumOverlayed = true;
+                }
+                else
+                {
+                    _isMediumOverlayed = false;
+                }
             }
         }
 
+        Boolean _isSmallOverlayed = true;
         private SplitViewDisplayMode _smallDisplayMode = SplitViewDisplayMode.Overlay;
         public SplitViewDisplayMode SmallDisplayMode
         {
@@ -234,6 +453,14 @@ namespace UwpEnhancedNavigation
             set
             {
                 _smallDisplayMode = value;
+                if ((_smallDisplayMode == SplitViewDisplayMode.CompactOverlay) || (_smallDisplayMode == SplitViewDisplayMode.Overlay))
+                {
+                    _isSmallOverlayed = true;
+                }
+                else
+                {
+                    _isSmallOverlayed = false;
+                }
             }
         }
 
@@ -244,6 +471,14 @@ namespace UwpEnhancedNavigation
             set
             {
                 SetProperty(ref _displayMode, value);
+                if ((_displayMode == SplitViewDisplayMode.CompactOverlay) || (_displayMode == SplitViewDisplayMode.Overlay))
+                {
+                    _isOverlayed = true;
+                }
+                else
+                {
+                    _isOverlayed = false;
+                }
             }
         }
 

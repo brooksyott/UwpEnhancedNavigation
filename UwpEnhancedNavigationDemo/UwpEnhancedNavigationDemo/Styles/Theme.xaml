@@ -1,0 +1,65 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Styles/Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    <!-- Theme Resources -->
+
+    <!-- General Purpose -->
+    <SolidColorBrush x:Key="TenPercentDarkerBrush"
+                     Color="Black"
+                     Opacity=".1" />
+    <SolidColorBrush x:Key="TenPercentLighterBrush"
+                     Color="White"
+                     Opacity=".1" />
+    <SolidColorBrush x:Key="HighlightBrush"
+                     Color="OrangeRed" />
+
+    <SolidColorBrush x:Key="ListViewSelectItemBackground"
+                     Color="{StaticResource PrimaryAccentBackground}" />
+    <SolidColorBrush x:Key="ListViewSelectItemForeground"
+                     Color="{StaticResource PrimaryAccentForeground}" />
+    <SolidColorBrush x:Key="ListViewSelectedPointerOverBackground"
+                     Color="{StaticResource PrimaryAccentForeground}"/>
+    <SolidColorBrush x:Key="ListViewPointerOverBackground"
+                     Color="{StaticResource GENBAND_LightGray}"
+                     Opacity="0.50"/>
+
+
+    <!-- Specific -->
+    <!-- http://paletton.com/#uid=60A0K0kl6lRtdanpbg8h3rxcYzu -->
+
+    <!-- Header -->
+    <SolidColorBrush x:Key="TitlebarBackgroundBrush"
+                     Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="TitlebarBackgroundDarkBrush"
+                     Color="#FFC6C6C7" />
+    <SolidColorBrush x:Key="TitlebarBackgroundLightBrush"
+                     Color="#FFC9C9CB" />
+    <SolidColorBrush x:Key="StatusbarBackgroundBrush"
+                     Color="#FFF1F1F1" />
+
+    <!-- Splitview Pane -->
+    <SolidColorBrush x:Key="SplitViewBackgroundBrush"
+                     Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="SplitViewForegroundBrush"
+                     Color="#FF222222" />
+    <SolidColorBrush x:Key="HamburgerForegroundBrush"
+                     Color="#FF999999" />
+    <SolidColorBrush x:Key="IconColorBrush"
+                     Color="#FF999999" />
+
+    <!-- Splitview Content -->
+    <SolidColorBrush x:Key="PageBackgroundBrush"
+                     Color="White" />
+    <SolidColorBrush x:Key="PageForegroundBrush"
+                     Color="#FF222222" />
+
+    <SolidColorBrush x:Key="ApplicationPageBackgroundThemeBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="SystemControlHighlightListAccentMediumBrush" Color="Blue" />
+    <SolidColorBrush x:Key="SystemControlHighlightListAccentLowBrush" Color="Blue" />
+
+
+</ResourceDictionary>
+
