@@ -40,6 +40,8 @@ namespace UwpEnhancedNavigationDemo
             //double height = MainNavSplitView.ActualHeight;
             //double width = MainNavSplitView.ActualWidth;
 
+            var t = Shell.IsPaneOpen;
+
             if (e.AddedItems.Count > 0)
             {
                 // Unselect the other menu.

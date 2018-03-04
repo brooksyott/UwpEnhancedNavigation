@@ -22,6 +22,7 @@ namespace UwpEnhancedNavigation
         CENTER_POPUP_NAV_ENABLED = 11,
         CENTER_POPUP_NAV_DISABLED = 12,
         ENABLE_CONTENT = 13,
-        DISABLE_CONTENT = 14
+        DISABLE_CONTENT = 14,
+        PANE_TAPPED
     }
 }

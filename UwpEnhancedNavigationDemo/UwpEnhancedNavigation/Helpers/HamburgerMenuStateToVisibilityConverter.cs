@@ -15,9 +15,11 @@ namespace UwpEnhancedNavigation
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            HamburgerButtonState state = (HamburgerButtonState)value;
-            if (state == HamburgerButtonState.Menu) return Visibility.Visible;
-            return Visibility.Collapsed;
+            //HamburgerButtonState state = (HamburgerButtonState)value;
+            //if (state == HamburgerButtonState.Menu) return Visibility.Visible;
+            //return Visibility.Collapsed;
+            return Visibility.Visible;
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
@@ -34,7 +36,8 @@ namespace UwpEnhancedNavigation
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             HamburgerButtonState state = (HamburgerButtonState)value;
-            if (state == HamburgerButtonState.ArrowMenu) return Visibility.Visible;
+            if (state == HamburgerButtonState.ArrowMenu)
+                return Visibility.Visible;
             return Visibility.Collapsed;
         }
 

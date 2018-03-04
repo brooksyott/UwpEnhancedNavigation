@@ -73,6 +73,7 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.NO_NAV)
                 .OnEntry((o, t) => SetNoNav(t))
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)                 
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.PRIMARY_NAV);
@@ -80,6 +81,7 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNav(t))
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
                 .Permit(Triggers.PRIMARY_NAV_DISABLED, States.NO_NAV);
@@ -87,13 +89,15 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.SMALL_NO_NAV)
                 .OnEntry((o, t) => SetNoNavSmall())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
-                .Permit(Triggers.VISUAL_STATE_LARGE,  States.NO_NAV)                       
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
+                .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_NO_NAV)               
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.SMALL_PRIMARY_NAV);
 
             _mainShellFsm.Configure(States.SMALL_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavSmall())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
                 .Permit(Triggers.PRIMARY_NAV_DISABLED, States.SMALL_NO_NAV);
@@ -101,6 +105,7 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.MEDIUM_NO_NAV)
                 .OnEntry((o, t) => SetNoNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_NO_NAV)
                 .Permit(Triggers.PRIMARY_NAV_ENABLED, States.MEDIUM_PRIMARY_NAV);
@@ -108,6 +113,7 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.MEDIUM_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.PRIMARY_NAV)
                 .Permit(Triggers.VISUAL_STATE_SMALL, States.SMALL_PRIMARY_NAV)
                 .Permit(Triggers.PRIMARY_NAV_DISABLED, States.MEDIUM_NO_NAV);
@@ -130,6 +136,11 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Fire(Triggers.HAMBURGER_MENU_CLICKED);
         }
 
+        internal void PaneTappedEvent()
+        {
+            _mainShellFsm.Fire(Triggers.PANE_TAPPED);
+        }
+
         internal void PaneClosing()
         {
             DisableContent = false;
@@ -138,6 +149,16 @@ namespace UwpEnhancedNavigation
         //===============================================================
         // State machine handling of triggers / state transitions
         //===============================================================
+
+        private void PaneTapped()
+        {
+            if ((_isOverlayed == true) && (IsPaneOpen == true))
+            {
+                IsPaneOpen = false;
+                DisableContent = false;
+            }
+            return;
+        }
 
         private Boolean HamburgerMenuClickFired()
         {
@@ -169,6 +190,7 @@ namespace UwpEnhancedNavigation
         private Boolean SetNoNav(Triggers trigger)
         {
             Debug.WriteLine(" * ********** IN SetNoNav = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Menu;
 
             // Do not change pane opened or closed on navigation events
@@ -176,6 +198,7 @@ namespace UwpEnhancedNavigation
                 IsPaneOpen = true;
 
             DisplayMode = LargeDisplayMode;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNav = " + _mainShellFsm.CurrentState);
             return true;
         }
@@ -185,12 +208,14 @@ namespace UwpEnhancedNavigation
             // Set the type of hamburger menu visisble based on the size of the app
             // No matter what size, we are navigating, so set the previous arrow
             Debug.WriteLine(" * ********** IN SetPrimaryNav = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             // Do not change pane opened or closed on navigation events
             if (trigger != Triggers.PRIMARY_NAV_ENABLED)
                 IsPaneOpen = true;
 
             DisplayMode = LargeDisplayMode;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNav = " + _mainShellFsm.CurrentState);
             return true;
         }
@@ -198,9 +223,11 @@ namespace UwpEnhancedNavigation
         private Boolean SetNoNavSmall()
         {
             Debug.WriteLine(" * ********** IN SetNoNavSmall = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.ArrowMenu;
             IsPaneOpen = false;
             DisplayMode = SmallDisplayMode;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNavSmall = " + _mainShellFsm.CurrentState);
             return true;
         }
@@ -208,9 +235,11 @@ namespace UwpEnhancedNavigation
         private Boolean SetPrimaryNavSmall()
         {
             Debug.WriteLine(" * ********** IN SetPrimaryNavSmall = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             DisplayMode = SmallDisplayMode;
             IsPaneOpen = false;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNavSmall = " + _mainShellFsm.CurrentState);
             return true;
         }
@@ -218,9 +247,11 @@ namespace UwpEnhancedNavigation
         private Boolean SetNoNavMedium()
         {
             Debug.WriteLine(" * ********** IN SetNoNavMedium = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Menu;
             DisplayMode = MediumDisplayMode;
             IsPaneOpen = false;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNavMedium = " + _mainShellFsm.CurrentState);
             return true;
         }
@@ -228,9 +259,11 @@ namespace UwpEnhancedNavigation
         private Boolean SetPrimaryNavMedium()
         {
             Debug.WriteLine(" * ********** IN SetPrimaryNavMedium = " + _mainShellFsm.CurrentState);
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             DisplayMode = MediumDisplayMode;
             IsPaneOpen = false;
+            Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNavMedium = " + _mainShellFsm.CurrentState);
             return true;
         }

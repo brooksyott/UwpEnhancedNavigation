@@ -32,7 +32,7 @@ namespace UwpEnhancedNavigation
         /// desired value.</returns>
         protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
         {
-            if (Equals(storage, value)) return false;
+            //if (Equals(storage, value)) return false;
 
             storage = value;
             OnPropertyChanged(propertyName);

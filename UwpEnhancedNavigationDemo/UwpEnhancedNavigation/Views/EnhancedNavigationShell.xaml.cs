@@ -32,8 +32,7 @@ namespace UwpEnhancedNavigation
             //ShellSplitView.DisplayMode = SplitViewDisplayMode.Inline;
             this.DataContext = this;
             ShellSplitView.IsPaneOpen = false;
-            HideTitleBar();
-            
+            HideTitleBar();         
         }
 
         #region Controlling the Pane behavour
@@ -152,6 +151,24 @@ namespace UwpEnhancedNavigation
         #region Visual State Triggers and Properties
         #endregion Visual State Triggers and Properties
 
+        #region Pane events / Queries
+        public static readonly DependencyProperty IsPaneOpenProperty = DependencyProperty.Register(
+              "IsPaneOpen ",
+              typeof(Boolean),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(null)
+            );
+
+        public Boolean IsPaneOpen
+        {
+            get { return (Boolean) ShellSplitView.IsPaneOpen; }
+            set
+            {
+                ShellSplitView.IsPaneOpen = value;
+            }
+        }
+        #endregion Pane Events / Queries
+
         #region Color Properties
         public static readonly DependencyProperty ShellForegroundProperty = DependencyProperty.Register(
               "ShellForeground",
@@ -163,7 +180,20 @@ namespace UwpEnhancedNavigation
         public SolidColorBrush ShellForeground
         {
             get { return (SolidColorBrush)GetValue(ShellForegroundProperty); }
-            set { SetValue(ShellForegroundProperty, value); SetTitleForegroundColor(value.Color); }
+            set {
+                SetValue(ShellForegroundProperty, value);
+                SetTitleForegroundColor(value.Color);
+                var pb = (SolidColorBrush)GetValue(PaneForegroundProperty);
+                if (pb == null)
+                {
+                    PaneForeground = value;
+                }
+                var bb = (SolidColorBrush)GetValue(BackbuttonForegroundProperty);
+                if (bb == null)
+                {
+                    BackbuttonForeground = value;
+                }
+            }
         }
 
         public static readonly DependencyProperty ShellBackgroundProperty = DependencyProperty.Register(
@@ -176,7 +206,114 @@ namespace UwpEnhancedNavigation
         public SolidColorBrush ShellBackground
         {
             get { return (SolidColorBrush)GetValue(ShellBackgroundProperty); }
-            set { SetValue(ShellBackgroundProperty, value); SetTitleBackgroundColor(value.Color); }
+            set {
+                SetValue(ShellBackgroundProperty, value);
+                SetTitleBackgroundColor(value.Color);
+                var pb = (SolidColorBrush)GetValue(PaneBackgroundProperty);
+                if (pb == null)
+                {
+                    PaneBackground = value;
+                }
+                var bb = (SolidColorBrush)GetValue(BackbuttonBackgroundProperty);
+                if (bb == null)
+                {
+                    BackbuttonBackground = value;
+                }
+            }
+        }
+
+        public static readonly DependencyProperty PaneBackgroundProperty = DependencyProperty.Register(
+              "PaneBackground",
+              typeof(SolidColorBrush),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(null)
+            );
+
+        public SolidColorBrush PaneBackground
+        {
+            get { return (SolidColorBrush)GetValue(PaneBackgroundProperty); }
+            set {
+                SetValue(PaneBackgroundProperty, value);
+                var pb = (SolidColorBrush)GetValue(HamburgerBackgroundProperty);
+                if (pb == null)
+                {
+                    HamburgerBackground = value;
+                }
+            }
+        }
+
+        public static readonly DependencyProperty BackbuttonForegroundProperty = DependencyProperty.Register(
+          "BackbuttonForeground",
+          typeof(SolidColorBrush),
+          typeof(EnhancedNavigationShell),
+          new PropertyMetadata(null)
+        );
+
+        public SolidColorBrush BackbuttonForeground
+        {
+            get { return (SolidColorBrush)GetValue(BackbuttonForegroundProperty); }
+            set { SetValue(BackbuttonForegroundProperty, value); }
+        }
+
+
+        public static readonly DependencyProperty PaneForegroundProperty = DependencyProperty.Register(
+          "PaneForeground",
+          typeof(SolidColorBrush),
+          typeof(EnhancedNavigationShell),
+          new PropertyMetadata(null)
+        );
+
+        public SolidColorBrush PaneForeground
+        {
+            get { return (SolidColorBrush)GetValue(PaneForegroundProperty); }
+            set {
+                SetValue(PaneForegroundProperty, value);
+                var pb = (SolidColorBrush)GetValue(HamburgerForegroundProperty);
+                if (pb == null)
+                {
+                    HamburgerForeground = value;
+                }
+            }
+        }
+
+        public static readonly DependencyProperty HamburgerForegroundProperty = DependencyProperty.Register(
+          "HamburgerForeground",
+          typeof(SolidColorBrush),
+          typeof(EnhancedNavigationShell),
+          new PropertyMetadata(null)
+        );
+
+        public SolidColorBrush HamburgerForeground
+        {
+            get { return (SolidColorBrush)GetValue(HamburgerForegroundProperty); }
+            set { SetValue(HamburgerForegroundProperty, value); }
+        }
+
+
+        public static readonly DependencyProperty HamburgerBackgroundProperty = DependencyProperty.Register(
+          "HamburgerBackground",
+          typeof(SolidColorBrush),
+          typeof(EnhancedNavigationShell),
+          new PropertyMetadata(null)
+        );
+
+        public SolidColorBrush HamburgerBackground
+        {
+            get { return (SolidColorBrush)GetValue(HamburgerBackgroundProperty); }
+            set { SetValue(HamburgerBackgroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty BackbuttonBackgroundProperty = DependencyProperty.Register(
+          "BackbuttonBackground",
+          typeof(SolidColorBrush),
+          typeof(EnhancedNavigationShell),
+          new PropertyMetadata(null)
+        );
+
+        public SolidColorBrush BackbuttonBackground
+        {
+            get { return (SolidColorBrush)GetValue(BackbuttonBackgroundProperty); }
+            set { SetValue(BackbuttonBackgroundProperty, value); }
         }
         #endregion
 
@@ -220,6 +357,22 @@ namespace UwpEnhancedNavigation
             get { return (object)GetValue(MainContentProperty); }
             set {
                 SetValue(MainContentProperty, value);
+            }
+        }
+
+        public static readonly DependencyProperty TitleBarContentProperty = DependencyProperty.Register(
+              "TitleBarContent",
+              typeof(Object),
+              typeof(EnhancedNavigationShell),
+              new PropertyMetadata(null)
+            );
+
+        public object TitleBarContent
+        {
+            get { return (object)GetValue(TitleBarContentProperty); }
+            set
+            {
+                SetValue(TitleBarContentProperty, value);
             }
         }
 
@@ -355,6 +508,16 @@ namespace UwpEnhancedNavigation
         }
 
         private void SplitViewContent_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void PaneTappedEvent(object sender, TappedRoutedEventArgs e)
+        {
+            ViewModel.PaneTappedEvent();
+        }
+
+        private void PaneClosingHandler(SplitView sender, SplitViewPaneClosingEventArgs args)
         {
 
         }
