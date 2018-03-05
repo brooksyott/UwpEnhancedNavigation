@@ -440,7 +440,7 @@ namespace UwpEnhancedNavigation
             ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
 
             // Make the title bar transparent
-            appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
+            //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
             //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
             //appTitleBar.ButtonBackgroundColor = Windows.UI.Colors.Red;
 

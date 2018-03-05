@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     
-    <Grid x:Name="RootGrid" Background="Transparent" Margin="{StaticResource ContentPageRootMargin}" Padding="0" >
+    <Grid x:Name="RootGrid" Background="Transparent" Margin="{StaticResource ContentPageRootMargin}" Padding="0"  >
         <Grid x:Name="FlyoutAnchor" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0" Padding="0" Background="Transparent">
             <FlyoutBase.AttachedFlyout>
                 <Flyout FlyoutPresenterStyle="{StaticResource EdgeFlyoutStyle}" Placement="Bottom" >
@@ -35,7 +35,8 @@
                 <Paragraph>provided by the Navigation Framework</Paragraph>
                 <Paragraph></Paragraph>
             </RichTextBlock>
-            <Button Content="Edge Flyout" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EdgeFlyout_Clicked"/>
+            <Button Content="Edge Flyout" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EdgeFlyout_Clicked" Margin="5,5,5,5"/>
+            <Button Content="Center Popup" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CenterPopup_Clicked" Margin="5,5,5,5"/>
         </StackPanel>
         <Button Click="GearsButton_Clicked" VerticalAlignment="Top" HorizontalAlignment="Right" 
                 Background="{StaticResource PageBackgroundBrush}"

@@ -508,3 +508,8 @@ C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\U
 C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\ProjectArchitectures.txt
+C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\bin\x86\Debug\Views\CenterPopupContentPage.xbf
+C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\Views\CenterPopupContentPage.g.i.cs
+C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\Views\CenterPopupContentPage.g.cs
+C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\Views\CenterPopupContentPage.xaml
+C:\Repos\Personal\Nuget\Peamel\UwpEnhancedNavigition\UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo\obj\x86\Debug\Views\CenterPopupContentPage.xbf

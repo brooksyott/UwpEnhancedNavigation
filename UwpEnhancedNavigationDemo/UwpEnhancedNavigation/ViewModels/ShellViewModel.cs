@@ -88,6 +88,8 @@ namespace UwpEnhancedNavigation
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
                  .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.VISUAL_STATE_MEDIUM, States.MEDIUM_PRIMARY_NAV)
@@ -99,6 +101,8 @@ namespace UwpEnhancedNavigation
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
                 .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
                 .Permit(Triggers.VISUAL_STATE_LARGE, States.NO_NAV)
@@ -108,6 +112,8 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.SMALL_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavSmall())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
                 .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
@@ -120,6 +126,8 @@ namespace UwpEnhancedNavigation
                 .OnEntry((o, t) => SetNoNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
                 .Permit(Triggers.PANE_TAPPED, (o, t) => PaneTapped())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
                 .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
@@ -130,6 +138,8 @@ namespace UwpEnhancedNavigation
             _mainShellFsm.Configure(States.MEDIUM_PRIMARY_NAV)
                 .OnEntry((o, t) => SetPrimaryNavMedium())
                 .Permit(Triggers.HAMBURGER_MENU_CLICKED, (o, t) => HamburgerMenuClickFired())
+                .Permit(Triggers.CENTER_POPUP_NAV_ENABLED, (o, t) => OpenCenterPoppupRequest())
+                .Permit(Triggers.CENTER_POPUP_NAV_DISABLED, (o, t) => CloseCenterPoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_ENABLED, (o, t) => EdgePoppupRequest())
                 .Permit(Triggers.EDGE_POPUP_NAV_DISABLED, (o, t) => CloseEdgePoppupRequest())
                 .Permit(Triggers.ENABLE_CONTENT, (o, t) => EnabledContent())
@@ -191,6 +201,12 @@ namespace UwpEnhancedNavigation
             if (_edgePopupNavigationEnabled == true)
             {
                 CloseEdgePoppupRequest();
+                return;
+            }
+
+            if (_centerPopupNavigationEnabled == true)
+            {
+                CloseCenterPoppupRequest();
                 return;
             }
 

@@ -56,7 +56,12 @@ namespace UwpEnhancedNavigationDemo
 
         private void GearsButton_Clicked(object sender, RoutedEventArgs e)
         {
-            PrimaryNavigation.ShowCenterPopup(new FlyoutDemoContentPage());
+            PrimaryNavigation.ShowCenterPopup(new CenterPopupContentPage());
+        }
+
+        private void CenterPopup_Clicked(object sender, RoutedEventArgs e)
+        {
+            PrimaryNavigation.ShowCenterPopup(new CenterPopupContentPage());
         }
     }
 }

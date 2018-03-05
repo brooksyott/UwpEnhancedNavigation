@@ -257,23 +257,23 @@ namespace UwpEnhancedNavigation
         private static void HideTitleBar()
         {
 
-            // Get the application view title bar
-            ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+            //    // Get the application view title bar
+            //    ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
 
-            // Make the title bar transparent
-            appTitleBar.BackgroundColor = Colors.Transparent;
+            //    // Make the title bar transparent
+            //    appTitleBar.BackgroundColor = Colors.Transparent;
 
-            // Get the core appication view title bar
-            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //    // Get the core appication view title bar
+            //    CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
 
-            /*
-                ExtendViewIntoTitleBar
-                    Gets or sets a value that specifies whether this title
-                    bar should replace the default window title bar.
-            */
+            //    /*
+            //        ExtendViewIntoTitleBar
+            //            Gets or sets a value that specifies whether this title
+            //            bar should replace the default window title bar.
+            //    */
 
-            // Extend the core application view into title bar
-            coreTitleBar.ExtendViewIntoTitleBar = true;
+            //    // Extend the core application view into title bar
+            //    coreTitleBar.ExtendViewIntoTitleBar = true;
         }
 
         /// <summary>

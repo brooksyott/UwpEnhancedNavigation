@@ -16,6 +16,8 @@
     <RootType FullName="Windows.UI.Xaml.Controls.Page">
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="System.Double" />
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
@@ -66,8 +68,8 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="FontWeight" />
       <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
       <RootProperty Name="TextTrimming" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Style" />
@@ -110,7 +112,7 @@
       <RootProperty Name="ContentMargin" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.TemplateBindingExtension" />
-    <RootType FullName="UwpEnhancedNavigation.EnhancedMasterDetails">
+    <RootType FullName="UwpEnhancedNavigation.EnhancedMasterDetailsNew">
       <RootProperty Name="ShellBackground" />
       <RootProperty Name="ShellForeground" />
       <RootProperty Name="CompactPaneLength" />
@@ -118,27 +120,39 @@
       <RootProperty Name="LargeDisplayMode" />
       <RootProperty Name="MediumDisplayMode" />
       <RootProperty Name="SmallDisplayMode" />
+      <RootProperty Name="PaneBorderBrush" />
+      <RootProperty Name="PaneBorderThickness" />
+      <RootProperty Name="PaneBackground" />
       <RootProperty Name="LargeMinWindowWidth" />
       <RootProperty Name="MediumMinWindowWidth" />
       <RootProperty Name="SmallMinWindowWidth" />
-      <RootProperty Name="PainContent" />
+      <RootProperty Name="TitleBarContent" />
       <RootProperty Name="HamburgerTitleContent" />
-      <RootProperty Name="PageTitleContent" />
+      <RootProperty Name="PainContent" />
       <RootProperty Name="MainContent" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="IsReadOnly" />
+      <RootProperty Name="Text" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Margin" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Children" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="ManipulationMode" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Background" />
       <RootProperty Name="RowDefinitions" />
-      <RootProperty Name="Children" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="Padding" />
+      <RootProperty Name="MaxWidth" />
       <RootProperty Name="BorderBrush" />
-      <RootProperty Name="BorderThickness" />
       <RootEvent Name="Tapped" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
@@ -155,9 +169,6 @@
       <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="Foreground" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame">
       <RootProperty Name="Padding" />
       <RootProperty Name="ContentTransitions" />
@@ -243,6 +254,7 @@
     <RootType FullName="UwpEnhancedNavigationDemo.BasicPage2" />
     <RootType FullName="UwpEnhancedNavigationDemo.BasicPage3" />
     <RootType FullName="UwpEnhancedNavigationDemo.Views.BlankPage1" />
+    <RootType FullName="UwpEnhancedNavigationDemo.CenterPopupContentPage" />
     <RootType FullName="UwpEnhancedNavigationDemo.FlyoutDemoContentPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.Primitives.FlyoutBase">
       <RootMethod Name="GetAttachedFlyout" />

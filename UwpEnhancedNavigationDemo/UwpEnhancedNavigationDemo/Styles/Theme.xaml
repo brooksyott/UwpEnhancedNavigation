@@ -32,7 +32,7 @@
 
     <!-- Header -->
     <SolidColorBrush x:Key="TitlebarBackgroundBrush"
-                     Color="#FFFFFFFF" />
+                     Color="Red" />
     <SolidColorBrush x:Key="TitlebarBackgroundDarkBrush"
                      Color="#FFC6C6C7" />
     <SolidColorBrush x:Key="TitlebarBackgroundLightBrush"

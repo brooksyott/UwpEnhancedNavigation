@@ -123,6 +123,9 @@
     </Compile>
     <Compile Include="SplitViewModes.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="Views\EnhancedMasterDetailsNew.xaml.cs">
+      <DependentUpon>EnhancedMasterDetailsNew.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HamburgerCommands.cs" />
     <EmbeddedResource Include="Properties\UwpEnhancedNavigation.rd.xml" />
   </ItemGroup>
@@ -136,6 +139,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\EnhancedMasterDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EnhancedMasterDetailsNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -112,50 +112,56 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+    <customNav:EnhancedMasterDetailsNew x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
+                PaneBorderBrush="Gray" PaneBorderThickness="0,0,0,0"
+                PaneBackground="WhiteSmoke"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
-        <customNav:EnhancedMasterDetails.PainContent>
+        <customNav:EnhancedMasterDetailsNew.TitleBarContent>
+            <TextBox IsReadOnly="true" Text="Enhanced Master Details Page" Foreground="Black" Background="White"  
+                     BorderThickness="0" Margin="0,0,0,0" />
+        </customNav:EnhancedMasterDetailsNew.TitleBarContent>
+        <customNav:EnhancedMasterDetailsNew.HamburgerTitleContent>
+            <Grid Background="WhiteSmoke" BorderThickness="0" Padding="0">
+                <TextBlock  Text="Menu Title" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            </Grid>
+        </customNav:EnhancedMasterDetailsNew.HamburgerTitleContent>
+        <customNav:EnhancedMasterDetailsNew.PainContent>
             <Grid x:Name="SplitViewPane"
-                      VerticalAlignment="Stretch"
-                      HorizontalAlignment="Stretch"
-                      ManipulationMode="TranslateX"
-                      Margin="0,10,0,0"
-                      Background="{StaticResource SplitViewBackgroundBrush}">
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        ManipulationMode="TranslateX"
+                        Margin="0,10,0,0"
+                        Background="WhiteSmoke">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
+
                 </Grid.RowDefinitions>
                 <Grid  Grid.Row="0" Height="40">
                     <TextBlock Text="A header"/>
                 </Grid>
                 <ListView x:Name="Menu"
-                              ItemsSource="{Binding Menu}"
-                              SelectionChanged="Menu_SelectionChanged"
-                              Margin="0,0,0,0"
-                              VerticalAlignment="Top"
-                              ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
-                              ItemTemplateSelector="{StaticResource MenuDataTemplateSelector}"
-                              Grid.Row="1"/>
+                                ItemsSource="{Binding Menu}"
+                                SelectionChanged="Menu_SelectionChanged"
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Top"
+                                ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
+                                ItemTemplateSelector="{StaticResource MenuDataTemplateSelector}"
+                                Grid.Row="1"/>
                 <ListView x:Name="SecondMenu"
-                              ItemsSource="{Binding SecondMenu}"
-                              SelectionChanged="Menu_SelectionChanged"
-                              ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
-                              ItemTemplateSelector="{StaticResource MenuDataTemplateSelector}"
-                              Margin="0,0,0,0"
-                              VerticalAlignment="Top"
-                              Grid.Row="2" />
+                                ItemsSource="{Binding SecondMenu}"
+                                SelectionChanged="Menu_SelectionChanged"
+                                ItemContainerStyle="{StaticResource MenuListViewItemStyle}"
+                                ItemTemplateSelector="{StaticResource MenuDataTemplateSelector}"
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Top"
+                                Grid.Row="2" />
             </Grid>
-        </customNav:EnhancedMasterDetails.PainContent>
-        <customNav:EnhancedMasterDetails.HamburgerTitleContent>
-            <Grid Background="White"/>
-        </customNav:EnhancedMasterDetails.HamburgerTitleContent>
-        <customNav:EnhancedMasterDetails.PageTitleContent>
-            <TextBox x:Name="PageTitle" Foreground="Black"/>
-        </customNav:EnhancedMasterDetails.PageTitleContent>
-        <customNav:EnhancedMasterDetails.MainContent>
+        </customNav:EnhancedMasterDetailsNew.PainContent>
+        <customNav:EnhancedMasterDetailsNew.MainContent>
             <Grid x:Name="SplitViewContentGrid" Background="White" >
                 <!-- Navigation Frame  -->
                 <Frame x:Name="SplitViewFrame" Navigated="SplitViewFrame_OnNavigated" Loaded="SplitViewContent_Loaded"
@@ -171,6 +177,17 @@
                     </Frame.ContentTransitions>
                 </Frame>
             </Grid>
-        </customNav:EnhancedMasterDetails.MainContent>
-    </customNav:EnhancedMasterDetails>
+        </customNav:EnhancedMasterDetailsNew.MainContent>
+    </customNav:EnhancedMasterDetailsNew>
+    <!--<customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+                CompactPaneLength="45" OpenPaneLength="200"
+                LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
+                LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
+
+
+        <customNav:EnhancedMasterDetails.PageTitleContent>
+            <TextBox x:Name="PageTitle" Foreground="Black"/>
+        </customNav:EnhancedMasterDetails.PageTitleContent>
+
+    </customNav:EnhancedMasterDetails>-->
 </Page>

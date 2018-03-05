@@ -30,13 +30,19 @@ namespace UwpEnhancedNavigationDemo
             this.InitializeComponent();
 
             // Navigate to the home page.
+
+            // Point the navigation system to my frame for navigation
             PrimaryNavigation.Frame = SplitViewFrame;
             this.DataContext = _mvm;
+
+
+            // UNCOMMENT
             Menu.ItemsSource = _mvm.Menu;
         }
 
         private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // UNCOMMENT
             //double height = MainNavSplitView.ActualHeight;
             //double width = MainNavSplitView.ActualWidth;
 
