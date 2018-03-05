@@ -89,7 +89,6 @@ namespace UwpEnhancedNavigation
                 int initialDepth = _frame.BackStackDepth;
                 Debug.WriteLine("**** MainNav: Navigate backstack = " + initialDepth);
 
-                HideTitleBar();
                 Boolean hadSuccess = _frame.Navigate(sourcePageType);
                 if (ClearNavStack == true)
                 {
@@ -121,7 +120,6 @@ namespace UwpEnhancedNavigation
                 int initialDepth = _frame.BackStackDepth;
                 Debug.WriteLine("**** MainNav: Navigate backstack = " + initialDepth);
 
-                HideTitleBar();
                 Boolean hadSuccess = _frame.Navigate(sourcePageType);
                 if (ClearNavStack == true)
                 {
@@ -251,30 +249,6 @@ namespace UwpEnhancedNavigation
         #endregion Popup Navigatiion Management/Helpers
 
         #region Enable/Disable UWP standard behaviours / UX
-        /// <summary>
-        /// Hides the UWP title bar
-        /// </summary>
-        private static void HideTitleBar()
-        {
-
-            //    // Get the application view title bar
-            //    ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            //    // Make the title bar transparent
-            //    appTitleBar.BackgroundColor = Colors.Transparent;
-
-            //    // Get the core appication view title bar
-            //    CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-
-            //    /*
-            //        ExtendViewIntoTitleBar
-            //            Gets or sets a value that specifies whether this title
-            //            bar should replace the default window title bar.
-            //    */
-
-            //    // Extend the core application view into title bar
-            //    coreTitleBar.ExtendViewIntoTitleBar = true;
-        }
 
         /// <summary>
         /// Enables the UWP standard back buttons

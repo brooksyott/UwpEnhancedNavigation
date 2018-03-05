@@ -118,9 +118,6 @@
     <Compile Include="Navigation\PrimaryNavigation.cs" />
     <Compile Include="ViewModels\HamburgerState.cs" />
     <Compile Include="ViewModels\AppSizeVisualStates.cs" />
-    <Compile Include="Views\EnhancedMasterDetails.xaml.cs">
-      <DependentUpon>EnhancedMasterDetails.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SplitViewModes.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="Views\EnhancedMasterDetailsNew.xaml.cs">
@@ -138,10 +135,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\EnhancedMasterDetails.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\EnhancedMasterDetailsNew.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

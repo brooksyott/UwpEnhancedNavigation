@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="UwpEnhancedNavigation.EnhancedMasterDetailsNew"
+    x:Class="UwpEnhancedNavigation.EnhancedMasterDetails"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UwpEnhancedNavigation"
@@ -31,12 +31,6 @@
                 <RowDefinition Height="32"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <!--
-            ==================================================================================
-                     WINDOW HEADER - GIVES THE USER THE ABILITY TO CUSTOMIZE THE HEADER
-            ==================================================================================
-            -->
-            <ContentPresenter Grid.Row="0" Margin="0,0,0,0" Height="32" Content="{x:Bind TitleBarContent}" BorderThickness="0" Background="{x:Bind ShellBackground}"/>
 
             <!--
             ==================================================================================

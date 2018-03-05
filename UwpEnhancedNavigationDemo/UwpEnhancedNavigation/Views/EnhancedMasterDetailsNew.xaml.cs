@@ -24,12 +24,12 @@ using Windows.UI.Xaml.Navigation;
 
 namespace UwpEnhancedNavigation
 {
-    public sealed partial class EnhancedMasterDetailsNew : UserControl, INotifyPropertyChanged
+    public sealed partial class EnhancedMasterDetails : UserControl, INotifyPropertyChanged
     {
         // Attached to the view model
         private ShellViewModel ViewModel = ShellViewModel.Instance;
 
-        public EnhancedMasterDetailsNew()
+        public EnhancedMasterDetails()
         {
             this.InitializeComponent();
             this.DataContext = this;
@@ -37,8 +37,6 @@ namespace UwpEnhancedNavigation
             // Initialize the Navigation System so it can push/pop into the SplitView for navigation
             PrimaryNavigation.RightEdgePopupFrame = RightPopupFrame;
             PrimaryNavigation.CenterPopupFrame = CenterPopupFrame;
-
-            HideTitleBar();
 
             // Setup so the code behind can receive events from the view model
             ViewModel.PropertyChanged += ShellViewPropertyChangedHandler;
@@ -58,7 +56,6 @@ namespace UwpEnhancedNavigation
             set
             {
                 SetValue(ShellBackgroundProperty, value);
-                SetTitleBackgroundColor(value.Color);
                 var pb = (SolidColorBrush)GetValue(PaneBackgroundProperty);
                 if (pb == null)
                 {
@@ -85,7 +82,6 @@ namespace UwpEnhancedNavigation
             set
             {
                 SetValue(ShellForegroundProperty, value);
-                SetTitleForegroundColor(value.Color);
                 var pb = (SolidColorBrush)GetValue(PaneForegroundProperty);
                 if (pb == null)
                 {
@@ -418,87 +414,6 @@ namespace UwpEnhancedNavigation
             set { SetValue(SmallMinWindowWidthProperty, value); ViewModel.SmallMinWindowWidth = value; }
         }
         #endregion 
-
-        #region Title Bar Customization
-
-        // --- EXPOSING THE TITLE BAR PROPERTYS
-
-        public static readonly DependencyProperty TitleBarContentProperty = DependencyProperty.Register(
-              "TitleBarContent",
-              typeof(Object),
-              typeof(EnhancedMasterDetails),
-              new PropertyMetadata(null)
-            );
-
-        public object TitleBarContent
-        {
-            get { return (object)GetValue(TitleBarContentProperty); }
-            set
-            {
-                SetValue(TitleBarContentProperty, value);
-            }
-        }
-
-        /// <summary>
-        /// Hides the title bar
-        /// </summary>
-        private static void HideTitleBar()
-        {
-            // Get the application view title bar
-            ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            // Make the title bar transparent
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
-            //appTitleBar.ButtonBackgroundColor = Windows.UI.Colors.Red;
-
-            // Get the core appication view title bar
-            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-
-            /*
-                ExtendViewIntoTitleBar
-                    Gets or sets a value that specifies whether this title
-                    bar should replace the default window title bar.
-            */
-
-            // Extend the core application view into title bar
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-
-        }
-
-        /// <summary>
-        /// Sets the background color of the title bar
-        /// </summary>
-        /// <param name="color"></param>
-        public static void SetTitleBackgroundColor(Color color)
-        {
-            ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            // Make the title bar transparent
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
-            appTitleBar.ButtonBackgroundColor = color;
-
-        }
-
-        /// <summary>
-        /// Sets the foreground color of the title bar
-        /// </summary>
-        /// <param name="color"></param>
-        public static void SetTitleForegroundColor(Color color)
-        {
-            ApplicationViewTitleBar appTitleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            // Make the title bar transparent
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Transparent;
-            //appTitleBar.BackgroundColor = Windows.UI.Colors.Red;
-            appTitleBar.ButtonForegroundColor = color;
-
-            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-        }
-
-        #endregion Title Bar Customization
 
         #region Custom Animations / Story Boards
         // Take from the follow stackoverflow Q&A

@@ -23,6 +23,8 @@
     <Color x:Key="KandyPink">#FFE90575</Color>
     <Color x:Key="GENBAND_RED">#FFE13127</Color>
     <Color x:Key="GENBAND_RED_Foreground">White</Color>
+    <Color x:Key="LightBlack">#FF373737</Color>
+    <Color x:Key="OffWhite">WhiteSmoke</Color>
     <Color x:Key="ActiveCallGroupingForeground">Black</Color>
     <Color x:Key="ActiveCallGroupingBackground">#cfd8dc</Color>
     <Color x:Key="KandyStatusNavBarBackground">#FF323131</Color>
@@ -33,5 +35,9 @@
     <Color x:Key="SecondaryAccentForeground">White</Color>
     <Color x:Key="LightGray">#e0e0e0</Color>
     <Color x:Key="LightGraySettings">#ededed</Color>
+
+    <SolidColorBrush x:Key="CustomTitlebarBackgroundBrush" Color="{StaticResource LightBlack}" />
+    <SolidColorBrush x:Key="CustomTitlebarForegroundBrush" Color="{StaticResource OffWhite}" />
+
 </ResourceDictionary>
 

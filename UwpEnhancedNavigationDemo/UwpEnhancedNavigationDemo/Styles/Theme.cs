@@ -21,14 +21,14 @@ namespace UwpEnhancedNavigationDemo.Styles
                 var titleBar = ApplicationView.GetForCurrentView().TitleBar;
                 if (titleBar != null)
                 {
-                    titleBar.BackgroundColor = ((SolidColorBrush)Application.Current.Resources["TitlebarBackgroundBrush"]).Color;
-                    titleBar.ForegroundColor = Colors.White;
+                    titleBar.BackgroundColor = ((SolidColorBrush)Application.Current.Resources["CustomTitlebarBackgroundBrush"]).Color;
+                    titleBar.ForegroundColor = ((SolidColorBrush)Application.Current.Resources["CustomTitlebarForegroundBrush"]).Color;
                     titleBar.ButtonBackgroundColor = titleBar.BackgroundColor;
-                    titleBar.ButtonForegroundColor = Colors.White;
-                    titleBar.ButtonHoverBackgroundColor = ((SolidColorBrush)Application.Current.Resources["TitlebarBackgroundDarkBrush"]).Color;
-                    titleBar.ButtonHoverForegroundColor = Colors.White;
-                    titleBar.ButtonPressedBackgroundColor = ((SolidColorBrush)Application.Current.Resources["TitlebarBackgroundLightBrush"]).Color;
-                    titleBar.ButtonPressedForegroundColor = Colors.White;
+                    titleBar.ButtonForegroundColor = titleBar.ForegroundColor;
+                    titleBar.ButtonHoverBackgroundColor = ((SolidColorBrush)Application.Current.Resources["CustomTitlebarBackgroundBrush"]).Color;
+                    titleBar.ButtonHoverForegroundColor = titleBar.ForegroundColor;
+                    titleBar.ButtonPressedBackgroundColor = ((SolidColorBrush)Application.Current.Resources["CustomTitlebarForegroundBrush"]).Color;
+                    titleBar.ButtonPressedForegroundColor = titleBar.ForegroundColor;
                     titleBar.InactiveBackgroundColor = titleBar.BackgroundColor;
                     titleBar.InactiveForegroundColor = titleBar.ForegroundColor;
                     titleBar.ButtonInactiveBackgroundColor = titleBar.BackgroundColor;

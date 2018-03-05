@@ -112,7 +112,7 @@
       <RootProperty Name="ContentMargin" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.TemplateBindingExtension" />
-    <RootType FullName="UwpEnhancedNavigation.EnhancedMasterDetailsNew">
+    <RootType FullName="UwpEnhancedNavigation.EnhancedMasterDetails">
       <RootProperty Name="ShellBackground" />
       <RootProperty Name="ShellForeground" />
       <RootProperty Name="CompactPaneLength" />
@@ -126,18 +126,9 @@
       <RootProperty Name="LargeMinWindowWidth" />
       <RootProperty Name="MediumMinWindowWidth" />
       <RootProperty Name="SmallMinWindowWidth" />
-      <RootProperty Name="TitleBarContent" />
       <RootProperty Name="HamburgerTitleContent" />
       <RootProperty Name="PainContent" />
       <RootProperty Name="MainContent" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
-      <RootProperty Name="IsReadOnly" />
-      <RootProperty Name="Text" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderThickness" />
-      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Background" />

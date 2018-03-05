@@ -112,22 +112,18 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <customNav:EnhancedMasterDetailsNew x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+    <customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
                 PaneBorderBrush="Gray" PaneBorderThickness="0,0,0,0"
                 PaneBackground="WhiteSmoke"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
-        <customNav:EnhancedMasterDetailsNew.TitleBarContent>
-            <TextBox IsReadOnly="true" Text="Enhanced Master Details Page" Foreground="Black" Background="White"  
-                     BorderThickness="0" Margin="0,0,0,0" />
-        </customNav:EnhancedMasterDetailsNew.TitleBarContent>
-        <customNav:EnhancedMasterDetailsNew.HamburgerTitleContent>
+        <customNav:EnhancedMasterDetails.HamburgerTitleContent>
             <Grid Background="WhiteSmoke" BorderThickness="0" Padding="0">
-                <TextBlock  Text="Menu Title" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                <TextBlock  Text="Menu Title" FontSize="16" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"  />
             </Grid>
-        </customNav:EnhancedMasterDetailsNew.HamburgerTitleContent>
-        <customNav:EnhancedMasterDetailsNew.PainContent>
+        </customNav:EnhancedMasterDetails.HamburgerTitleContent>
+        <customNav:EnhancedMasterDetails.PainContent>
             <Grid x:Name="SplitViewPane"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
@@ -160,8 +156,8 @@
                                 VerticalAlignment="Top"
                                 Grid.Row="2" />
             </Grid>
-        </customNav:EnhancedMasterDetailsNew.PainContent>
-        <customNav:EnhancedMasterDetailsNew.MainContent>
+        </customNav:EnhancedMasterDetails.PainContent>
+        <customNav:EnhancedMasterDetails.MainContent>
             <Grid x:Name="SplitViewContentGrid" Background="White" >
                 <!-- Navigation Frame  -->
                 <Frame x:Name="SplitViewFrame" Navigated="SplitViewFrame_OnNavigated" Loaded="SplitViewContent_Loaded"
@@ -177,8 +173,8 @@
                     </Frame.ContentTransitions>
                 </Frame>
             </Grid>
-        </customNav:EnhancedMasterDetailsNew.MainContent>
-    </customNav:EnhancedMasterDetailsNew>
+        </customNav:EnhancedMasterDetails.MainContent>
+    </customNav:EnhancedMasterDetails>
     <!--<customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
