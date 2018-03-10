@@ -27,17 +27,13 @@
     </UserControl.Resources>
     <Grid x:Name="MainSplitViewGrid"  Padding="0" Background="{x:Bind ShellBackground}" >
         <Grid Padding="0" Margin="0,0,0,0" BorderThickness="0" >
-            <Grid.RowDefinitions>
-                <RowDefinition Height="32"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
             <!--
             ==================================================================================
                      SPLIT VIEW - Implementing the primary navigation
             ==================================================================================
             -->
-            <SplitView Grid.Row="1" x:Name="ShellSplitView"  Padding="0"  Margin="0,0,0,0" Visibility="Visible"
+            <SplitView  x:Name="ShellSplitView"  Padding="0"  Margin="0,0,0,0" Visibility="Visible"
                    Background="{x:Bind ShellBackground}"
                    Foreground="{x:Bind ShellForeground}"
                    DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}"
