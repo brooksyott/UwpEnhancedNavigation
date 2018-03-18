@@ -19,6 +19,7 @@ namespace UwpEnhancedNavigationDemo.Styles
             if (ApiInformation.IsTypePresent("Windows.UI.ViewManagement.ApplicationView"))
             {
                 var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+               
                 if (titleBar != null)
                 {
                     titleBar.BackgroundColor = ((SolidColorBrush)Application.Current.Resources["CustomTitlebarBackgroundBrush"]).Color;

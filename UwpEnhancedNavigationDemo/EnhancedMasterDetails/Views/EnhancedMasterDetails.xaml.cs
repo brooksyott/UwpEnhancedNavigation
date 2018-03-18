@@ -46,23 +46,23 @@ namespace Peamel.UwpEnhancedMasterDetails
         #region Styling of the main control (Shell)
         public static readonly DependencyProperty ShellBackgroundProperty = DependencyProperty.Register(
               "ShellBackground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush ShellBackground
+        public Brush ShellBackground
         {
-            get { return (SolidColorBrush)GetValue(ShellBackgroundProperty); }
+            get { return (Brush)GetValue(ShellBackgroundProperty); }
             set
             {
                 SetValue(ShellBackgroundProperty, value);
-                var pb = (SolidColorBrush)GetValue(PaneBackgroundProperty);
+                var pb = (Brush)GetValue(PaneBackgroundProperty);
                 if (pb == null)
                 {
                     PaneBackground = value;
                 }
-                var bb = (SolidColorBrush)GetValue(BackbuttonBackgroundProperty);
+                var bb = (Brush)GetValue(BackbuttonBackgroundProperty);
                 if (bb == null)
                 {
                     BackbuttonBackground = value;
@@ -72,23 +72,23 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         public static readonly DependencyProperty ShellForegroundProperty = DependencyProperty.Register(
               "ShellForeground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush ShellForeground
+        public Brush ShellForeground
         {
-            get { return (SolidColorBrush)GetValue(ShellForegroundProperty); }
+            get { return (Brush)GetValue(ShellForegroundProperty); }
             set
             {
                 SetValue(ShellForegroundProperty, value);
-                var pb = (SolidColorBrush)GetValue(PaneForegroundProperty);
+                var pb = (Brush)GetValue(PaneForegroundProperty);
                 if (pb == null)
                 {
                     PaneForeground = value;
                 }
-                var bb = (SolidColorBrush)GetValue(BackbuttonForegroundProperty);
+                var bb = (Brush)GetValue(BackbuttonForegroundProperty);
                 if (bb == null)
                 {
                     BackbuttonForeground = value;
@@ -100,54 +100,54 @@ namespace Peamel.UwpEnhancedMasterDetails
         #region Button Styling
         public static readonly DependencyProperty HamburgerForegroundProperty = DependencyProperty.Register(
               "HamburgerForeground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush HamburgerForeground
+        public Brush HamburgerForeground
         {
-            get { return (SolidColorBrush)GetValue(HamburgerForegroundProperty); }
+            get { return (Brush)GetValue(HamburgerForegroundProperty); }
             set { SetValue(HamburgerForegroundProperty, value); }
         }
 
 
         public static readonly DependencyProperty HamburgerBackgroundProperty = DependencyProperty.Register(
           "HamburgerBackground",
-          typeof(SolidColorBrush),
+          typeof(Brush),
           typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
-        public SolidColorBrush HamburgerBackground
+        public Brush HamburgerBackground
         {
-            get { return (SolidColorBrush)GetValue(HamburgerBackgroundProperty); }
+            get { return (Brush)GetValue(HamburgerBackgroundProperty); }
             set { SetValue(HamburgerBackgroundProperty, value); }
         }
 
         public static readonly DependencyProperty BackbuttonBackgroundProperty = DependencyProperty.Register(
           "BackbuttonBackground",
-          typeof(SolidColorBrush),
+          typeof(Brush),
           typeof(EnhancedMasterDetails),
           new PropertyMetadata(null)
         );
 
-        public SolidColorBrush BackbuttonBackground
+        public Brush BackbuttonBackground
         {
-            get { return (SolidColorBrush)GetValue(BackbuttonBackgroundProperty); }
+            get { return (Brush)GetValue(BackbuttonBackgroundProperty); }
             set { SetValue(BackbuttonBackgroundProperty, value); }
         }
 
         public static readonly DependencyProperty BackbuttonForegroundProperty = DependencyProperty.Register(
               "BackbuttonForeground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush BackbuttonForeground
+        public Brush BackbuttonForeground
         {
-            get { return (SolidColorBrush)GetValue(BackbuttonForegroundProperty); }
+            get { return (Brush)GetValue(BackbuttonForegroundProperty); }
             set { SetValue(BackbuttonForegroundProperty, value); }
         }
         #endregion
@@ -186,14 +186,14 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         public static readonly DependencyProperty PaneBorderBrushProperty = DependencyProperty.Register(
               "PaneBorderBrush",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush PaneBorderBrush
+        public Brush PaneBorderBrush
         {
-            get { return (SolidColorBrush)GetValue(PaneBorderBrushProperty); }
+            get { return (Brush)GetValue(PaneBorderBrushProperty); }
             set
             {
                 SetValue(PaneBorderBrushProperty, value);
@@ -218,18 +218,18 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         public static readonly DependencyProperty PaneBackgroundProperty = DependencyProperty.Register(
               "PaneBackground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush PaneBackground
+        public Brush PaneBackground
         {
-            get { return (SolidColorBrush)GetValue(PaneBackgroundProperty); }
+            get { return (Brush)GetValue(PaneBackgroundProperty); }
             set
             {
                 SetValue(PaneBackgroundProperty, value);
-                var pb = (SolidColorBrush)GetValue(HamburgerBackgroundProperty);
+                var pb = (Brush)GetValue(HamburgerBackgroundProperty);
                 if (pb == null)
                 {
                     HamburgerBackground = value;
@@ -239,18 +239,18 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         public static readonly DependencyProperty PaneForegroundProperty = DependencyProperty.Register(
               "PaneForeground",
-              typeof(SolidColorBrush),
+              typeof(Brush),
               typeof(EnhancedMasterDetails),
               new PropertyMetadata(null)
             );
 
-        public SolidColorBrush PaneForeground
+        public Brush PaneForeground
         {
-            get { return (SolidColorBrush)GetValue(PaneForegroundProperty); }
+            get { return (Brush)GetValue(PaneForegroundProperty); }
             set
             {
                 SetValue(PaneForegroundProperty, value);
-                var pb = (SolidColorBrush)GetValue(HamburgerForegroundProperty);
+                var pb = (Brush)GetValue(HamburgerForegroundProperty);
                 if (pb == null)
                 {
                     HamburgerForeground = value;

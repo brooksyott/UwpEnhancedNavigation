@@ -20,6 +20,7 @@ using Windows.UI.ViewManagement;
 
 using UwpEnhancedNavigationDemo.Views;
 using UwpEnhancedNavigationDemo.Styles;
+using Windows.ApplicationModel.Core;
 
 namespace UwpEnhancedNavigationDemo
 {
@@ -85,6 +86,9 @@ namespace UwpEnhancedNavigationDemo
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = false;
 
             SetAppScreenSizes();
         }

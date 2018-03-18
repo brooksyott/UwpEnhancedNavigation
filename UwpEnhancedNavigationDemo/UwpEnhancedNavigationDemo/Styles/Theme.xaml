@@ -44,15 +44,15 @@
     <SolidColorBrush x:Key="SplitViewBackgroundBrush"
                      Color="#FFFFFFFF" />
     <SolidColorBrush x:Key="SplitViewForegroundBrush"
-                     Color="#FF222222" />
+                     Color="White" />
     <SolidColorBrush x:Key="HamburgerForegroundBrush"
-                     Color="#FF999999" />
+                     Color="White" />
     <SolidColorBrush x:Key="IconColorBrush"
-                     Color="#FF999999" />
+                     Color="White" />
 
     <!-- Splitview Content -->
     <SolidColorBrush x:Key="PageBackgroundBrush"
-                     Color="White" />
+                     Color="Black" />
     <SolidColorBrush x:Key="PageForegroundBrush"
                      Color="#FF222222" />
 
@@ -60,6 +60,40 @@
     <SolidColorBrush x:Key="SystemControlHighlightListAccentMediumBrush" Color="Blue" />
     <SolidColorBrush x:Key="SystemControlHighlightListAccentLowBrush" Color="Blue" />
 
+    <AcrylicBrush x:Key="PainBackgroundAcrylicBrush"
+                BackgroundSource="HostBackdrop"
+                TintColor="Black"
+                TintOpacity="0.6"
+                FallbackColor="#FFFF7F7F"/>
+    
+    <ResourceDictionary.ThemeDictionaries>
+        
+        <!-- MAIN CONTENT PAGE ACRYLIC BRUCH -->
+        <ResourceDictionary x:Key="Default">
+            <AcrylicBrush x:Key="MainContentBackgroundAcrylicBrush"
+                BackgroundSource="HostBackdrop"
+                TintColor="White"
+                TintOpacity="0.8"
+                FallbackColor="#FF7F0000"/>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="HighContrast">
+            <SolidColorBrush x:Key="MainContentBackgroundAcrylicBrush"
+                Color="{ThemeResource SystemColorWindowColor}"/>
+        </ResourceDictionary>
+
+        <ResourceDictionary x:Key="Light">
+            <AcrylicBrush x:Key="MainContentBackgroundAcrylicBrush"
+                BackgroundSource="HostBackdrop"
+                TintColor="White"
+                TintOpacity="0.8"
+                FallbackColor="#FFFF7F7F"/>
+        </ResourceDictionary>
+
+        <!-- PAIN  PAGE ACRYLIC BRUCH -->
+
+
+    </ResourceDictionary.ThemeDictionaries>
 
 </ResourceDictionary>
 
