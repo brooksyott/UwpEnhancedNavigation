@@ -16,7 +16,7 @@
         <TextBlock
             x:Name="TitlePage"
             Text="First Page to load"
-            Margin="60,0,0,0"
+            Margin="50,0,0,0"
             Style="{StaticResource PageTitleStyle}" />
 
         <Grid 

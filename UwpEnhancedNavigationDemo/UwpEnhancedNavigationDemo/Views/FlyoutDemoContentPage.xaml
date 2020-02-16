@@ -16,7 +16,7 @@
                    FontSize="{StaticResource PageTitleFontSize}"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left" />
-        <Button Click="CloseMe_Clicked" VerticalAlignment="Center" HorizontalAlignment="Center" 
+        <Button x:Name="CloseMeButton" Click="CloseMe_Clicked" VerticalAlignment="Center" HorizontalAlignment="Center" 
                 Background="{StaticResource PageBackgroundBrush}"
                 Foreground="{StaticResource IconColorBrush}"
                 Margin="0"

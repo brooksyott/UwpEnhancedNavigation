@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -111,6 +112,19 @@ namespace Peamel.UwpEnhancedMasterDetails
             set { SetValue(HamburgerForegroundProperty, value); }
         }
 
+        public static readonly DependencyProperty HamburgerHoverForegroundProperty = DependencyProperty.Register(
+              "HamburgerHoverForeground",
+              typeof(Brush),
+              typeof(EnhancedMasterDetails),
+              new PropertyMetadata(null)
+            );
+
+        public Brush HamburgerHoverForeground
+        {
+            get { return (Brush)GetValue(HamburgerHoverForegroundProperty); }
+            set { SetValue(HamburgerHoverForegroundProperty, value); }
+        }
+
 
         public static readonly DependencyProperty HamburgerBackgroundProperty = DependencyProperty.Register(
           "HamburgerBackground",
@@ -149,6 +163,19 @@ namespace Peamel.UwpEnhancedMasterDetails
         {
             get { return (Brush)GetValue(BackbuttonForegroundProperty); }
             set { SetValue(BackbuttonForegroundProperty, value); }
+        }
+
+        public static readonly DependencyProperty BackbuttonHoverForegroundProperty = DependencyProperty.Register(
+              "BackbuttonHoverForeground",
+              typeof(Brush),
+              typeof(EnhancedMasterDetails),
+              new PropertyMetadata(null)
+            );
+
+        public Brush BackbuttonHoverForeground
+        {
+            get { return (Brush)GetValue(BackbuttonHoverForegroundProperty); }
+            set { SetValue(BackbuttonHoverForegroundProperty, value); }
         }
         #endregion
 
@@ -258,6 +285,27 @@ namespace Peamel.UwpEnhancedMasterDetails
             }
         }
 
+        public static readonly DependencyProperty PaneHoverForegroundProperty = DependencyProperty.Register(
+              "PaneHoverForeground",
+              typeof(Brush),
+              typeof(EnhancedMasterDetails),
+              new PropertyMetadata(null)
+            );
+
+        public Brush PaneHoverForeground
+        {
+            get { return (Brush)GetValue(PaneHoverForegroundProperty); }
+            set
+            {
+                SetValue(PaneHoverForegroundProperty, value);
+                var pb = (Brush)GetValue(HamburgerHoverForegroundProperty);
+                if (pb == null)
+                {
+                    HamburgerHoverForeground = value;
+                }
+            }
+        }
+
         // Used when the menu is compated, but open
         public static readonly DependencyProperty CompactPaneLengthProperty = DependencyProperty.Register(
               "CompactPaneLength",
@@ -352,6 +400,13 @@ namespace Peamel.UwpEnhancedMasterDetails
         {
             ViewModel.DisabledContentTapped();
         }
+
+
+        private void PaneOpeningHandler(SplitView sender, object args)
+        {
+
+        }
+
         #endregion
 
         #region Main Content / Details Page 
@@ -436,7 +491,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             animation.From = 0;
             if (!(Width < 800)) Width = 800;
             animation.To = Width;
-            animation.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            animation.Duration = new Duration(TimeSpan.FromMilliseconds(250));
             storyboard.Children.Add(animation);
             storyboard.Begin();
         }
@@ -453,12 +508,13 @@ namespace Peamel.UwpEnhancedMasterDetails
             var animation = new DoubleAnimation();
             Storyboard.SetTargetName(animation, nameof(element));
             Storyboard.SetTarget(animation, element);
+            //Storyboard.SetTargetProperty(animation, "Width");
             Storyboard.SetTargetProperty(animation, "Width");
             animation.EnableDependentAnimation = true;
             //Debug.WriteLine("CloseAnimationWidth = " + Width);
             animation.From = Width;
             animation.To = 0;
-            animation.Duration = new Duration(TimeSpan.FromMilliseconds(200));
+            animation.Duration = new Duration(TimeSpan.FromMilliseconds(250));
             storyboard.Children.Add(animation);
             storyboard.Begin();
         }
@@ -466,7 +522,12 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         #region Send and Receive Events 
 
-        private void DisabledContentTapped(object sender, TappedRoutedEventArgs e)
+        private void DisabledPaneAndContentTapped(object sender, TappedRoutedEventArgs e)
+        {
+            ViewModel.DisabledContentTapped();
+        }
+
+        private void DisabledContent2Tapped(object sender, TappedRoutedEventArgs e)
         {
             ViewModel.DisabledContentTapped();
         }
@@ -488,24 +549,35 @@ namespace Peamel.UwpEnhancedMasterDetails
         /// <param name="e"></param>
         private void ShellViewPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
         {
+            Debug.WriteLine("ShellViewPropertyChangedHandler: " + e.PropertyName);
+            Debug.WriteLine("ViewModel.EdgePopupNavigationEnabled: " + ViewModel.EdgePopupNavigationEnabled);
+
             try
             {
                 // Listen for the edge popup
                 // if it changes state, run the animation
-                if (e.PropertyName == "EdgePopupNavigationEnabled")
+                if (e.PropertyName == "EdgePopupNavigationOpen")
                 {
-                    if (ViewModel.EdgePopupNavigationEnabled == true)
+                    if (ViewModel.EdgePopupNavigationOpen == true)
                     {
                         Page tp = (Page)RightPopupFrame.Content;
-                        if (tp == null) return;
-                        OpenAnimation(tp, tp.Width);
+                        if (tp == null)
+                        {
+                            Debug.WriteLine("RightPopupFrame.Content was NULL");
+                            return;
+                        }
+                        //OpenAnimation(tp, tp.Width);
+                        ViewModel.EdgePopupNavigationEnabled = true;
+                        if (tp != null)
+                            OpenAnimation(tp, tp.Width);
                     }
 
-                    if (ViewModel.EdgePopupNavigationEnabled == false)
+                    if (ViewModel.EdgePopupNavigationOpen == false)
                     {
                         Page tp = (Page)RightPopupFrame.Content;
-                        if (tp == null) return;
-                        CloseAnimation(tp, tp.Width);
+                        if (tp != null)
+                            CloseAnimation(tp, tp.ActualWidth);
+                        ViewModel.EdgePopupNavigationEnabled = false;
                     }
                 }
                 // Listen for the edge popup
@@ -585,6 +657,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("New VisualState = " + newState + ", Width = " + this.ActualWidth);
         }
 
-        #endregion 
+        #endregion
+
     }
 }

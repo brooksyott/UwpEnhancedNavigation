@@ -199,7 +199,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         {
             //CloseAnimation(RightEdgePopupFrame, RightEdgePopupFrame.ActualWidth);
             _fsm.Fire(Triggers.EDGE_POPUP_NAV_DISABLED);
-            RightEdgePopupFrame.Content = null;
+            //RightEdgePopupFrame.Content = null;
 
             //NavEventArgs navEvent;
             //navEvent = new NavEventArgs(NavigationEventTypes.CLOSE_EDGE_POPUP);

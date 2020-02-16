@@ -35,6 +35,7 @@ namespace UwpEnhancedNavigationDemo
         /// <param name="e"></param>
         private void CloseMe_Clicked(object sender, RoutedEventArgs e)
         {
+            CloseMeButton.Visibility = Visibility.Collapsed;
             PrimaryNavigation.CloseEdgePopup();
         }
 

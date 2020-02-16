@@ -117,6 +117,8 @@
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
                 PaneBorderBrush="Gray" PaneBorderThickness="0,0,0,0"
                 PaneForeground="White"
+                HamburgerHoverForeground="Red"
+                BackbuttonHoverForeground="Green"
                 PaneBackground="{StaticResource PainBackgroundAcrylicBrush}"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
         <customNav:EnhancedMasterDetails.HamburgerTitleContent>

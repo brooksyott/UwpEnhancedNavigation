@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UwpEnhancedNavigationDemo", "UwpEnhancedNavigationDemo\UwpEnhancedNavigationDemo.csproj", "{E4397AC7-B26E-446D-AEFE-19484D4CF869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhanedMasterDetails", "EnhancedMasterDetails\EnhanedMasterDetails.csproj", "{599C65EF-B6B7-4B46-B3C6-D04571B46B18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnhancedMasterDetails", "EnhancedMasterDetails\EnhancedMasterDetails.csproj", "{599C65EF-B6B7-4B46-B3C6-D04571B46B18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

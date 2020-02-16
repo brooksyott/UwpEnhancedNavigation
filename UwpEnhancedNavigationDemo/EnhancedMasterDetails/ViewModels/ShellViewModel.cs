@@ -173,7 +173,7 @@ namespace Peamel.UwpEnhancedMasterDetails
 
         internal void PaneClosing()
         {
-            DisableContent = false;
+            DisableContent2 = false;
         }
 
         //===============================================================
@@ -185,7 +185,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             if ((_isOverlayed == true) && (IsPaneOpen == true))
             {
                 IsPaneOpen = false;
-                DisableContent = false;
+                DisableContent2 = false;
             }
             return;
         }
@@ -210,34 +210,35 @@ namespace Peamel.UwpEnhancedMasterDetails
                 return;
             }
 
-            DisableContent = false;
+            DisablePaneAndContent = false;
+            DisableContent2 = false;
             return;
         }
 
         private void EdgePoppupRequest()
         {
-            DisableContent = true;
-            EdgePopupNavigationEnabled = true;
+            DisablePaneAndContent = true;
+            EdgePopupNavigationOpen = true;
             return;
         }
 
         private void CloseEdgePoppupRequest()
         {
-            DisableContent = false;
-            EdgePopupNavigationEnabled = false;
+            EdgePopupNavigationOpen = false;
+            DisablePaneAndContent = false;
             return;
         }
 
         private void OpenCenterPoppupRequest()
         {
-            DisableContent = true;
+            DisablePaneAndContent = true;
             CenterPopupNavigationEnabled = true;
             return;
         }
 
         private void CloseCenterPoppupRequest()
         {
-            DisableContent = false;
+            DisablePaneAndContent = false;
             CenterPopupNavigationEnabled = false;
             return;
         }
@@ -248,6 +249,16 @@ namespace Peamel.UwpEnhancedMasterDetails
             get { return _edgePopupNavigationEnabled; }
             set {
                 SetProperty(ref _edgePopupNavigationEnabled, value);
+            }
+        }
+
+        private Boolean _edgePopupOpen = false;
+        public Boolean EdgePopupNavigationOpen
+        {
+            get { return _edgePopupOpen; }
+            set
+            {
+                SetProperty(ref _edgePopupOpen, value);
             }
         }
 
@@ -268,16 +279,17 @@ namespace Peamel.UwpEnhancedMasterDetails
             {
                 if (_isOverlayed == true)
                 {
-                    DisableContent = true;
+                    DisableContent2 = true;
                 }
                 IsPaneOpen = true;
             }
             else
             {
-                if (_isOverlayed == true)
-                {
-                    DisableContent = false;
-                }
+                //if (_isOverlayed == true)
+                //{
+                //    DisableContent2 = true;
+                //}
+                DisableContent2 = false;
                 IsPaneOpen = false;
             }
 
@@ -431,7 +443,7 @@ namespace Peamel.UwpEnhancedMasterDetails
                 IsPaneOpen = true;
                 DisplayMode = SplitViewDisplayMode.CompactInline;
                 await Task.Delay(4000);
-                DisableContent = false;
+                DisablePaneAndContent = false;
             }
             catch (Exception e)
             {
@@ -443,16 +455,25 @@ namespace Peamel.UwpEnhancedMasterDetails
         // The UI will overlay a grid, to make the content not accessbile
         // It should look like a hamburgermenu on mobile apps
         #region Disable Content
-        private Boolean _disableContent = false;
-        public Boolean DisableContent
+        private Boolean _disablePandAndContent = false;
+        public Boolean DisablePaneAndContent
         {
-            get { return _disableContent; }
+            get { return _disablePandAndContent; }
             set
             {
-                SetProperty(ref _disableContent, value);
+                SetProperty(ref _disablePandAndContent, value);
             }
         }
 
+        private Boolean _disableContent2 = false;
+        public Boolean DisableContent2
+        {
+            get { return _disableContent2; }
+            set
+            {
+                SetProperty(ref _disableContent2, value);
+            }
+        }
 
         private Boolean _navigationEnabled = true;
         public Boolean NavigationEnabled
