@@ -39,6 +39,15 @@ namespace UwpEnhancedNavigationDemo
 
             // UNCOMMENT
             Menu.ItemsSource = _mvm.Menu;
+
+            if (Shell.IsPaneOpen)
+            {
+                HeaderTextBlockGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                HeaderTextBlockGrid.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void Menu_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,7 +56,6 @@ namespace UwpEnhancedNavigationDemo
             //double height = MainNavSplitView.ActualHeight;
             //double width = MainNavSplitView.ActualWidth;
 
-            var t = Shell.IsPaneOpen;
 
             if (e.AddedItems.Count > 0)
             {
@@ -77,6 +85,16 @@ namespace UwpEnhancedNavigationDemo
         private void SplitViewContent_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void PaneOpeningHandler(object sender, Object e)
+        {
+            HeaderTextBlockGrid.Visibility = Visibility.Visible;
+        }
+
+        private void PaneClosingHandler(object sender, Object e)
+        {
+            HeaderTextBlockGrid.Visibility = Visibility.Collapsed;
         }
     }
 }

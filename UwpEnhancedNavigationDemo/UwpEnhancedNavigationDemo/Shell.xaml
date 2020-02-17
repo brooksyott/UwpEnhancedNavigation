@@ -119,6 +119,8 @@
                 PaneForeground="White"
                 HamburgerHoverForeground="Red"
                 BackbuttonHoverForeground="Green"
+                PaneOpening="PaneOpeningHandler"
+                PaneClosing="PaneClosingHandler"
                 PaneBackground="{StaticResource PainBackgroundAcrylicBrush}"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
         <customNav:EnhancedMasterDetails.HamburgerTitleContent>
@@ -139,8 +141,8 @@
                     <RowDefinition Height="Auto" />
 
                 </Grid.RowDefinitions>
-                <Grid  Grid.Row="0" Height="40">
-                    <TextBlock Text="A header"/>
+                <Grid x:Name="HeaderTextBlockGrid" Grid.Row="0" Height="40">
+                    <TextBlock  Text="A header, pane is open"/>
                 </Grid>
                 <ListView x:Name="Menu"
                                 ItemsSource="{Binding Menu}"

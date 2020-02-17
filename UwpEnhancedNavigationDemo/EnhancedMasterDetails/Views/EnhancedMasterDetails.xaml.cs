@@ -396,15 +396,29 @@ namespace Peamel.UwpEnhancedMasterDetails
             ViewModel.PaneTappedEvent();
         }
 
+        public event EventHandler<Object> PaneClosing;
         private void PaneClosingHandler(SplitView sender, SplitViewPaneClosingEventArgs args)
         {
             ViewModel.DisabledContentTapped();
+            PaneClosing?.Invoke(this, args);
         }
 
-
+        public event EventHandler<Object> PaneOpening;
         private void PaneOpeningHandler(SplitView sender, object args)
         {
+            PaneOpening?.Invoke(this, args);
+        }
 
+        public event EventHandler<Object> PaneOpened;
+        private void PaneOpenedHandler(SplitView sender, object args)
+        {
+            PaneOpened?.Invoke(this, args);
+        }
+
+        public event EventHandler<Object> PaneClosed;
+        private void PaneClosedHandler(SplitView sender, object args)
+        {
+            PaneClosed?.Invoke(this, args);
         }
 
         #endregion
@@ -658,6 +672,5 @@ namespace Peamel.UwpEnhancedMasterDetails
         }
 
         #endregion
-
     }
 }

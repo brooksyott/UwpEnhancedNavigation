@@ -168,7 +168,9 @@
                    DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}"
                    IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
                    PaneClosing="PaneClosingHandler"
+                   PaneClosed="PaneClosedHandler"
                    PaneOpening="PaneOpeningHandler"
+                   PaneOpened="PaneOpenedHandler"
                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                    CompactPaneLength="{x:Bind CompactPaneLength}"
                    OpenPaneLength="{x:Bind OpenPaneLength}">
