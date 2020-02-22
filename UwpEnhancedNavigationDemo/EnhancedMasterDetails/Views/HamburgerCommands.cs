@@ -37,7 +37,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         }
     }
 
-    public class ArrowMenuCommand : ICommand
+    public class HamburgerPageMenuCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 

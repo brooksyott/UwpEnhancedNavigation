@@ -17,14 +17,14 @@
         <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         <local:BooleanToVisibilityInverseConverter x:Key="BooleanToVisibilityInverseConverter"/>
         <local:HamburgerButtonStateToVisibilityConverter x:Key="HamburgerButtonStateToVisibilityConverter"/>
-        <local:HamburgerArrowStateToVisibilityConverter x:Key="HamburgerArrowStateToVisibilityConverter"/>
+        <local:HamburgerPageStateToVisibilityConverter x:Key="HamburgerPageStateToVisibilityConverter"/>
         <local:PreviousArrowStateToVisibilityConverter x:Key="PreviousArrowStateToVisibilityConverter"/>
         <x:String x:Key="HamburgerIcon">M1.230957,19.693036L30.768982,19.693036C31.506958,19.693036,32,20.185041,32,20.923019L32,22.154038C32,22.893054,31.506958,23.384999,30.768982,23.384999L1.230957,23.384999C0.49194336,23.384999,0,22.893054,0,22.154038L0,20.923019C0,20.185041,0.49194336,19.693036,1.230957,19.693036z M1.230957,9.8470059L30.768982,9.8470059C31.506958,9.8470059,32,10.339011,32,11.076989L32,12.30801C32,13.045987,31.506958,13.53903,30.768982,13.53903L1.230957,13.53903C0.49194336,13.53903,0,13.047025,0,12.30801L0,11.076989C0,10.339011,0.49194336,9.8470059,1.230957,9.8470059z M1.230957,0L30.768982,0C31.506958,-6.3337211E-08,32,0.49298194,32,1.2309594L32,2.4619804C32,3.1999579,31.506958,3.6930011,30.768982,3.6930013L1.230957,3.6930013C0.49194336,3.6930011,0,3.1999579,0,2.4619804L0,1.2309594C0,0.49298194,0.49194336,-6.3337211E-08,1.230957,0z</x:String>
         <x:String x:Key="PreviousArrowIconOrig">M11.299988,0L16.599976,0 7.0999756,8.8999959 32,8.8999959 32,12.399997 7.0999756,12.399997 16.5,21.299993 16.400024,21.399999 11.299988,21.399999 2.5999756,13.100009 0,10.699985z</x:String>
         <x:String x:Key="PreviousArrowIcon">M15.289001,0L20.484007,0 31.650999,15.953003 29.055021,19.658005 20.415007,32 15.35501,32 15.289001,31.906998 24.621,18.572998 0,18.572998 0,13.326004 24.621,13.326004z</x:String>
         <local:HamburgerCommands x:Key="hamburgerMenuClickedCommand" />
         <local:PreviousCommand x:Key="goBackClickedCommand" />
-        <local:ArrowMenuCommand x:Key="ArrowMenuCommand" />
+        <local:HamburgerPageMenuCommand x:Key="HamburgerPageMenuCommand" />
         <Style x:Key="PreviousArrowIconStyle" TargetType="Button" >
             <Setter Property="Template">
                 <Setter.Value>
@@ -79,7 +79,68 @@
                                             <ScaleTransform ScaleX="-1" ScaleY="1" />
                                         </TransformGroup.Children>
                                     </TransformGroup>
-                            </Path.RenderTransform>
+                                </Path.RenderTransform>
+                            </Path>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="HamburgerMenuPageIconStyle" TargetType="Button" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid x:Name="RootGrid" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"
+                              Height="40"
+                              Width="40">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="Icon">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{Binding BackbuttonHoverForeground}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="Icon">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SystemAltMediumColor}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Path x:Name="Icon" 
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Stretch"
+                                    Width="18"
+                                    Height="18"
+                                    Stretch="Uniform"
+                                    RenderTransformOrigin="0.5,0.5"
+                                    Fill="{Binding BackbuttonForeground}" Data="{StaticResource HamburgerIcon}">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <TransformGroup.Children>
+                                            <RotateTransform Angle="0" />
+                                            <ScaleTransform ScaleX="-1" ScaleY="1" />
+                                        </TransformGroup.Children>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
                             </Path>
                         </Grid>
                     </ControlTemplate>
@@ -182,7 +243,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- HEADER OF THE PANE/MENU -->                     
-                        <Grid Grid.Row="0" Margin="2,0,0,0" Visibility="Visible">
+                        <Grid x:Name="PaneHeader" Grid.Row="0" Margin="2,0,0,0" Visibility="Visible">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
@@ -223,10 +284,10 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <!-- A back button used when the content is small, instead of the hamburger menu, but still displays the menu -->
-                                <Button x:Name="ArrowHamburgerButton" Grid.Column="0" 
-                                    Style="{StaticResource PreviousArrowIconStyle}"
-                                    Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource HamburgerArrowStateToVisibilityConverter}}" 
-                                    Command="{StaticResource ArrowMenuCommand}"
+                                <Button x:Name="HamburgerMenuPageButton" Grid.Column="0" 
+                                    Style="{StaticResource HamburgerMenuPageIconStyle}"
+                                    Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource HamburgerPageStateToVisibilityConverter}}" 
+                                    Command="{StaticResource HamburgerPageMenuCommand}"
                                     Margin="3,0,0,0"
                                     Background="Transparent"
                                     Foreground="{x:Bind BackbuttonForeground}"

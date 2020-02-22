@@ -31,7 +31,7 @@ namespace Peamel.UwpEnhancedMasterDetails
     /// <summary>
     /// Convert the inverse Boolean value to a UI Element visibility
     /// </summary>
-    public class HamburgerArrowStateToVisibilityConverter : IValueConverter
+    public class HamburgerPageStateToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {

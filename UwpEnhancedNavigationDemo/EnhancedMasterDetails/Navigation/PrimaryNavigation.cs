@@ -89,7 +89,7 @@ namespace Peamel.UwpEnhancedMasterDetails
                 int initialDepth = _frame.BackStackDepth;
                 Debug.WriteLine("**** MainNav: Navigate backstack = " + initialDepth);
 
-                Boolean hadSuccess = _frame.Navigate(sourcePageType);
+                Boolean hadSuccess = _frame.Navigate(sourcePageType, null, new SlideNavigationTransitionInfo() { Effect = SlideNavigationTransitionEffect.FromRight });
                 if (ClearNavStack == true)
                 {
                     _frame.BackStack.Clear();
