@@ -38,7 +38,7 @@ namespace UwpEnhancedNavigationDemo
         /// <param name="e"></param>
         public void FlyoutContent_Unloaded(object sender, RoutedEventArgs e)
         {
-            FlyoutContent.Unloaded -= FlyoutContent_Unloaded;
+            //FlyoutContent.Unloaded -= FlyoutContent_Unloaded;
 
             ShellNavigation.PopupNavigation(Enable: false);
         }

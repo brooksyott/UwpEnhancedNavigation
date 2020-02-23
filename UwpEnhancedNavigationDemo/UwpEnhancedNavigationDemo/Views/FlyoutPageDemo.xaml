@@ -3,52 +3,55 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UwpEnhancedNavigationDemo.Views"
+    xmlns:uwpshell="using:Peamel.UwpShell"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
-    <Grid x:Name="RootGrid" Background="Transparent" Margin="{StaticResource ContentPageRootMargin}" Padding="0"  >
-        <Grid x:Name="FlyoutAnchor" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0" Padding="0" Background="Transparent">
-            <FlyoutBase.AttachedFlyout>
-                <Flyout FlyoutPresenterStyle="{StaticResource EdgeFlyoutStyle}" Placement="Bottom" >
-                    <Grid x:Name="FlyoutContent" Margin="0,0,0,0" Padding="0">
-                        <Grid Background="{StaticResource PageBackgroundBrush}" BorderBrush="LightGray" BorderThickness="1" Margin="0,20,0,0">
-                            <TextBlock Text="I'm a Flyout" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Grid>
-                    </Grid>
-                </Flyout>
-            </FlyoutBase.AttachedFlyout>
-        </Grid>
 
-        <TextBlock Text="Flyout Demo Page"
+    <Grid x:Name="RootGrid" Background="Transparent" Margin="{StaticResource ContentPageRootMargin}" Padding="0"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <uwpshell:ShellNavigationButton
+                                ButtonBackground="Transparent"
+                                ButtonForeground="Red"
+                                ButtonHoverForeground="Green"
+                                />
+            <TextBlock Text="Flyout Demo Page"
                    Foreground="{StaticResource PageForegroundBrush}"
-                   Margin="{StaticResource PageTitleMargin}"
                    FontSize="{StaticResource PageTitleFontSize}"
+                       Margin="5,0,0,0"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Left" />
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <RichTextBlock TextIndent="12" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Paragraph>Click the settings icon on the top right</Paragraph>
-                <Paragraph>to see a flyout</Paragraph>
-                <Paragraph></Paragraph>
-                <Paragraph>The below button uses a Grid based flyout</Paragraph>
-                <Paragraph>provided by the Navigation Framework</Paragraph>
-                <Paragraph></Paragraph>
-            </RichTextBlock>
-            <Button Content="Edge Flyout" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EdgeFlyout_Clicked" Margin="5,5,5,5"/>
-            <Button Content="Center Popup" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CenterPopup_Clicked" Margin="5,5,5,5"/>
+
         </StackPanel>
-        <Button Click="GearsButton_Clicked" VerticalAlignment="Top" HorizontalAlignment="Right" 
+        <Grid Grid.Row="1">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <RichTextBlock TextIndent="12" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Paragraph>Click the settings icon on the top right</Paragraph>
+                    <Paragraph>to see a flyout</Paragraph>
+                    <Paragraph></Paragraph>
+                    <Paragraph>The below button uses a Grid based flyout</Paragraph>
+                    <Paragraph>provided by the Navigation Framework</Paragraph>
+                    <Paragraph></Paragraph>
+                </RichTextBlock>
+                <Button Content="Edge Flyout" HorizontalAlignment="Center" VerticalAlignment="Center" Click="EdgeFlyout_Clicked" Margin="5,5,5,5"/>
+                <Button Content="Center Popup" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CenterPopup_Clicked" Margin="5,5,5,5"/>
+            </StackPanel>
+            <Button Click="GearsButton_Clicked" VerticalAlignment="Top" HorizontalAlignment="Right" 
                 Background="{StaticResource PageBackgroundBrush}"
                 Foreground="{StaticResource IconColorBrush}"
                 Margin="0,10,10,0"
                 BorderThickness="0"
                 Height="48"
                 Width="48">
-            <Path Data="{StaticResource GearIcon}"
+                <Path Data="{StaticResource GearIcon}"
               Fill="{StaticResource IconColorBrush}"
               Stretch="Uniform" />
-        </Button>
+            </Button>
+        </Grid>
     </Grid>
-
 </Page>

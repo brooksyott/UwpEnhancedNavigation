@@ -26,7 +26,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Peamel.UwpShell
 {
-    public sealed partial class EnhancedShell : UserControl, INotifyPropertyChanged
+    public partial class EnhancedShell : UserControl, INotifyPropertyChanged
     {
         // Attached to the view model
         private ShellViewModel ViewModel = ShellViewModel.Instance;

@@ -277,13 +277,19 @@
                 <SplitView.Content>
                     <Grid>
                         <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind MainContent}"></ContentPresenter>
-                        <Grid  Margin="0,5,0,0" Visibility="Visible" VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <!-- 
+                          <Grid  Margin="0,5,0,0" Visibility="Visible" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <local:ShellNavigationButton
+                                ButtonBackground="Transparent"
+                                ButtonForeground="{x:Bind BackbuttonForeground}"
+                                ButtonHoverForeground="{x:Bind BackbuttonHoverForeground}"
+                                />
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <!-- A back button used when the content is small, instead of the hamburger menu, but still displays the menu -->
+                                
                                 <Button x:Name="HamburgerMenuPageButton" Grid.Column="0" 
                                     Style="{StaticResource HamburgerMenuPageIconStyle}"
                                     Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource HamburgerPageStateToVisibilityConverter}}" 
@@ -294,7 +300,6 @@
                                     VerticalAlignment="Center"
                                     BorderThickness="0"/>
 
-                                <!-- The back arrow to go back to the previous content -->
                                 <Button  x:Name="PreviousButton" Grid.Column="0"
                                     Style="{StaticResource PreviousArrowIconStyle}"
                                     Visibility="{x:Bind ViewModel.HamburgerMenuState, Mode=OneWay, Converter={StaticResource PreviousArrowStateToVisibilityConverter}}" 
@@ -306,6 +311,8 @@
                                     BorderThickness="0"/>
                             </Grid>
                         </Grid>
+                        -->
+
                         <!--
                         ==================================================================================
                                  A GRID THAT OVERLAYS THE CONTENT TO HIDE IT 
