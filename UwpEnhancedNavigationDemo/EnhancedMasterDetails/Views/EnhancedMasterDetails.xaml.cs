@@ -24,21 +24,21 @@ using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
-    public sealed partial class EnhancedMasterDetails : UserControl, INotifyPropertyChanged
+    public sealed partial class EnhancedShell : UserControl, INotifyPropertyChanged
     {
         // Attached to the view model
         private ShellViewModel ViewModel = ShellViewModel.Instance;
 
-        public EnhancedMasterDetails()
+        public EnhancedShell()
         {
             this.InitializeComponent();
             this.DataContext = this;
 
             // Initialize the Navigation System so it can push/pop into the SplitView for navigation
-            PrimaryNavigation.RightEdgePopupFrame = RightPopupFrame;
-            PrimaryNavigation.CenterPopupFrame = CenterPopupFrame;
+            ShellNavigation.RightEdgePopupFrame = RightPopupFrame;
+            ShellNavigation.CenterPopupFrame = CenterPopupFrame;
 
             // Setup so the code behind can receive events from the view model
             ViewModel.PropertyChanged += ShellViewPropertyChangedHandler;
@@ -48,7 +48,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty ShellBackgroundProperty = DependencyProperty.Register(
               "ShellBackground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -74,7 +74,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty ShellForegroundProperty = DependencyProperty.Register(
               "ShellForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -102,7 +102,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty HamburgerForegroundProperty = DependencyProperty.Register(
               "HamburgerForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -115,7 +115,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty HamburgerHoverForegroundProperty = DependencyProperty.Register(
               "HamburgerHoverForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -129,7 +129,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty HamburgerBackgroundProperty = DependencyProperty.Register(
           "HamburgerBackground",
           typeof(Brush),
-          typeof(EnhancedMasterDetails),
+          typeof(EnhancedShell),
           new PropertyMetadata(null)
         );
 
@@ -142,7 +142,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty BackbuttonBackgroundProperty = DependencyProperty.Register(
           "BackbuttonBackground",
           typeof(Brush),
-          typeof(EnhancedMasterDetails),
+          typeof(EnhancedShell),
           new PropertyMetadata(null)
         );
 
@@ -155,7 +155,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty BackbuttonForegroundProperty = DependencyProperty.Register(
               "BackbuttonForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -168,7 +168,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty BackbuttonHoverForegroundProperty = DependencyProperty.Register(
               "BackbuttonHoverForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -184,7 +184,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PainContentProperty = DependencyProperty.Register(
               "PainContent",
               typeof(Object),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -197,7 +197,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty HamburgerTitleContentProperty = DependencyProperty.Register(
               "HamburgerTitleContent",
               typeof(Object),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -214,7 +214,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PaneBorderBrushProperty = DependencyProperty.Register(
               "PaneBorderBrush",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -230,7 +230,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PaneBorderThicknessProperty = DependencyProperty.Register(
               "PaneBorderThickness",
               typeof(Thickness),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -246,7 +246,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PaneBackgroundProperty = DependencyProperty.Register(
               "PaneBackground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -267,7 +267,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PaneForegroundProperty = DependencyProperty.Register(
               "PaneForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -288,7 +288,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty PaneHoverForegroundProperty = DependencyProperty.Register(
               "PaneHoverForeground",
               typeof(Brush),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -310,7 +310,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty CompactPaneLengthProperty = DependencyProperty.Register(
               "CompactPaneLength",
               typeof(Double),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(45)
             );
 
@@ -323,7 +323,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty OpenPaneLengthProperty = DependencyProperty.Register(
               "OpenPaneLength",
               typeof(Double),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(300)
             );
 
@@ -337,7 +337,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty LargeDisplayModeProperty = DependencyProperty.Register(
               "LargeDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(SplitViewDisplayMode.Inline)
             );
 
@@ -351,7 +351,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty MediumDisplayModeProperty = DependencyProperty.Register(
               "MediumDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
             );
 
@@ -365,14 +365,14 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty SmallDisplayModeProperty = DependencyProperty.Register(
               "SmallDisplayMode",
               typeof(SplitViewDisplayMode),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(SplitViewDisplayMode.CompactOverlay)
             );
 
         public static readonly DependencyProperty IsPaneOpenProperty = DependencyProperty.Register(
               "IsPaneOpen ",
               typeof(Boolean),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -427,7 +427,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty MainContentProperty = DependencyProperty.Register(
               "MainContent",
               typeof(Object),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(null)
             );
 
@@ -448,7 +448,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty LargeMinWindowWidthProperty = DependencyProperty.Register(
               "LargeMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(800)
             );
 
@@ -461,7 +461,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty MediumMinWindowWidthProperty = DependencyProperty.Register(
               "MediumMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(500)
             );
 
@@ -474,7 +474,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         public static readonly DependencyProperty SmallMinWindowWidthProperty = DependencyProperty.Register(
               "SmallMinWindowWidth",
               typeof(Int32),
-              typeof(EnhancedMasterDetails),
+              typeof(EnhancedShell),
               new PropertyMetadata(0)
             );
 

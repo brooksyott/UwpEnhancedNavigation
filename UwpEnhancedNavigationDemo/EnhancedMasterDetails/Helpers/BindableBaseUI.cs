@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     /// <summary>
     /// Implementation of <see cref="INotifyPropertyChanged"/> to simplify models.

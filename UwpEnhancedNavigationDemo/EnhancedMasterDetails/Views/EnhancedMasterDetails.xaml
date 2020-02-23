@@ -1,8 +1,8 @@
 ﻿<UserControl
-    x:Class="Peamel.UwpEnhancedMasterDetails.EnhancedMasterDetails"
+    x:Class="Peamel.UwpShell.EnhancedShell"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Peamel.UwpEnhancedMasterDetails"
+    xmlns:local="using:Peamel.UwpShell"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -238,12 +238,12 @@
                 <SplitView.Pane>
                     <Grid  Background="{x:Bind PaneBackground}" BorderBrush="{x:Bind PaneBorderBrush}"  BorderThickness="{x:Bind PaneBorderThickness}">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50" />
+                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <!-- HEADER OF THE PANE/MENU -->                     
-                        <Grid x:Name="PaneHeader" Grid.Row="0" Margin="2,0,0,0" Visibility="Visible">
+                        <!-- HEADER OF THE PANE/MENU -->
+                        <Grid x:Name="PaneHeader" Grid.Row="0" Margin="2,0,0,0" Visibility="{x:Bind ViewModel.IsPaneHeaderVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />

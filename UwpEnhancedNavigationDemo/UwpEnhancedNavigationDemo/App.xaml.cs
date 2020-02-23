@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using Peamel.UwpEnhancedMasterDetails;
+using Peamel.UwpShell;
 using Windows.UI.ViewManagement;
 
 using UwpEnhancedNavigationDemo.Views;
@@ -81,7 +81,7 @@ namespace UwpEnhancedNavigationDemo
                     // parameter
                     Theme.ApplyToContainer();
                     rootFrame.Navigate(typeof(ShellPage), e.Arguments);
-                    PrimaryNavigation.Navigate(typeof(MainPage));
+                    ShellNavigation.Navigate(typeof(MainPage));
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

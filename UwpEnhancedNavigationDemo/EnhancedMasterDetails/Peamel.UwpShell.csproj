@@ -7,8 +7,8 @@
     <ProjectGuid>{599C65EF-B6B7-4B46-B3C6-D04571B46B18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Peamel.UwpEnhancedMasterDetails</RootNamespace>
-    <AssemblyName>PeamelEnhancedMasterDetails</AssemblyName>
+    <RootNamespace>Peamel.UwpShell</RootNamespace>
+    <AssemblyName>Peamel.UwpShell</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -115,7 +115,7 @@
     <Compile Include="Navigation\NavigationEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Navigation\INavigation.cs" />
-    <Compile Include="Navigation\PrimaryNavigation.cs" />
+    <Compile Include="Navigation\ShellNavigation.cs" />
     <Compile Include="ViewModels\HamburgerState.cs" />
     <Compile Include="ViewModels\AppSizeVisualStates.cs" />
     <Compile Include="Models\SplitViewModes.cs" />

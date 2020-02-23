@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     /// <summary>
     /// Interface definition for Navigation Helpers

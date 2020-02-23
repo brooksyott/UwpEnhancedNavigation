@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     public class HamburgerCommands: ICommand
     {
@@ -33,7 +33,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         }
         public void Execute(object parameter)
         {
-            PrimaryNavigation.GoBack();
+            ShellNavigation.GoBack();
         }
     }
 

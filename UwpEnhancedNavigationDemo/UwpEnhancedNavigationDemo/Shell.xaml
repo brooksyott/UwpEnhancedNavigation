@@ -3,7 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:UwpEnhancedNavigationDemo"
-    xmlns:customNav="using:Peamel.UwpEnhancedMasterDetails"
+    xmlns:customNav="using:Peamel.UwpShell"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:UwpEnhancedNavigationDemo"
@@ -112,7 +112,7 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
+    <customNav:EnhancedShell x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"
                 PaneBorderBrush="Gray" PaneBorderThickness="0,0,0,0"
@@ -123,12 +123,12 @@
                 PaneClosing="PaneClosingHandler"
                 PaneBackground="{StaticResource PainBackgroundAcrylicBrush}"
                 LargeMinWindowWidth="800" MediumMinWindowWidth="450" SmallMinWindowWidth="0">
-        <customNav:EnhancedMasterDetails.HamburgerTitleContent>
+        <customNav:EnhancedShell.HamburgerTitleContent>
             <Grid Background="{StaticResource PainBackgroundAcrylicBrush}" BorderThickness="0" Padding="0">
                 <TextBlock  Text="Menu Title" FontSize="16" Margin="5,0,0,0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"  />
             </Grid>
-        </customNav:EnhancedMasterDetails.HamburgerTitleContent>
-        <customNav:EnhancedMasterDetails.PainContent>
+        </customNav:EnhancedShell.HamburgerTitleContent>
+        <customNav:EnhancedShell.PainContent>
             <Grid x:Name="SplitViewPane"
                         VerticalAlignment="Stretch"
                         HorizontalAlignment="Stretch"
@@ -141,9 +141,12 @@
                     <RowDefinition Height="Auto" />
 
                 </Grid.RowDefinitions>
-                <Grid x:Name="HeaderTextBlockGrid" Grid.Row="0" Height="40">
+                <StackPanel x:Name="HeaderTextBlockGrid" Grid.Row="0">
                     <TextBlock  Text="A header, pane is open"/>
-                </Grid>
+                    <TextBlock  Text="A header, pane is open"/>
+                    <TextBlock  Text="A header, pane is open"/>
+                    <TextBlock  Text="A header, pane is open"/>
+                </StackPanel>
                 <ListView x:Name="Menu"
                                 ItemsSource="{Binding Menu}"
                                 SelectionChanged="Menu_SelectionChanged"
@@ -161,8 +164,8 @@
                                 VerticalAlignment="Top"
                                 Grid.Row="2" />
             </Grid>
-        </customNav:EnhancedMasterDetails.PainContent>
-        <customNav:EnhancedMasterDetails.MainContent>
+        </customNav:EnhancedShell.PainContent>
+        <customNav:EnhancedShell.MainContent>
             <Grid x:Name="SplitViewContentGrid" Background="{StaticResource MainContentBackgroundAcrylicBrush}" >
                 <!-- Navigation Frame  -->
                 <Frame x:Name="SplitViewFrame" Navigated="SplitViewFrame_OnNavigated" Loaded="SplitViewContent_Loaded"
@@ -178,8 +181,8 @@
                     </Frame.ContentTransitions>
                 </Frame>
             </Grid>
-        </customNav:EnhancedMasterDetails.MainContent>
-    </customNav:EnhancedMasterDetails>
+        </customNav:EnhancedShell.MainContent>
+    </customNav:EnhancedShell>
     <!--<customNav:EnhancedMasterDetails x:Name="Shell" ShellBackground="White" ShellForeground="Gray"
                 CompactPaneLength="45" OpenPaneLength="200"
                 LargeDisplayMode="CompactInline" MediumDisplayMode="CompactOverlay" SmallDisplayMode="Overlay"

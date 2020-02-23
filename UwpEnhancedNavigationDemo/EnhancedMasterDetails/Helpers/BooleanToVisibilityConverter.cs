@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     /// <summary>
     /// Convert a Boolean value to a UI Element visibility

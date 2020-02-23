@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Peamel.UwpEnhancedMasterDetails;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -13,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+
+using Peamel.UwpShell;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -39,7 +40,7 @@ namespace UwpEnhancedNavigationDemo
         {
             FlyoutContent.Unloaded -= FlyoutContent_Unloaded;
 
-            PrimaryNavigation.PopupNavigation(Enable: false);
+            ShellNavigation.PopupNavigation(Enable: false);
         }
 
         /// <summary>
@@ -51,17 +52,17 @@ namespace UwpEnhancedNavigationDemo
         /// <param name="e"></param>
         private void EdgeFlyout_Clicked(object sender, RoutedEventArgs e)
         {
-            PrimaryNavigation.ShowEdgePopup(new FlyoutDemoContentPage());
+            ShellNavigation.ShowEdgePopup(new FlyoutDemoContentPage());
         }
 
         private void GearsButton_Clicked(object sender, RoutedEventArgs e)
         {
-            PrimaryNavigation.ShowCenterPopup(new CenterPopupContentPage());
+            ShellNavigation.ShowCenterPopup(new CenterPopupContentPage());
         }
 
         private void CenterPopup_Clicked(object sender, RoutedEventArgs e)
         {
-            PrimaryNavigation.ShowCenterPopup(new CenterPopupContentPage());
+            ShellNavigation.ShowCenterPopup(new CenterPopupContentPage());
         }
     }
 }

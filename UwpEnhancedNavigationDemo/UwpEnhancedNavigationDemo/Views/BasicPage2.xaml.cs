@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using Peamel.UwpEnhancedMasterDetails;
+using Peamel.UwpShell;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -31,7 +31,7 @@ namespace UwpEnhancedNavigationDemo
 
         private void NextPageButton_OnClick(object sender, RoutedEventArgs e)
         {
-            PrimaryNavigation.Navigate(typeof(BasicPage3));
+            ShellNavigation.Navigate(typeof(BasicPage3));
         }
     }
 }

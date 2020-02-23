@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Xaml.Controls;
 
-namespace Peamel2.EnhancedMasterDetails
+namespace Peamel2.UwpShell
 {
     // Allowable modes when the app is in the defined large state
     #region App Size Large

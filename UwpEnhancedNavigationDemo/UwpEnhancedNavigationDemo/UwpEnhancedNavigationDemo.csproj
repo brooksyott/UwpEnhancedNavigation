@@ -232,9 +232,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnhancedMasterDetails\EnhancedMasterDetails.csproj">
+    <ProjectReference Include="..\EnhancedMasterDetails\Peamel.UwpShell.csproj">
       <Project>{599c65ef-b6b7-4b46-b3c6-d04571b46b18}</Project>
-      <Name>EnhancedMasterDetails</Name>
+      <Name>Peamel.UwpShell</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Controls;
 
 using Peamel.SimpleFiniteStateMachine;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     /// <summary>
     /// The View Model that effectively controls the UI of the shell
@@ -68,7 +68,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         /// </summary>
         private void SetupFSM()
         {
-            PrimaryNavigation.Fsm = _mainShellFsm;
+            ShellNavigation.Fsm = _mainShellFsm;
             
             _mainShellFsm.Configure(States.NO_NAV)
                 .OnEntry((o, t) => SetNoNav(t))
@@ -184,7 +184,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         {
             if ((_isOverlayed == true) && (IsPaneOpen == true))
             {
-                IsPaneOpen = false;
+                SetPaneOpen(false);
                 DisableContent2 = false;
             }
             return;
@@ -281,7 +281,7 @@ namespace Peamel.UwpEnhancedMasterDetails
                 {
                     DisableContent2 = true;
                 }
-                IsPaneOpen = true;
+                SetPaneOpen(true);
             }
             else
             {
@@ -290,7 +290,7 @@ namespace Peamel.UwpEnhancedMasterDetails
                 //    DisableContent2 = true;
                 //}
                 DisableContent2 = false;
-                IsPaneOpen = false;
+                SetPaneOpen(false);
             }
 
             return true;
@@ -307,11 +307,12 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Menu;
 
-            // Do not change pane opened or closed on navigation events
-            if (trigger != Triggers.PRIMARY_NAV_DISABLED)
-                IsPaneOpen = true;
 
             DisplayMode = LargeDisplayMode;
+            // Do not change pane opened or closed on navigation events
+            if (trigger != Triggers.PRIMARY_NAV_DISABLED)
+                SetPaneOpen(true);
+
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNav = " + _mainShellFsm.CurrentState);
             return true;
@@ -325,10 +326,10 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             // Do not change pane opened or closed on navigation events
-            if (trigger != Triggers.PRIMARY_NAV_ENABLED)
-                IsPaneOpen = true;
-
             DisplayMode = LargeDisplayMode;
+            if (trigger != Triggers.PRIMARY_NAV_ENABLED)
+                SetPaneOpen(true);
+
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNav = " + _mainShellFsm.CurrentState);
             return true;
@@ -339,8 +340,8 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine(" * ********** IN SetNoNavSmall = " + _mainShellFsm.CurrentState);
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.ArrowMenu;
-            IsPaneOpen = false;
             DisplayMode = SmallDisplayMode;
+            SetPaneOpen(false);
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNavSmall = " + _mainShellFsm.CurrentState);
             return true;
@@ -352,7 +353,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             DisplayMode = SmallDisplayMode;
-            IsPaneOpen = false;
+            SetPaneOpen(false);
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNavSmall = " + _mainShellFsm.CurrentState);
             return true;
@@ -364,7 +365,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Menu;
             DisplayMode = MediumDisplayMode;
-            IsPaneOpen = false;
+            SetPaneOpen(false);
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetNoNavMedium = " + _mainShellFsm.CurrentState);
             return true;
@@ -376,7 +377,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             HamburgerMenuState = HamburgerButtonState.Previous;
             DisplayMode = MediumDisplayMode;
-            IsPaneOpen = false;
+            SetPaneOpen(false);
             Debug.WriteLine("              HamburgerButtonState = " + HamburgerMenuState.ToString());
             Debug.WriteLine("*********** EXITING SetPrimaryNavMedium = " + _mainShellFsm.CurrentState);
             return true;
@@ -392,7 +393,7 @@ namespace Peamel.UwpEnhancedMasterDetails
         private Boolean HamburgerMenuClicked()
         {
             Debug.WriteLine("HamburgerMenuClicked : CurrentState = " + _mainShellFsm.CurrentState);
-            IsPaneOpen = !IsPaneOpen;
+            SetPaneOpen(!IsPaneOpen);
             return true;
         }
 
@@ -402,21 +403,21 @@ namespace Peamel.UwpEnhancedMasterDetails
             if (_menuVisualState == AppSizeVisualState.LARGE)
             {
                 DisplayMode = LargeDisplayMode;
-                IsPaneOpen = true;
+                SetPaneOpen(true);
                 return true;
             }
 
             if (_menuVisualState == AppSizeVisualState.MEDIUM)
             {
                 DisplayMode = MediumDisplayMode;
-                IsPaneOpen = false;
+                SetPaneOpen(false);
                 return true;
             }
 
             if (_menuVisualState == AppSizeVisualState.SMALL)
             {
                 DisplayMode = SmallDisplayMode;
-                IsPaneOpen = false;
+                SetPaneOpen(false);
                 return true;
             }
             return true;
@@ -440,7 +441,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             await Task.Delay(4000);
             try
             {
-                IsPaneOpen = true;
+                SetPaneOpen(true);
                 DisplayMode = SplitViewDisplayMode.CompactInline;
                 await Task.Delay(4000);
                 DisablePaneAndContent = false;
@@ -630,11 +631,48 @@ namespace Peamel.UwpEnhancedMasterDetails
                 if ((_displayMode == SplitViewDisplayMode.CompactOverlay) || (_displayMode == SplitViewDisplayMode.Overlay))
                 {
                     _isOverlayed = true;
+                    Debug.WriteLine("**** DisplayMode = {0}, overlayed = {1}", _isPaneHeaderVisible, _isOverlayed);
                 }
                 else
                 {
                     _isOverlayed = false;
+                    Debug.WriteLine("**** DisplayMode = {0}, overlayed = {1}", _isPaneHeaderVisible, _isOverlayed);
                 }
+            }
+        }
+
+        private void SetPaneOpen(Boolean paneOpen)
+        {
+            if (paneOpen == true)
+            {
+                if (_isOverlayed == false)
+                {
+                    IsPaneHeaderVisible = true;
+                }
+                else
+                {
+                    IsPaneHeaderVisible = false;
+                }
+                IsPaneOpen = true;
+            }
+            else
+            {
+                IsPaneHeaderVisible = true;
+                IsPaneOpen = false;
+            }
+        }
+
+        private Boolean _isPaneHeaderVisible = false;
+        public Boolean IsPaneHeaderVisible
+        {
+            get {
+                Debug.WriteLine("**** IsPaneHeaderVisible = {0}, overlayed = {1}", _isPaneHeaderVisible, _isOverlayed);
+                return _isPaneHeaderVisible; 
+            }
+            set
+            {
+                Debug.WriteLine("**** Set IsPaneHeaderVisible = {0}, overlayed = {1}", value, _isOverlayed);
+                SetProperty(ref _isPaneHeaderVisible, value);
             }
         }
 

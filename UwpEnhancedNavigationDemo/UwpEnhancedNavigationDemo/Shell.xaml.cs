@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-using Peamel.UwpEnhancedMasterDetails;
+using Peamel.UwpShell;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -33,7 +33,7 @@ namespace UwpEnhancedNavigationDemo
             // Navigate to the home page.
 
             // Point the navigation system to my frame for navigation
-            PrimaryNavigation.Frame = SplitViewFrame;
+            ShellNavigation.Frame = SplitViewFrame;
             this.DataContext = _mvm;
 
 
@@ -72,7 +72,7 @@ namespace UwpEnhancedNavigationDemo
                 var menuItem = e.AddedItems.First() as MenuItem;
                 if (menuItem != null && menuItem.IsNavigation)
                 {
-                    PrimaryNavigation.Navigate(menuItem.NavigationDestination, menuItem.ClearNavigationStack);
+                    ShellNavigation.Navigate(menuItem.NavigationDestination, menuItem.ClearNavigationStack);
                 }
             }
         }

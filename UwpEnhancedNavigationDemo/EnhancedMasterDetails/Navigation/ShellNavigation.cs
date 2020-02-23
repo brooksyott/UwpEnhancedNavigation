@@ -15,12 +15,12 @@ using Peamel.SimpleFiniteStateMachine;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Animation;
 
-namespace Peamel.UwpEnhancedMasterDetails
+namespace Peamel.UwpShell
 {
     /// <summary>
     /// Primary navigation system
     /// </summary>
-    public class PrimaryNavigation 
+    public class ShellNavigation 
     {
         ///  The frame is host for the navigation 
         private static Frame _frame;
@@ -59,7 +59,7 @@ namespace Peamel.UwpEnhancedMasterDetails
             NavEventHandler handler = NavigationEvent;
             if (handler != null)
             {
-                handler(typeof(PrimaryNavigation), e);
+                handler(typeof(ShellNavigation), e);
             }
         }
         #endregion
