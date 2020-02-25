@@ -222,7 +222,7 @@
                    Background="{x:Bind ShellBackground}"
                    Foreground="{x:Bind ShellForeground}"
                    DisplayMode="{x:Bind ViewModel.DisplayMode, Mode=TwoWay}"
-                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=TwoWay}"
+                   IsPaneOpen="{x:Bind ViewModel.IsPaneOpen, Mode=OneWay}"
                    PaneClosing="PaneClosingHandler"
                    PaneClosed="PaneClosedHandler"
                    PaneOpening="PaneOpeningHandler"
@@ -275,8 +275,8 @@
             ==================================================================================
             -->
                 <SplitView.Content>
-                    <Grid>
-                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind MainContent}"></ContentPresenter>
+                    <Grid Padding="0" Margin="0">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind MainContent}" Margin="0" Padding="0"></ContentPresenter>
                         <!-- 
                           <Grid  Margin="0,5,0,0" Visibility="Visible" VerticalAlignment="Top" HorizontalAlignment="Left">
                             <local:ShellNavigationButton

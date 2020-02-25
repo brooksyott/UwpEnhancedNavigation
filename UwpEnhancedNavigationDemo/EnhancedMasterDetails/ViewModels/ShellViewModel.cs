@@ -174,6 +174,7 @@ namespace Peamel.UwpShell
         internal void PaneClosing()
         {
             DisableContent2 = false;
+            IsPaneHeaderVisible = true;
         }
 
         //===============================================================
@@ -212,6 +213,7 @@ namespace Peamel.UwpShell
 
             DisablePaneAndContent = false;
             DisableContent2 = false;
+            SetPaneOpen(false);
             return;
         }
 
